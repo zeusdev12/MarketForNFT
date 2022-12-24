@@ -3,7 +3,7 @@ import Navpage from '../pages/Navpage';
 import "./Mainpage.css"
 import ModalRegister from '../pages/ModalRegister';
 import { Link, useLocation, NavLink } from "react-router-dom";
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
@@ -36,16 +36,8 @@ const sidebarNavigationEnd = [
 const Mainpage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [modalRegisterActive, setModalRegisterActive] = useState()
-  const [isUserRegister, setIsUserRegister] = useState(false)
-  const [isLoggedin, setIsLoggedin] = useState(false)
   const location = useLocation()
-  const isDashboard = location.pathname.includes("dashboard")
-  console.log(location.pathname, "location")
-  useEffect(() => {
-    const isUserLoggedin = localStorage.getItem("isLoggedin")
-    console.log(isUserLoggedin, "isUserLoggedin")
-    if (isUserLoggedin) { setIsLoggedin(true) }
-  }, []);
+  const isDashboard = location.pathname.includes("dashboard");
 
   return (
     <div className="min-h-full">
@@ -89,8 +81,16 @@ const Mainpage = () => {
                 >
                   <div className='w-full text-center'>
                     <button className='w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold' onClick={() => setModalRegisterActive(true)}>
-                      Connect Wallet
+                      <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
                     </button>
+                    {/* <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                      Подключенный кошель
+                    </button>
+                    <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
+                    <Link to="/dashboard" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                      <p>Dashboard</p>
+                    </Link>
+                    </button> */}
                   </div>
                   <nav className="flex flex-col" aria-label="Sidebar">
                     <p className='text-[#F9FAFA80] uppercase font-gilroy text-sm mt-[40px] ml-[55px]'>main menu</p>
@@ -217,20 +217,21 @@ const Mainpage = () => {
               </form>
             </div>
             <div className="ml-4 hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
-              {isUserRegister || isLoggedin ? <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+              {/* <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                 Подключенный кошель
-              </button> : <button className='w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px]' onClick={() => setModalRegisterActive(true)}>
-                Connect Wallet
-              </button>}
-              {isUserRegister || isLoggedin ? <Link to="/dashboard" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+              </button> */}
+              <button className='w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px]' onClick={() => setModalRegisterActive(true)}>
+                <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
+              </button>
+              {/* <Link to="/dashboard" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
                 <p className='mt-[14px]'>Dashboard</p>
-              </Link> : ""}
+              </Link> */}
             </div>
           </div>
         </div>
         <Navpage />
       </div>
-      <ModalRegister active={modalRegisterActive} setActive={setModalRegisterActive} setIsUserRegister={setIsUserRegister} />
+      <ModalRegister active={modalRegisterActive} setActive={setModalRegisterActive} />
     </div>
   )
 }

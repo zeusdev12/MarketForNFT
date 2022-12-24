@@ -75,7 +75,7 @@ const Hero = () => {
                     </div>
                     <p className='relative font-gilroy -mt-[230px] lg:-mt-[260px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
-                        <button className='w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
+                        <button className='w-[319px] lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
                             Explore Collection
                         </button>
                     </div>

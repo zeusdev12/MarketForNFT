@@ -1,33 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
-    const [userName, setUserName] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userPassword, setUserPassword] = useState("");
-    const handleNameInput = (e) => {
-        setUserName(e.target.value)
-    }
-    const handleEmailInput = (e) => {
-        setUserEmail(e.target.value)
-    }
-    const handlePasswordInput = (e) => {
-        setUserPassword(e.target.value)
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        const userData = {
-            name: userName,
-            email: userEmail,
-            password: userPassword
-        }
-        localStorage.setItem("registeredUsers", JSON.stringify([userData]))
-        console.log(userData, "userData")
-        setActive(false)
-        setIsUserRegister(true)
-        localStorage.setItem("isLoggedin", true)
-    }
-
+const ModalRegister = ({ active, setActive }) => {
     return (
         <div className={active ? "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-100" : "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-0"} onClick={() => setActive(false)}>
             <div className="rounded-[15px] bg-[#131313] lg:w-[560px] lg:h-[791px]" onClick={e => e.stopPropagation()}>
@@ -47,8 +20,6 @@ const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
                         </label>
                         <input
                             id="name"
-                            value={userName}
-                            onChange={handleNameInput}
                             name="name"
                             type="name"
                             autoComplete="name"
@@ -65,8 +36,6 @@ const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
                             id="email-address"
                             name="email"
                             type="email"
-                            value={userEmail}
-                            onChange={handleEmailInput}
                             autoComplete="email"
                             required
                             className="relative block w-full appearance-none border-2 border-[#3b3b3b] bg-transparent lg:h-[56px] px-5 text-[#8b8c8c] placeholder-[#8b8c8c] focus:z-10 focus:border-[#8b8c8c] focus:outline-none focus:ring-indigo-500 lg:text-[16px] font-gilroy rounded-[10px]"
@@ -79,8 +48,6 @@ const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
                         </label>
                         <input
                             id="password"
-                            value={userPassword}
-                            onChange={handlePasswordInput}
                             name="password"
                             type="password"
                             autoComplete="current-password"
@@ -95,8 +62,6 @@ const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
                         </label>
                         <input
                             id="password"
-                            value={userPassword}
-                            onChange={handlePasswordInput}
                             name="password"
                             type="password"
                             autoComplete="current-password"
@@ -121,7 +86,7 @@ const ModalRegister = ({ active, setActive, setIsUserRegister }) => {
                     <div>
                         <button
                             type="submit"
-                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onClick={handleSubmit}
+                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Register
                         </button>
