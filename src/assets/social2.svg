@@ -1,0 +1,28 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_171_4421)">
+<g filter="url(#filter1_b_171_4421)">
+<rect width="40" height="40" rx="10" fill="#F9FAFA" fill-opacity="0.05"/>
+</g>
+<g clip-path="url(#clip0_171_4421)">
+<path d="M20 17.2C18.4561 17.2 17.2 18.456 17.2 20C17.2 21.5439 18.4561 22.8 20 22.8C21.5439 22.8 22.8 21.5439 22.8 20C22.8 18.456 21.5439 17.2 20 17.2Z" fill="#F9FAFA"/>
+<path d="M23.2949 13H16.7051C14.6621 13 13 14.6621 13 16.7051V23.2949C13 25.3379 14.6621 27 16.7051 27H23.2949C25.3379 27 27 25.3379 27 23.2949V16.7051C27 14.6621 25.3379 13 23.2949 13ZM20.0001 23.4853C18.0783 23.4853 16.5147 21.9218 16.5147 20C16.5147 18.0782 18.0783 16.5147 20.0001 16.5147C21.922 16.5147 23.4855 18.0782 23.4855 20C23.4855 21.9218 21.922 23.4853 20.0001 23.4853ZM24.1893 16.391C24.113 16.4673 24.0072 16.511 23.8992 16.511C23.7915 16.511 23.6857 16.4673 23.6091 16.391C23.5328 16.3144 23.4893 16.2086 23.4893 16.1009C23.4893 15.9929 23.5328 15.8873 23.6091 15.8108C23.6857 15.7345 23.7912 15.6907 23.8992 15.6907C24.0072 15.6907 24.113 15.7345 24.1893 15.8108C24.2656 15.8873 24.3094 15.9929 24.3094 16.1009C24.3094 16.2089 24.2656 16.3144 24.1893 16.391Z" fill="#F9FAFA"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_171_4421" x="-10" y="-10" width="60" height="60" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_171_4421"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_171_4421" result="shape"/>
+</filter>
+<filter id="filter1_b_171_4421" x="-10" y="-10" width="60" height="60" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_171_4421"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_171_4421" result="shape"/>
+</filter>
+<clipPath id="clip0_171_4421">
+<rect width="14" height="14" fill="white" transform="translate(13 13)"/>
+</clipPath>
+</defs>
+</svg>
