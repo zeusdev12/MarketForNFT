@@ -9,6 +9,8 @@ import { ReactComponent as StatusTime } from "../assets/statustime.svg"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg"
 import { ReactComponent as Validate } from '../assets/validate.svg'
 import { ReactComponent as Views } from '../assets/views.svg'
+// import { ReactComponent as Darknes } from '../assets/darknes.svg'
+import Darknes from '../assets/darknes.png'
 
 import Section1Card1 from "../assets/cards/section1card1.png"
 import Section1Card2 from "../assets/cards/section1card2.png"
@@ -74,7 +76,13 @@ const Hero = () => {
                             alt="/"
                         />
                     </div>
-                    <p className='relative font-gilroy -mt-[230px] lg:-mt-[260px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[100px] mt-[70px] lg:mt-[64px]">
+                        <img
+                            src={Darknes}
+                            alt="/"
+                        />
+                    </div>
+                    <p className='relative font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
                         <button className='w-[319px] lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
                             Explore Collection
@@ -532,7 +540,7 @@ const Hero = () => {
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[3px]' />
+                                        <Views className='mt-[2px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>2897</p>
                                     </div>
                                 </div>
@@ -550,7 +558,7 @@ const Hero = () => {
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[3px]' />
+                                        <Views className='mt-[2px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5325</p>
                                     </div>
                                 </div>
@@ -568,7 +576,7 @@ const Hero = () => {
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[3px]' />
+                                        <Views className='mt-[2px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5435</p>
                                     </div>
                                 </div>
@@ -586,7 +594,7 @@ const Hero = () => {
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[3px]' />
+                                        <Views className='mt-[2px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>1545</p>
                                     </div>
                                 </div>

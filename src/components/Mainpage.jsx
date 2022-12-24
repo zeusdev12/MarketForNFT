@@ -80,7 +80,7 @@ const Mainpage = () => {
                   aria-label="Sidebar"
                 >
                   <div className='w-full text-center'>
-                    <button className='w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold' onClick={() => setModalRegisterActive(true)}>
+                    <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalRegisterActive(true)}>
                       <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
                     </button>
                     {/* <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
@@ -220,7 +220,7 @@ const Mainpage = () => {
               {/* <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                 Подключенный кошель
               </button> */}
-              <button className='w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px]' onClick={() => setModalRegisterActive(true)}>
+              <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalRegisterActive(true)}>
                 <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
               </button>
               {/* <Link to="/dashboard" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>

@@ -32,7 +32,7 @@ const OpenPageNFT = () => {
                                 <ArrowDown />
                             </div>
                         </div>
-                        <div className="mt-[40px] h-[184px] max-w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
+                        <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
                             <div className="flex flex-col lg:flex-row p-[30px]">
                                 <div className="flex flex-col">
                                     <div className="bg-[#beff55] w-[68px] h-[25px] text-center rounded-[29px]">
@@ -62,7 +62,7 @@ const OpenPageNFT = () => {
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold leading-[40px] lg:leading-[50px]'>Other NTFs in this <br /> collection</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
                             <button className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
-                                See All Colletion
+                                See All Collection
                             </button>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ const OpenPageNFT = () => {
                 </div>
                 <div className="flex justify-center">
                     <buttom className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
-                        See All Colletion
+                        See All Collection
                     </buttom>
                 </div>
                 <Footer />
