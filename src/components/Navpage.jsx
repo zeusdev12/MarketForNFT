@@ -1,13 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import PopularNFT from "./PopularNFT";
-import NewNFT from "./NewNFT";
-import Collection from "./Collection"
-import Auctions from "./Auctions";
-import Launchpad from "./Launchpad";
-import Support from "./Support"
-import DashboardPage from "./dashboard/Dashboard";
-import Hero from "./Hero";
+import Hero from "../pages/Hero";
+import PopularNFT from "../pages/PopularNFT";
+import NewNFT from "../pages/NewNFT";
+import Collection from "../pages/Collection"
+import Auctions from "../pages/Auctions";
+import Launchpad from "../pages/Launchpad";
+import Support from "../pages/Support"
+import OpenPageNFT from "./OpenPageNFT";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 const Navpage = () => {
     return (
@@ -21,7 +22,8 @@ const Navpage = () => {
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/openPageNFT" element={<OpenPageNFT />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                 </Routes>
             </section>
         </React.Fragment>

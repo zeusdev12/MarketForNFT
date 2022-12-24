@@ -1,5 +1,5 @@
 import React from 'react';
-import Navpage from '../pages/Navpage';
+import Navpage from './Navpage';
 import "./Mainpage.css"
 import ModalRegister from '../pages/ModalRegister';
 import { Link, useLocation, NavLink } from "react-router-dom";

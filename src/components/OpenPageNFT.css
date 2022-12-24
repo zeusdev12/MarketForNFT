@@ -1,0 +1,8 @@
+.background {
+    background: url(../assets/grid.svg);
+    background-color: #0c0c0c;
+}
+
+.horizontal_slider::-webkit-scrollbar {
+    display: none;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Cards from "../assets/cards.png"
+import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
 
@@ -105,16 +106,21 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
-                                    <img
-                                        src={Section1Card1}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
-                                    />
-                                    <StatusLive className='absolute -mt-[256px] ml-[206px]' />
-                                </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
-                                <p className="text-sm font-gilroy text-[#beff55] uppercase px-5">live</p>
+                                <Link to="/OpenPageNFT">
+                                    <div className="overflow-hidden relative">
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        />
+                                        <StatusLive className='absolute -mt-[256px] ml-[206px]' />
+                                    </div>
+                                    <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
+                                    <div className='flex flex-row'>
+                                        <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
+                                        <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
+                                    </div>
+                                </Link>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
@@ -127,7 +133,10 @@ const Hero = () => {
                                     <StatusLive className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Mini Royale x Sank T...</h3>
-                                <p className="text-sm font-gilroy text-[#beff55] uppercase px-5">live</p>
+                                <div className='flex flex-row'>
+                                    <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
+                                    <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
+                                </div>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>

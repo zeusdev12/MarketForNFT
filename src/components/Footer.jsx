@@ -141,7 +141,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-[60px] md:mt-[90px] pb-8 md:pb-16 -ml-5 md:ml-0">
+                    <div className="mt-[60px] md:mt-[90px] pb-8 md:pb-16 -ml-5">
                         <p className="text-sm text-[#F9FAFA80] font-gilroy font-medium tracking-wider text-center">©2022 Crypto Market, Inc. All Rights Reserved.</p>
                     </div>
                 </div>
