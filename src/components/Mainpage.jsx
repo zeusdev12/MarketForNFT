@@ -1,8 +1,8 @@
 import React from 'react';
 import Navpage from './Navpage';
 import "./Mainpage.css"
-import ModalRegister from '../pages/ModalRegister';
-import { Link, useLocation, NavLink } from "react-router-dom";
+import ModalConnectWallet from './ModalConnectWallet';
+import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
@@ -35,9 +35,7 @@ const sidebarNavigationEnd = [
 
 const Mainpage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [modalRegisterActive, setModalRegisterActive] = useState()
-  const location = useLocation()
-  const isDashboard = location.pathname.includes("dashboard");
+  const [modalConnectWalletActive, setModalConnectWalletActive] = useState()
 
   return (
     <div className="min-h-full">
@@ -80,15 +78,15 @@ const Mainpage = () => {
                   aria-label="Sidebar"
                 >
                   <div className='w-full text-center'>
-                    <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalRegisterActive(true)}>
+                    <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
                       <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
                     </button>
                     {/* <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                       Подключенный кошель
                     </button>
                     <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
-                    <Link to="/dashboard" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
-                      <p>Dashboard</p>
+                    <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                      <p>Profile</p>
                     </Link>
                     </button> */}
                   </div>
@@ -132,7 +130,7 @@ const Mainpage = () => {
       </Transition.Root>
 
       {/* Sidebar for desktop */}
-      {!isDashboard && <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-[259px] lg:flex-col">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-[259px] lg:flex-col">
         <div className="flex flex-grow flex-col overflow-y-auto bg-[#131313] pt-[30px] pb-4">
           <div className="flex flex-shrink-0 items-center ml-[45px]">
             <div className='hidden lg:flex justify-start items-center flex-1'>
@@ -176,7 +174,7 @@ const Mainpage = () => {
             </div>
           </nav>
         </div>
-      </div>}
+      </div>
 
       <div className="flex flex-1 flex-col lg:pl-64">
         <div className="flex fixed lg:absolute lg:ml-[256px] inset-0 h-[70px] flex-shrink-0 bg-[#131313] lg:bg-transparent justify-between lg:justify-start z-50">
@@ -220,18 +218,18 @@ const Mainpage = () => {
               {/* <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                 Подключенный кошель
               </button> */}
-              <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalRegisterActive(true)}>
+              <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
                 <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
               </button>
-              {/* <Link to="/dashboard" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
-                <p className='mt-[14px]'>Dashboard</p>
+              {/* <Link to="/profile" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                <p className='mt-[14px]'>Profile</p>
               </Link> */}
             </div>
           </div>
         </div>
         <Navpage />
       </div>
-      <ModalRegister active={modalRegisterActive} setActive={setModalRegisterActive} />
+      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} />
     </div>
   )
 }

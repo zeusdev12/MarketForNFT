@@ -8,7 +8,7 @@ import Auctions from "../pages/Auctions";
 import Launchpad from "../pages/Launchpad";
 import Support from "../pages/Support"
 import OpenPageNFT from "./OpenPageNFT";
-import Dashboard from "../pages/dashboard/Dashboard";
+import Profile from "../pages/profile/Profile";
 
 const Navpage = () => {
     return (
@@ -23,7 +23,7 @@ const Navpage = () => {
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
                     <Route path="/openPageNFT" element={<OpenPageNFT />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/profile" element={<Profile />} />
                 </Routes>
             </section>
         </React.Fragment>

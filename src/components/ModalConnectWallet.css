@@ -1,0 +1,3 @@
+.horizontal_slider::-webkit-scrollbar {
+    display: none;
+}
