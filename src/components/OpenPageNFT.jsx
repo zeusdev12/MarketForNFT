@@ -56,7 +56,7 @@ const OpenPageNFT = () => {
                                                 <p className="text-lg font-gilroy text-white">Token Standard</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">ERC721</p>
                                             </div>
-                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4">
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
                                                 <p className="text-lg font-gilroy text-white">Owner</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">0x907...C25</p>
                                             </div>
