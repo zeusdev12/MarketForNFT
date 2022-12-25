@@ -22,7 +22,8 @@ const Navpage = () => {
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/openPageNFT" element={<OpenPageNFT />} />
+                    <Route path="/openPageNFT/:address/:id" element={<OpenPageNFT />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </section>
