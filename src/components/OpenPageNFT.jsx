@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { Transition, Menu } from '@headlessui/react'
 import "./OpenPageNFT.css"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
@@ -93,15 +94,53 @@ const OpenPageNFT = () => {
                         <p className="mt-[30px] text-[#828383] text-base lg:text-lg font-gilroy font-semibold max-w-[560px]">
                             {collection.description}
                         </p>
+
                         <div className="border-2 mt-[30px] border-[#3b3c3c] rounded-[15px] max-w-[560px] h-[60px]">
                             <div className="flex px-[30px] justify-between items-center mt-[14px]">
                                 <p className="text-white font-gilroy text-lg">More Details</p>
-                                <ArrowDown />
-                                {
-                                    attributesList
-                                }
+
+                        <Menu as="div" className="relative mt-[30px]">
+                            <div className="border-2 border-[#3b3c3c] rounded-[15px] w-[358px] lg:w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
+                                <Menu.Button className="flex w-[296px] lg:w-[497px] justify-between items-center h-[60px]">
+                                    <p className="text-lg font-gilroy text-white">More Details</p>
+                                    <ArrowDown />
+                                </Menu.Button>
+                                <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                >
+                                    <Menu.Items>
+                                        <div className="flex flex-col">
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Contract Address</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">0xba3...623</p>
+                                            </div>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Token ID</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">3634</p>
+                                            </div>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Token Standard</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">ERC721</p>
+                                            </div>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
+                                                <p className="text-lg font-gilroy text-white">Owner</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">0x907...C25</p>
+                                            </div>
+                                        </div>
+                                    </Menu.Items>
+                                </Transition>
                             </div>
-                        </div>
+                        </Menu>
+
+
+
+
                         <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
                             <div className="flex flex-col lg:flex-row p-[30px]">
                                 <div className="flex flex-col">

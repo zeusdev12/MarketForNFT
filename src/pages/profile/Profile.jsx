@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dashboard() {
+function Profile() {
     return (
         <div className='flex justify-center items-center text-4xl pt-40'>
             This is Dashboard Page
@@ -8,4 +8,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Profile;
