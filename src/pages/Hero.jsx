@@ -3,6 +3,7 @@ import Cards from "../assets/cards.png"
 import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
+import Collections from '../components/collections/collections'
 
 import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
 import { ReactComponent as StatusTime } from "../assets/statustime.svg"
@@ -113,7 +114,8 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
+                            <Collections></Collections>
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
                                 <Link to="/OpenPageNFT">
                                     <div className="overflow-hidden relative">
                                         <img
@@ -129,9 +131,9 @@ const Hero = () => {
                                         <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
                                     </div>
                                 </Link>
-                            </div>
+                            </div> */}
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative">
                                     <img
                                         src={Section1Card2}
@@ -145,9 +147,9 @@ const Hero = () => {
                                     <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
                                     <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative">
                                     <img
                                         src={Section1Card3}
@@ -158,9 +160,9 @@ const Hero = () => {
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">03h 16m 15s</p>
-                            </div>
+                            </div> */}
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative">
                                     <img
                                         src={Section1Card4}
@@ -171,7 +173,7 @@ const Hero = () => {
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">04h 16m 13s</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
