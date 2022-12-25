@@ -4,3 +4,10 @@ a.active {
     background-color: #beff55;
     border-radius: 41px;
 }
+
+a.active svg path {
+    stroke: black;
+}
+a.active svg circle {
+    stroke: black;
+}
