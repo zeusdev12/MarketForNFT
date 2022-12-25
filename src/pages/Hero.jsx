@@ -121,7 +121,7 @@ const Hero = () => {
                                         <img
                                             src={Section1Card1}
                                             alt="/"
-                                            className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                            className="h-full rounded-[10px] w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                         />
                                         <StatusLive className='absolute -mt-[256px] ml-[206px]' />
                                     </div>
@@ -138,7 +138,7 @@ const Hero = () => {
                                     <img
                                         src={Section1Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusLive className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -154,7 +154,7 @@ const Hero = () => {
                                     <img
                                         src={Section1Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTime className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -167,7 +167,7 @@ const Hero = () => {
                                     <img
                                         src={Section1Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTime className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -189,11 +189,11 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section2Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
@@ -205,7 +205,7 @@ const Hero = () => {
                                     <img
                                         src={Section2Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -214,11 +214,11 @@ const Hero = () => {
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section2Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
@@ -230,7 +230,7 @@ const Hero = () => {
                                     <img
                                         src={Section2Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -268,7 +268,7 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-12'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
+                                <div className="overflow-hidden">
                                     <img
                                         src={Collection1}
                                         alt="/"
@@ -344,11 +344,11 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section3Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub...</h3>
@@ -356,11 +356,11 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section3Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub...</h3>
@@ -372,7 +372,7 @@ const Hero = () => {
                                     <img
                                         src={Section3Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -385,7 +385,7 @@ const Hero = () => {
                                     <img
                                         src={Section3Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -413,7 +413,7 @@ const Hero = () => {
                                     <img
                                         src={Section4Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -422,11 +422,11 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section4Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
@@ -434,11 +434,11 @@ const Hero = () => {
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section4Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
@@ -450,7 +450,7 @@ const Hero = () => {
                                     <img
                                         src={Section4Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -476,7 +476,7 @@ const Hero = () => {
                                     <img
                                         src={Section5Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -485,11 +485,11 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section5Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
@@ -501,7 +501,7 @@ const Hero = () => {
                                     <img
                                         src={Section5Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -510,11 +510,11 @@ const Hero = () => {
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section5Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
@@ -534,7 +534,7 @@ const Hero = () => {
                                     <img
                                         src={Section6Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -542,61 +542,61 @@ const Hero = () => {
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[2px]' />
+                                        <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>2897</p>
                                     </div>
                                 </div>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section6Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[2px]' />
+                                        <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5325</p>
                                     </div>
                                 </div>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section6Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[2px]' />
+                                        <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5435</p>
                                     </div>
                                 </div>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section6Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
-                                        <Views className='mt-[2px]' />
+                                        <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>1545</p>
                                     </div>
                                 </div>
@@ -615,7 +615,7 @@ const Hero = () => {
                                     <img
                                         src={Section7Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -624,11 +624,11 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section7Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
@@ -636,11 +636,11 @@ const Hero = () => {
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section7Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
@@ -652,7 +652,7 @@ const Hero = () => {
                                     <img
                                         src={Section7Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -669,11 +669,11 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section8Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
@@ -681,11 +681,11 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section8Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
@@ -693,11 +693,11 @@ const Hero = () => {
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section8Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
@@ -705,11 +705,11 @@ const Hero = () => {
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section8Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
@@ -736,7 +736,7 @@ const Hero = () => {
                                     <img
                                         src={Section9Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -749,7 +749,7 @@ const Hero = () => {
                                     <img
                                         src={Section9Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                     <StatusTop className='absolute -mt-[256px] ml-[206px]' />
                                 </div>
@@ -758,11 +758,11 @@ const Hero = () => {
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section9Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
@@ -770,11 +770,11 @@ const Hero = () => {
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="w-full overflow-hidden">
+                                <div className="overflow-hidden relative">
                                     <img
                                         src={Section9Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
                                     />
                                 </div>
                                 <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>

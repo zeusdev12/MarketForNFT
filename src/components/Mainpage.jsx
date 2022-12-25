@@ -149,7 +149,7 @@ const Mainpage = () => {
                   className='flex flex-row justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
-                    <item.icon className="mr-[6px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
+                    <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
                     <p>{item.name}</p>
                   </div>
                   <item.arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
@@ -165,7 +165,7 @@ const Mainpage = () => {
                   className='flex flex-row justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
-                    <item.icon className="mr-[6px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
+                    <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
                     <p>{item.name}</p>
                   </div>
                   <item.arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
