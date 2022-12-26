@@ -6,6 +6,6 @@ export const collections = [
         name: "Collection 1",
         date: "19TH SEPTEMBER, 01:32",
         description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits",
-        prices: [1,0.4]
+        prices: [1,0.002]
     }
 ];

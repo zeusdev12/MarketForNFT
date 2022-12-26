@@ -11,33 +11,24 @@ import { ABI } from "../contracts/nft";
 import { config } from "../config";
 import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
+import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
 
-const getTokenInfo = (contract, id) => {
-    return new Promise((resolve, reject) => {
-        contract.methods.tokenURI(id.toString()).call().then((uri) => {
-            contract.methods.ownerOf(id.toString()).call().then((owner) => {
-                resolve({ uri, owner, id });
-            });
-        });
-    });
-}
-
-const OpenPageNFT = () => {
+const OpenPageNFT = ({ onBuy }) => {
 
     const params = useParams();
     const [collection, setCollection] = useState({});
     const [images, setImages] = useState([]);
-    const [attribures, setAttributes] = useState([]);
-    const [current, setCurrent] = useState();
+    const [current, setCurrent] = useState({});
     const [price, setPrice] = useState(0);
+    const [difference, setDifference] = useState('0');
 
-    const provider = new Web3.providers.HttpProvider(config.provider);
+    const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
 
     useEffect(() => {
 
-        const currentCollection = collections.filter((c) => c.address == params.address)[0];
-        const contract = new web3.eth.Contract(ABI, currentCollection.address);
+        const collection = collections.filter((c)=> c.address == params.address )[0];
+        const contract = new web3.eth.Contract(ABI, collection.address);
 
         contract.methods.totalSupply().call().then((total) => {
 
@@ -50,34 +41,33 @@ const OpenPageNFT = () => {
                 let current = result[parseInt(params.id) - 1];
                 let other = result.filter((nft) => { return nft.id != current.id; });
                 setImages(other);
-                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://", "")}`)
-                    .then((response) => response.json())
-                    .then((body) => {
-                        body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://", "")}`;
-                        body.owner = current.owner;
-                        setCurrent(body);
-                        setAttributes(body.attributes);
-                    });
+                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://","")}`)
+                .then((response) => response.json())
+                .then((body) =>{
+                    body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://","")}`;
+                    body.owner = current.owner;
+                    setCurrent(body);
+                });
             });
 
         });
-        setCollection(currentCollection);
-        setPrice(currentCollection.prices[parseInt(params.id) - 1]);
+
+        setCollection(collection);
+        setPrice(collection.prices[parseInt(params.id)-1]);
+
+        getDifference().then((diff)=>{
+            setDifference(diff);
+        });
 
     }, []);
 
-    const otherNft = images.map((nft, i) => {
-        return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
-    })
+    const onBuyClick = ()=>{
+        onBuy(collection.ownerAddress, params.id, price, collection.address)
+    }
 
-    const attributesList = attribures.map((attr, i) => {
-        return (
-            <div key={i}>
-                <p>{attr.trait_type}</p>
-                <p>{attr.value}</p>
-            </div>
-        )
-    })
+    const otherNft = images.map((nft, i)=>{
+        return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
+    });
 
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
@@ -95,60 +85,38 @@ const OpenPageNFT = () => {
                             {collection.description}
                         </p>
 
-                        <div className="border-2 mt-[30px] border-[#3b3c3c] rounded-[15px] max-w-[560px] h-[60px]">
-                            <div className="flex px-[30px] justify-between items-center mt-[14px]">
-                                <p className="text-white font-gilroy text-lg">More Details</p>
-
-                                <Menu as="div" className="relative mt-[30px]">
-                                    <div className="border-2 border-[#3b3c3c] rounded-[15px] w-[358px] lg:w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
-                                        <Menu.Button className="flex w-[296px] lg:w-[497px] justify-between items-center h-[60px]">
-                                            <p className="text-lg font-gilroy text-white">More Details</p>
-                                            <ArrowDown />
-                                        </Menu.Button>
-                                        <Transition
-                                            as={Fragment}
-                                            enter="transition ease-out duration-100"
-                                            enterFrom="transform opacity-0 scale-95"
-                                            enterTo="transform opacity-100 scale-100"
-                                            leave="transition ease-in duration-75"
-                                            leaveFrom="transform opacity-100 scale-100"
-                                            leaveTo="transform opacity-0 scale-95"
-                                        >
-                                            <Menu.Items>
-                                                <div className="flex flex-col">
-                                                    <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
-                                                        <p className="text-lg font-gilroy text-white">Contract Address</p>
-                                                        <p className="text-lg font-gilroy text-[#828383]">0xba3...623</p>
-                                                    </div>
-                                                    <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
-                                                        <p className="text-lg font-gilroy text-white">Token ID</p>
-                                                        <p className="text-lg font-gilroy text-[#828383]">3634</p>
-                                                    </div>
-                                                    <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
-                                                        <p className="text-lg font-gilroy text-white">Token Standard</p>
-                                                        <p className="text-lg font-gilroy text-[#828383]">ERC721</p>
-                                                    </div>
-                                                    <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
-                                                        <p className="text-lg font-gilroy text-white">Owner</p>
-                                                        <p className="text-lg font-gilroy text-[#828383]">0x907...C25</p>
-                                                    </div>
-                                                </div>
-                                            </Menu.Items>
-                                        </Transition>
-                                    </div>
-                                </Menu>
-
-
-
-
-                                <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
-                                    <div className="flex flex-col lg:flex-row p-[30px]">
+                        <Menu as="div" className="relative mt-[30px]">
+                            <div className="border-2 border-[#3b3c3c] rounded-[15px] w-[358px] lg:w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
+                                <Menu.Button className="flex w-[296px] lg:w-[497px] justify-between items-center h-[60px]">
+                                    <p className="text-lg font-gilroy text-white">More Details</p>
+                                    <ArrowDown />
+                                </Menu.Button>
+                                <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                >
+                                    <Menu.Items>
                                         <div className="flex flex-col">
-                                            <div className="bg-[#beff55] w-[68px] h-[25px] text-center rounded-[29px]">
-                                                <p className="text-black font-gilroyMedium font-semibold text-sm mt-[2px]">+12.53%</p>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Contract Address</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{formatAddress(collection.address)}</p>
                                             </div>
-                                            <div>
-                                                <p className="mt-[2px] text-[36px] font-gilroy font-semibold text-white tracking-wider">{price} ETH</p>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Token ID</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{params.id}</p>
+                                            </div>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                                <p className="text-lg font-gilroy text-white">Token Standard</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">ERC721</p>
+                                            </div>
+                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
+                                                <p className="text-lg font-gilroy text-white">Owner</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{formatAddress(current.owner)}</p>
                                             </div>
                                         </div>
                                         {
@@ -160,17 +128,26 @@ const OpenPageNFT = () => {
                                             <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold out</button>
                                         }
 
+
+                        <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
+                            <div className="flex flex-col lg:flex-row p-[30px]">
+                                <div className="flex flex-col">
+                                    <div className="bg-[#beff55] w-[68px] h-[25px] text-center rounded-[29px]">
+                                        <p className="text-black font-gilroyMedium font-semibold text-sm mt-[2px]"> {difference} %</p>
+                                    </div>
+                                    <div>
+                                        <p className="mt-[2px] text-[36px] font-gilroy font-semibold text-white tracking-wider">{price} ETH</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="lg:mr-5">
-                                <div className="overflow-hidden relative">
-                                    {
-                                        current &&
-                                        <img src={current.url} className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"></img>
-                                    }
-                                    <StatusTop className='absolute right-0 top-0 mt-3 mr-3 sm:mt-5 sm:mr-5 lg:mt-4 lg:mr-4 xl:mt-[17px] xl:mr-[17px]' />
-                                </div>
+                                {
+                                    collection && current && collection.ownerAddress == current.owner &&
+                                    <button onClick={onBuyClick} className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Buy Now</button>
+                                }
+                                {
+                                    collection && current && collection.ownerAddress != current.owner &&
+                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold</button>
+                                }
+                                
                             </div>
                         </div>
                         <div className="relative z-30 mt-[80px] lg:mt-[150px] lg:mr-5 pl-4 lg:pl-0">
