@@ -27,7 +27,7 @@ const navigation = {
 const Footer = () => {
     return (
         <section>
-            <div className='bg-transparent w-full pt-[70px] lg:pt-40'>
+            <div className='bg-transparent w-full pt-[70px] lg:pt-[150px]'>
                 <div className="mx-auto max-w-[1200px] ml-5 lg:ml-0">
                     <div className="xl:grid xl:grid-cols-4">
                         <div className="space-y-8 xl:col-span-1">
