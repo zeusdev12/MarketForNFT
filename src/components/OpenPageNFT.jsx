@@ -13,6 +13,7 @@ import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
 import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
 
+
 const OpenPageNFT = ({ onBuy }) => {
 
     const params = useParams();
@@ -25,21 +26,21 @@ const OpenPageNFT = ({ onBuy }) => {
     const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
 
-    useEffect(() => {
+    useEffect(()=>{
 
         const collection = collections.filter((c)=> c.address == params.address )[0];
         const contract = new web3.eth.Contract(ABI, collection.address);
 
-        contract.methods.totalSupply().call().then((total) => {
+        contract.methods.totalSupply().call().then((total)=>{
 
             let tasks = [];
-            for (let i = 1; i <= parseInt(total); i++) {
+            for(let i = 1; i <= parseInt(total); i++){
                 tasks.push(getTokenInfo(contract, i));
             }
 
-            Promise.all(tasks).then((result) => {
-                let current = result[parseInt(params.id) - 1];
-                let other = result.filter((nft) => { return nft.id != current.id; });
+            Promise.all(tasks).then((result)=>{
+                let current = result[parseInt(params.id)-1];
+                let other = result.filter((nft)=>{ return nft.id != current.id; });
                 setImages(other);
                 fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://","")}`)
                 .then((response) => response.json())
@@ -59,7 +60,7 @@ const OpenPageNFT = ({ onBuy }) => {
             setDifference(diff);
         });
 
-    }, []);
+    },[]);
 
     const onBuyClick = ()=>{
         onBuy(collection.ownerAddress, params.id, price, collection.address)
@@ -119,14 +120,10 @@ const OpenPageNFT = ({ onBuy }) => {
                                                 <p className="text-lg font-gilroy text-[#828383]">{formatAddress(current.owner)}</p>
                                             </div>
                                         </div>
-                                        {
-                                            collection && current && collection.ownerAddress == current.owner &&
-                                            <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Buy Now</button>
-                                        }
-                                        {
-                                            collection && current && collection.ownerAddress != current.owner &&
-                                            <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold out</button>
-                                        }
+                                    </Menu.Items>
+                                </Transition>
+                            </div>
+                        </Menu>
 
 
                         <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
@@ -150,31 +147,40 @@ const OpenPageNFT = ({ onBuy }) => {
                                 
                             </div>
                         </div>
-                        <div className="relative z-30 mt-[80px] lg:mt-[150px] lg:mr-5 pl-4 lg:pl-0">
-                            <div className='flex flex-row justify-between'>
-                                <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold leading-[40px] lg:leading-[50px]'>Other NTFs in this <br /> collection</p>
-                                <div className="hidden md:block mr-4 lg:mr-0">
-                                    <button className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
-                                        See All Collection
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
-                                <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                                    {
-                                        otherNft
-                                    }
-                                </div>
-                            </div>
+                    </div>
+                    <div className="lg:mr-5">
+                        <div className="overflow-hidden relative">
+                            {
+                                current &&
+                                <img src={current.url} className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"></img>
+                            }
+                            <StatusTop className='absolute right-0 top-0 mt-3 mr-3 sm:mt-5 sm:mr-5 lg:mt-4 lg:mr-4 xl:mt-[17px] xl:mr-[17px]' />
                         </div>
-                        <div className="flex justify-center">
-                            <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    </div>
+                </div>
+                <div className="relative z-30 mt-[80px] lg:mt-[150px] lg:mr-5 pl-4 lg:pl-0">
+                    <div className='flex flex-row justify-between'>
+                        <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold leading-[40px] lg:leading-[50px]'>Other NTFs in this <br /> collection</p>
+                        <div className="hidden md:block mr-4 lg:mr-0">
+                            <button className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
                                 See All Collection
                             </button>
                         </div>
-                        <Footer />
+                    </div>
+                    <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
+                        <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
+                            {
+                                otherNft
+                            }
+                        </div>
                     </div>
                 </div>
+                <div className="flex justify-center">
+                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                        See All Collection
+                    </button>
+                </div>
+                <Footer />
             </div>
         </div>
     )
