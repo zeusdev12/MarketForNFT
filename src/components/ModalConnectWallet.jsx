@@ -32,7 +32,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const ModalConnectWallet = ({ active, setActive }) => {
+const ModalConnectWallet = ({ active, setActive, onConnectMetamask }) => {
     const [open, setOpen] = useState(true)
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -48,7 +48,7 @@ const ModalConnectWallet = ({ active, setActive }) => {
                         <div className="mt-[20px]">
                             <Tab.Group as="div">
                                 <Tab.List className="flex ml-[34px] lg:ml-[154px] space-x-2">
-                                    <Tab
+                                    {/* <Tab
                                         className={({ selected }) =>
                                             classNames(
                                                 selected
@@ -58,7 +58,7 @@ const ModalConnectWallet = ({ active, setActive }) => {
                                         }
                                     >
                                         Solana
-                                    </Tab>
+                                    </Tab> */}
                                     <Tab
                                         className={({ selected }) =>
                                             classNames(
@@ -72,7 +72,7 @@ const ModalConnectWallet = ({ active, setActive }) => {
                                     </Tab>
                                 </Tab.List>
                                 <Tab.Panels as={Fragment}>
-                                    <Tab.Panel className="pb-[40px] lg:pb-[50px]">
+                                     {/*<Tab.Panel className="pb-[40px] lg:pb-[50px]">
                                         <button className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[30px] lg:mt-[40px] ml-[14px] lg:ml-[30px]">
                                             <Phantom className="mr-3" />
                                             <p className="text-lg font-gilroy text-white">Phantom</p>
@@ -235,10 +235,10 @@ const ModalConnectWallet = ({ active, setActive }) => {
                                             </Transition>
                                         </Menu>
 
-                                    </Tab.Panel>
+                                    </Tab.Panel> */}
 
                                     <Tab.Panel className="pb-[40px] lg:pb-[50px]">
-                                        <button className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[30px] lg:mt-[40px] ml-[14px] lg:ml-[30px]">
+                                        <button onClick={onConnectMetamask} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[30px] lg:mt-[40px] ml-[14px] lg:ml-[30px]">
                                             <img
                                                 src={MetaMask}
                                                 alt="/"

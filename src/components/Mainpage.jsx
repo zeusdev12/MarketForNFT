@@ -4,7 +4,9 @@ import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react';
+import Web3 from 'web3';
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
 import { ReactComponent as LogoMini } from "../assets/logomini.svg"
@@ -34,8 +36,22 @@ const sidebarNavigationEnd = [
 ]
 
 const Mainpage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [modalConnectWalletActive, setModalConnectWalletActive] = useState()
+
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [modalConnectWalletActive, setModalConnectWalletActive] = useState();
+
+  const onConnectMetamask = async ()=>{
+
+    const web3 =  new Web3(window.ethereum);
+    await window.ethereum.enable();
+    web3.eth.getAccounts().then(e =>{
+       localStorage.setItem('provider', 'm');
+ 
+    });
+
+  }
+
 
   return (
     <div className="min-h-full">
@@ -229,7 +245,7 @@ const Mainpage = () => {
         </div>
         <Navpage />
       </div>
-      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} />
+      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectMetamask={onConnectMetamask}/>
     </div>
   )
 }
