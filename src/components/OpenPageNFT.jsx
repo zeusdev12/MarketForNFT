@@ -14,7 +14,7 @@ import NftCard from "./nftCard/nftCard";
 import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
 
 
-const OpenPageNFT = () => {
+const OpenPageNFT = ({ onBuy }) => {
 
     const params = useParams();
     const [collection, setCollection] = useState({});
@@ -23,13 +23,13 @@ const OpenPageNFT = () => {
     const [price, setPrice] = useState(0);
     const [difference, setDifference] = useState('0');
 
-    const provider = new Web3.providers.HttpProvider(config.provider);
+    const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
 
     useEffect(()=>{
 
-        const currentCollection = collections.filter((c)=> c.address == params.address )[0];
-        const contract = new web3.eth.Contract(ABI, currentCollection.address);
+        const collection = collections.filter((c)=> c.address == params.address )[0];
+        const contract = new web3.eth.Contract(ABI, collection.address);
 
         contract.methods.totalSupply().call().then((total)=>{
 
@@ -53,14 +53,18 @@ const OpenPageNFT = () => {
 
         });
 
-        setCollection(currentCollection);
-        setPrice(currentCollection.prices[parseInt(params.id)-1]);
+        setCollection(collection);
+        setPrice(collection.prices[parseInt(params.id)-1]);
 
         getDifference().then((diff)=>{
             setDifference(diff);
         });
 
     },[]);
+
+    const onBuyClick = ()=>{
+        onBuy(collection.ownerAddress, params.id, price, collection.address)
+    }
 
     const otherNft = images.map((nft, i)=>{
         return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
@@ -134,11 +138,11 @@ const OpenPageNFT = () => {
                                 </div>
                                 {
                                     collection && current && collection.ownerAddress == current.owner &&
-                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Buy Now</button>
+                                    <button onClick={onBuyClick} className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Buy Now</button>
                                 }
                                 {
                                     collection && current && collection.ownerAddress != current.owner &&
-                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold out</button>
+                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold</button>
                                 }
                                 
                             </div>

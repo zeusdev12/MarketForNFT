@@ -10,7 +10,7 @@ import Support from "../pages/Support"
 import OpenPageNFT from "./OpenPageNFT";
 import Profile from "../pages/profile/Profile";
 
-const Navpage = () => {
+const Navpage = ({ onBuy }) => {
     return (
         <React.Fragment>
             <section>
@@ -22,7 +22,7 @@ const Navpage = () => {
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/openPageNFT/:address/:id" element={<OpenPageNFT />} />
+                    <Route path="/openPageNFT/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
                     {/* <Route path="/dashboard" element={<Dashboard />} /> */}
                     <Route path="/profile" element={<Profile />} />
                 </Routes>

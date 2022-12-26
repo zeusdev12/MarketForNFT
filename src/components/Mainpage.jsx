@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navpage from './Navpage';
 import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
@@ -7,6 +7,10 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
 import Web3 from 'web3';
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import WalletLink from 'walletlink'
+import { formatAddress } from '../contracts/utils';
+import { config } from '../config';
+import { ABI } from '../contracts/nft';
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
 import { ReactComponent as LogoMini } from "../assets/logomini.svg"
@@ -21,7 +25,8 @@ import { ReactComponent as Icon6 } from "../assets/icons/icon6.svg"
 import { ReactComponent as Icon7 } from "../assets/icons/icon7.svg"
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import { ReactComponent as Search } from '../assets/search.svg';
-
+const Tx = require('ethereumjs-tx').Transaction;
+const Common = require('ethereumjs-common').default;
 
 const sidebarNavigation = [
   { name: 'Popular NFT', path: '/popularNFT', icon: Icon1, arrow: Arrow },
@@ -41,16 +46,132 @@ const Mainpage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalConnectWalletActive, setModalConnectWalletActive] = useState();
 
+  const [web3, setWeb3] = useState();
+  const [account, setAccount] = useState();
+
   const onConnectMetamask = async ()=>{
 
-    const web3 =  new Web3(window.ethereum);
-    await window.ethereum.enable();
-    web3.eth.getAccounts().then(e =>{
-       localStorage.setItem('provider', 'm');
- 
-    });
+    if(window.ethereum){
+      const web3 =  new Web3(window.ethereum);
+      await window.ethereum.enable();
+      web3.eth.getAccounts().then((e) =>{
+        localStorage.setItem('provider', 'm');
+        setWeb3(web3);
+        setAccount(e[0]);
+        setModalConnectWalletActive(false);
+      });
+    }else{
+       alert("Please install metamask extension")
+    }
 
   }
+
+  const onConnectWalletConnect = async ()=>{
+
+    const provider =  await new WalletConnectProvider({infuraId: config.infura});
+    await provider.enable();
+    const web3 = await new Web3(provider);
+    web3.eth.getAccounts().then(e =>{
+        localStorage.setItem('provider', 'w');
+        setWeb3(web3);
+        setAccount(e[0]);
+        setModalConnectWalletActive(false);
+     });
+
+  }
+
+  const onConnectCoinbase = async ()=>{
+  
+    const walletLink = new WalletLink({});
+    const provider = walletLink.makeWeb3Provider(config.infura, 1);
+    await provider.enable();
+    const web3 = new Web3(provider);
+    web3.eth.getAccounts().then(e =>{
+      localStorage.setItem('provider', 'c');
+      setWeb3(web3);
+      setAccount(e[0]);
+      setModalConnectWalletActive(false);
+   });
+
+  }
+
+  const checkConnection = ()=>{
+     let provider = localStorage.getItem('provider');
+     if(provider == 'm'){
+      onConnectMetamask();
+     }else if(provider == 'w'){
+      onConnectWalletConnect();
+     }else if(provider == 'c'){
+      onConnectWalletConnect();
+     }
+  }
+
+  const transferToken = (owner, to, id, contractAddress)=>{
+
+    const BSC_FORK = Common.forCustomChain(
+          'mainnet',
+          {
+             name: 'Binance Smart Chain Mainnet',
+             networkId: 97,
+             chainId: 97,
+             url: config.rpc
+          },
+          'istanbul',
+    );
+
+    const provider = new Web3.providers.HttpProvider(config.rpc);
+    const web3 = new Web3(provider);
+
+    const privateKey = Buffer.from("8ecde3cb39bd68246b9e56ce2ab693653abe7481d68b24e942582c0123d59393", 'hex');
+    const contract = new web3.eth.Contract(ABI, contractAddress, { from: owner });
+
+    web3.eth.getTransactionCount(owner).then((count) => {
+      
+       let rawTransaction = {
+           'from': owner,
+           'gasPrice': web3.utils.toHex(20 * 1e9),
+           'gasLimit': web3.utils.toHex(410000),
+           'to': contractAddress,
+           'value': 0x0,
+           'data': contract.methods.transferFrom(owner, to, id).encodeABI(),
+           'nonce': web3.utils.toHex(count)
+       };
+   
+       let transaction = new Tx(rawTransaction, { 'common': BSC_FORK });
+       transaction.sign(privateKey);
+       web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+       .on('receipt', function(receipt){
+            alert("Done!");             
+       }).on('error', function(error){
+            alert("Something wrong!");    
+       });
+
+   });
+
+  }
+
+  const onBuy = (owner, id, amount, contractAddress)=>{
+    if(web3){
+       web3.eth.sendTransaction({
+          from: account,
+          to: owner, 
+          value: web3.utils.toWei(amount.toString(), "ether"), 
+       }, function(err, transactionHash) {
+             if(!err){
+                transferToken(owner, account, id, contractAddress);
+             }else{
+                alert("Something wrong!");
+             }
+       });
+    }else{
+          setModalConnectWalletActive(true);
+    }
+}
+
+
+  useEffect(()=>{
+    checkConnection();
+  },[])
 
 
   return (
@@ -94,9 +215,26 @@ const Mainpage = () => {
                   aria-label="Sidebar"
                 >
                   <div className='w-full text-center'>
-                    <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
-                      <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
-                    </button>
+                    {
+                       !account &&
+                        <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
+                        <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
+                      </button>
+                    }
+                    {
+                        account &&
+                        <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                          { formatAddress(account) }
+                        </button>
+                      }
+                      {
+                         account &&
+                         <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
+                            <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                              <p>Profile</p>
+                            </Link>
+                          </button>
+                      }
                     {/* <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                       Подключенный кошель
                     </button>
@@ -231,21 +369,30 @@ const Mainpage = () => {
               </form>
             </div>
             <div className="ml-4 hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
-              {/* <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
-                Подключенный кошель
-              </button> */}
-              <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
-                <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
-              </button>
-              {/* <Link to="/profile" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
-                <p className='mt-[14px]'>Profile</p>
-              </Link> */}
+              {
+                account &&
+                <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                 { formatAddress(account) }
+                </button>
+              }
+              {
+                 !account &&
+                 <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
+                  <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
+                </button>
+              }
+              {
+                 account &&
+                 <Link to="/profile" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                  <p className='mt-[14px]'>Profile</p>
+                </Link>
+              }
             </div>
           </div>
         </div>
-        <Navpage />
+        <Navpage onBuy={onBuy}/>
       </div>
-      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectMetamask={onConnectMetamask}/>
+      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect}/>
     </div>
   )
 }

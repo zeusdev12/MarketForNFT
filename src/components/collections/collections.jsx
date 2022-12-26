@@ -6,7 +6,7 @@ import { config } from "../../config";
 
 export const Collections = ({ onPay })=>{
 
-    const provider = new Web3.providers.HttpProvider(config.provider);
+    const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
     
     let collectionsHtml = web3 ? collections.map((collection, i)=>{
