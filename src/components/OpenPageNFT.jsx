@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from 'react-router-dom';
 import { Transition, Menu } from '@headlessui/react'
 import "./OpenPageNFT.css"
@@ -11,25 +11,17 @@ import { ABI } from "../contracts/nft";
 import { config } from "../config";
 import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
+import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
 
-const getTokenInfo =(contract, id)=>{
-    return new Promise((resolve, reject)=>{
-        contract.methods.tokenURI(id.toString()).call().then((uri)=>{
-            contract.methods.ownerOf(id.toString()).call().then((owner)=>{
-                resolve({ uri, owner, id });
-            });
-        });
-    });
-}
 
 const OpenPageNFT = () => {
 
     const params = useParams();
     const [collection, setCollection] = useState({});
     const [images, setImages] = useState([]);
-    const [attribures, setAttributes] = useState([]);
-    const [current, setCurrent] = useState();
+    const [current, setCurrent] = useState({});
     const [price, setPrice] = useState(0);
+    const [difference, setDifference] = useState('0');
 
     const provider = new Web3.providers.HttpProvider(config.provider);
     const web3 = new Web3(provider);
@@ -56,28 +48,23 @@ const OpenPageNFT = () => {
                     body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://","")}`;
                     body.owner = current.owner;
                     setCurrent(body);
-                    setAttributes(body.attributes);
                 });
             });
 
         });
+
         setCollection(currentCollection);
         setPrice(currentCollection.prices[parseInt(params.id)-1]);
+
+        getDifference().then((diff)=>{
+            setDifference(diff);
+        });
 
     },[]);
 
     const otherNft = images.map((nft, i)=>{
         return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
-    })
-
-    const attributesList = attribures.map((attr, i)=>{
-        return(
-            <div key={i}>
-                <p>{attr.trait_type}</p>
-                <p>{attr.value}</p>
-            </div>
-        )
-    })
+    });
 
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
@@ -94,10 +81,6 @@ const OpenPageNFT = () => {
                         <p className="mt-[30px] text-[#828383] text-base lg:text-lg font-gilroy font-semibold max-w-[560px]">
                             {collection.description}
                         </p>
-
-                        <div className="border-2 mt-[30px] border-[#3b3c3c] rounded-[15px] max-w-[560px] h-[60px]">
-                            <div className="flex px-[30px] justify-between items-center mt-[14px]">
-                                <p className="text-white font-gilroy text-lg">More Details</p>
 
                         <Menu as="div" className="relative mt-[30px]">
                             <div className="border-2 border-[#3b3c3c] rounded-[15px] w-[358px] lg:w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
@@ -118,11 +101,11 @@ const OpenPageNFT = () => {
                                         <div className="flex flex-col">
                                             <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Contract Address</p>
-                                                <p className="text-lg font-gilroy text-[#828383]">0xba3...623</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{formatAddress(collection.address)}</p>
                                             </div>
                                             <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Token ID</p>
-                                                <p className="text-lg font-gilroy text-[#828383]">3634</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{params.id}</p>
                                             </div>
                                             <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Token Standard</p>
@@ -130,7 +113,7 @@ const OpenPageNFT = () => {
                                             </div>
                                             <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
                                                 <p className="text-lg font-gilroy text-white">Owner</p>
-                                                <p className="text-lg font-gilroy text-[#828383]">0x907...C25</p>
+                                                <p className="text-lg font-gilroy text-[#828383]">{formatAddress(current.owner)}</p>
                                             </div>
                                         </div>
                                     </Menu.Items>
@@ -139,13 +122,11 @@ const OpenPageNFT = () => {
                         </Menu>
 
 
-
-
                         <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
                             <div className="flex flex-col lg:flex-row p-[30px]">
                                 <div className="flex flex-col">
                                     <div className="bg-[#beff55] w-[68px] h-[25px] text-center rounded-[29px]">
-                                        <p className="text-black font-gilroyMedium font-semibold text-sm mt-[2px]">+12.53%</p>
+                                        <p className="text-black font-gilroyMedium font-semibold text-sm mt-[2px]"> {difference} %</p>
                                     </div>
                                     <div>
                                         <p className="mt-[2px] text-[36px] font-gilroy font-semibold text-white tracking-wider">{price} ETH</p>
