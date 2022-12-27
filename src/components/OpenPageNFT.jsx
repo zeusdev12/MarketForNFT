@@ -148,11 +148,11 @@ const OpenPageNFT = ({ onBuy }) => {
                         </div>
                     </div>
                     <div className="lg:mr-5 3xl:mr-0">
-                        <div className="bg-[#1a1a19] w-[360px] h-[360px] xl:w-[560px] xl:h-[560px] rounded-[15px]">
+                        <div className="bg-[#1a1a19] w-[364px] h-[364px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
                             <div className="overflow-hidden relative px-[10px] py-[10px]">
                                 {
                                     current &&
-                                    <img src={current.url} className="w-[340px] h-[340px] xl:w-[540px] xl:h-[540px] rounded-[10px] object-cover object-center group-hover:opacity-75"></img>
+                                    <img src={current.url} className="w-[344px] h-[344px] 2xl:w-[540px] 2xl:h-[540px] rounded-[10px] object-cover object-center group-hover:opacity-75"></img>
                                 }
                                 <StatusTop className='absolute right-0 top-0 mt-[14px] mr-[14px] xl:mt-[17px] xl:mr-[17px]' />
                             </div>
