@@ -13,7 +13,6 @@ import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
 import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
 
-
 const OpenPageNFT = ({ onBuy }) => {
 
     const params = useParams();
@@ -28,7 +27,7 @@ const OpenPageNFT = ({ onBuy }) => {
 
     useEffect(() => {
 
-        const collection = collections.filter((c) => c.address == params.address)[0];
+        const collection = collections.filter((c)=> c.address == params.address )[0];
         const contract = new web3.eth.Contract(ABI, collection.address);
 
         contract.methods.totalSupply().call().then((total) => {
@@ -42,31 +41,32 @@ const OpenPageNFT = ({ onBuy }) => {
                 let current = result[parseInt(params.id) - 1];
                 let other = result.filter((nft) => { return nft.id != current.id; });
                 setImages(other);
-                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://", "")}`)
-                    .then((response) => response.json())
-                    .then((body) => {
-                        body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://", "")}`;
-                        body.owner = current.owner;
-                        setCurrent(body);
-                    });
+                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://","")}`)
+                .then((response) => response.json())
+                .then((body) =>{
+                    body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://","")}`;
+                    body.owner = current.owner;
+                    setCurrent(body);
+                });
             });
 
         });
 
         setCollection(collection);
-        setPrice(collection.prices[parseInt(params.id) - 1]);
+        setPrice(collection.prices[parseInt(params.id)-1]);
 
-        getDifference().then((diff) => {
+        getDifference().then((diff)=>{
             setDifference(diff);
         });
 
+
     }, []);
 
-    const onBuyClick = () => {
+    const onBuyClick = ()=>{
         onBuy(collection.ownerAddress, params.id, price, collection.address)
     }
 
-    const otherNft = images.map((nft, i) => {
+    const otherNft = images.map((nft, i)=>{
         return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
     });
 
