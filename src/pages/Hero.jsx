@@ -125,7 +125,7 @@ const Hero = () => {
                                         />
                                         <StatusLive className='absolute -mt-[246px] ml-[196px]' />
                                     </div>
-                                    <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
+                                    <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
                                     <div className='flex flex-row'>
                                         <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
                                         <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
@@ -144,7 +144,7 @@ const Hero = () => {
                                 </div>
                                 <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Mini Royale x Sank T...</h3>
                                 <div className='flex flex-row'>
-                                    <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
+                                    <p className="text-sm max-w-[250px] truncate font-gilroy text-[#beff55] uppercase pl-5">live</p>
                                     <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
                                 </div>
                             </div> */}
@@ -158,7 +158,7 @@ const Hero = () => {
                                     />
                                     <StatusTime className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">03h 16m 15s</p>
                             </div> */}
                             {/* card 4 */}
@@ -171,7 +171,7 @@ const Hero = () => {
                                     />
                                     <StatusTime className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">04h 16m 13s</p>
                             </div> */}
                         </div>
@@ -196,8 +196,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">KanpaiPanda</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -209,8 +209,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">KanpaiPanda</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -221,8 +221,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">RentHedz</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RentHedz</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -234,8 +234,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">Corn</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">Corn</p>
                             </div>
                         </div>
                     </div>
@@ -282,8 +282,8 @@ const Hero = () => {
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy text-white hover:text-[#beff55]'>BountyHunter</h3>
-                                        <p className="text-sm -mt-[2px] font-gilroy text-[#888989]">25 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
                                     </div>
                                 </div>
                             </div>
@@ -303,8 +303,8 @@ const Hero = () => {
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy text-white hover:text-[#beff55]'>MutantGobz</h3>
-                                        <p className="text-sm -mt-[2px] font-gilroy text-[#888989]">34 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>MutantGobz</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">34 Items</p>
                                     </div>
                                 </div>
                             </div>
@@ -324,8 +324,8 @@ const Hero = () => {
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy text-white hover:text-[#beff55]'>LazyApeYachtClub</h3>
-                                        <p className="text-sm -mt-[2px] font-gilroy text-[#888989]">42 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>LazyApeYachtClub</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">42 Items</p>
                                     </div>
                                 </div>
                             </div>
@@ -351,8 +351,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -363,8 +363,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -376,8 +376,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -389,8 +389,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                         </div>
                     </div>
@@ -417,8 +417,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -429,8 +429,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -441,8 +441,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -454,8 +454,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                         </div>
                     </div>
@@ -480,8 +480,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -492,8 +492,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">CHAINBREAKER</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">CHAINBREAKER</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -505,8 +505,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Ukiyan #1115</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">Ukiyan</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">Ukiyan #1115</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">Ukiyan</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -517,8 +517,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">MutantGobz</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">MutantGobz</p>
                             </div>
                         </div>
                     </div>
@@ -538,9 +538,9 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <div className='flex'>
-                                    <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
+                                    <p className="text-sm max-w-[190px] truncate font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
                                         <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>2897</p>
@@ -556,9 +556,9 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
                                 <div className='flex'>
-                                    <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
+                                    <p className="text-sm max-w-[190px] truncate font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
                                         <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5325</p>
@@ -574,9 +574,9 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
                                 <div className='flex'>
-                                    <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
+                                    <p className="text-sm font-gilroy max-w-[190px] truncate  text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
                                         <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>5435</p>
@@ -592,9 +592,9 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
                                 <div className='flex'>
-                                    <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
+                                    <p className="text-sm font-gilroy max-w-[190px] truncate text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
                                         <Views className='mt-[3px]' />
                                         <p className='text-sm font-gilroy text-white ml-1'>1545</p>
@@ -619,8 +619,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BountyHunter #1340</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">BountyHunter</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BountyHunter #1340</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">BountyHunter</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -631,8 +631,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -643,8 +643,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -656,8 +656,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #9138</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #9138</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
                             </div>
                         </div>
                     </div>
@@ -676,8 +676,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">The Sports Club - League Master</p>
+                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
+                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">The Sports Club - League Master</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -688,8 +688,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -700,8 +700,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -712,8 +712,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                         </div>
                     </div>
@@ -740,8 +740,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -753,8 +753,8 @@ const Hero = () => {
                                     />
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -765,8 +765,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">RentHedz</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">RentHedz</p>
                             </div>
                             {/* card 4 */}
                             <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
@@ -777,8 +777,8 @@ const Hero = () => {
                                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
-                                <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">Corn</p>
+                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">Corn</p>
                             </div>
                         </div>
                     </div>

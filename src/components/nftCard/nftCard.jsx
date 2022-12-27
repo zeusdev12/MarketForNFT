@@ -24,8 +24,8 @@ export const NftCard = ({ ipfs, address, id })=>{
                         className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                     />
                 </div>
-                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">{data.name}</h3>
-                <p className="text-sm font-gilroy text-[#888989] px-5">{data.description}</p>
+                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] max-w-[250px] truncate px-5">{data.name}</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">{data.description}</p>
              </a>
         </div>
     )
