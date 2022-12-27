@@ -26,47 +26,47 @@ const OpenPageNFT = ({ onBuy }) => {
     const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const collection = collections.filter((c)=> c.address == params.address )[0];
+        const collection = collections.filter((c) => c.address == params.address)[0];
         const contract = new web3.eth.Contract(ABI, collection.address);
 
-        contract.methods.totalSupply().call().then((total)=>{
+        contract.methods.totalSupply().call().then((total) => {
 
             let tasks = [];
-            for(let i = 1; i <= parseInt(total); i++){
+            for (let i = 1; i <= parseInt(total); i++) {
                 tasks.push(getTokenInfo(contract, i));
             }
 
-            Promise.all(tasks).then((result)=>{
-                let current = result[parseInt(params.id)-1];
-                let other = result.filter((nft)=>{ return nft.id != current.id; });
+            Promise.all(tasks).then((result) => {
+                let current = result[parseInt(params.id) - 1];
+                let other = result.filter((nft) => { return nft.id != current.id; });
                 setImages(other);
-                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://","")}`)
-                .then((response) => response.json())
-                .then((body) =>{
-                    body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://","")}`;
-                    body.owner = current.owner;
-                    setCurrent(body);
-                });
+                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://", "")}`)
+                    .then((response) => response.json())
+                    .then((body) => {
+                        body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://", "")}`;
+                        body.owner = current.owner;
+                        setCurrent(body);
+                    });
             });
 
         });
 
         setCollection(collection);
-        setPrice(collection.prices[parseInt(params.id)-1]);
+        setPrice(collection.prices[parseInt(params.id) - 1]);
 
-        getDifference().then((diff)=>{
+        getDifference().then((diff) => {
             setDifference(diff);
         });
 
-    },[]);
+    }, []);
 
-    const onBuyClick = ()=>{
+    const onBuyClick = () => {
         onBuy(collection.ownerAddress, params.id, price, collection.address)
     }
 
-    const otherNft = images.map((nft, i)=>{
+    const otherNft = images.map((nft, i) => {
         return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
     });
 
@@ -74,7 +74,7 @@ const OpenPageNFT = ({ onBuy }) => {
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
             <div className='mt-[140px] lg:mt-[208px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
                 {/* Header section */}
-                <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-1 overflow-hidden items-center lg:items-start px-4 lg:px-0">
+                <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
                     <div className="flex flex-col">
                         <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{collection.date}</p>
                         <p className="mt-[30px] text-white text-[36px] lg:text-[62px] font-gilroy font-semibold leading-[40px] lg:leading-[65px]">{collection.name}</p>
@@ -87,10 +87,10 @@ const OpenPageNFT = ({ onBuy }) => {
                         </p>
 
                         <Menu as="div" className="relative mt-[30px]">
-                            <div className="border-2 border-[#3b3c3c] rounded-[15px] w-[358px] lg:w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
-                                <Menu.Button className="flex w-[296px] lg:w-[497px] justify-between items-center h-[60px]">
-                                    <p className="text-lg font-gilroy text-white">More Details</p>
-                                    <ArrowDown />
+                            <div className="flex flex-col border-2 border-[#3b3c3c] rounded-[15px] max-w-[560px] lg:max-w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
+                                <Menu.Button className="flex flex-row max-w-[560px] lg:max-w-[497px] justify-between items-center h-[60px]">
+                                        <p className="text-lg font-gilroy text-white">More Details</p>
+                                        <ArrowDown />
                                 </Menu.Button>
                                 <Transition
                                     as={Fragment}
@@ -103,19 +103,19 @@ const OpenPageNFT = ({ onBuy }) => {
                                 >
                                     <Menu.Items>
                                         <div className="flex flex-col">
-                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                            <div className="flex flex-row mt-3 justify-between max-w-[560px] lg:max-w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Contract Address</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">{formatAddress(collection.address)}</p>
                                             </div>
-                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                            <div className="flex flex-row mt-3 justify-between max-w-[560px] lg:max-w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Token ID</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">{params.id}</p>
                                             </div>
-                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px]">
+                                            <div className="flex flex-row mt-3 justify-between max-w-[560px] lg:max-w-[497px]">
                                                 <p className="text-lg font-gilroy text-white">Token Standard</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">ERC721</p>
                                             </div>
-                                            <div className="flex flex-row mt-3 justify-between w-[296px] lg:w-[497px] pb-4 lg:pb-[40px]">
+                                            <div className="flex flex-row mt-3 justify-between max-w-[560px] lg:max-w-[497px] pb-4 lg:pb-[40px]">
                                                 <p className="text-lg font-gilroy text-white">Owner</p>
                                                 <p className="text-lg font-gilroy text-[#828383]">{formatAddress(current.owner)}</p>
                                             </div>
@@ -126,9 +126,9 @@ const OpenPageNFT = ({ onBuy }) => {
                         </Menu>
 
 
-                        <div className="mt-[40px] h-[184px] max-w-[560px] lg:w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-center">
-                            <div className="flex flex-col lg:flex-row p-[30px]">
-                                <div className="flex flex-col">
+                        <div className="mt-[40px] h-[184px] max-w-[560px] lg:max-w-[560px] lg:h-[131px] rounded-[15px] bg-[#181818] justify-between">
+                            <div className="flex flex-col lg:flex-row p-[30px] lg:max-w-[560px] justify-between">
+                                <div className="grid">
                                     <div className="bg-[#beff55] w-[68px] h-[25px] text-center rounded-[29px]">
                                         <p className="text-black font-gilroyMedium font-semibold text-sm mt-[2px]"> {difference} %</p>
                                     </div>
@@ -138,23 +138,24 @@ const OpenPageNFT = ({ onBuy }) => {
                                 </div>
                                 {
                                     collection && current && collection.ownerAddress == current.owner &&
-                                    <button onClick={onBuyClick} className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Buy Now</button>
+                                    <button onClick={onBuyClick} className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2'>Buy Now</button>
                                 }
                                 {
                                     collection && current && collection.ownerAddress != current.owner &&
-                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2 lg:ml-[66px]'>Sold</button>
+                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2'>Sold</button>
                                 }
-                                
                             </div>
                         </div>
                     </div>
-                    <div className="lg:mr-5">
-                        <div className="overflow-hidden relative">
-                            {
-                                current &&
-                                <img src={current.url} className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"></img>
-                            }
-                            <StatusTop className='absolute right-0 top-0 mt-3 mr-3 sm:mt-5 sm:mr-5 lg:mt-4 lg:mr-4 xl:mt-[17px] xl:mr-[17px]' />
+                    <div className="lg:mr-5 3xl:mr-0">
+                        <div className="bg-[#1a1a19] w-[360px] h-[360px] xl:w-[560px] xl:h-[560px] rounded-[15px]">
+                            <div className="overflow-hidden relative px-[10px] py-[10px]">
+                                {
+                                    current &&
+                                    <img src={current.url} className="w-[340px] h-[340px] xl:w-[540px] xl:h-[540px] rounded-[10px] object-cover object-center group-hover:opacity-75"></img>
+                                }
+                                <StatusTop className='absolute right-0 top-0 mt-[14px] mr-[14px] xl:mt-[17px] xl:mr-[17px]' />
+                            </div>
                         </div>
                     </div>
                 </div>

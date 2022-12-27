@@ -19,7 +19,7 @@ export const Image = ({ ipfs })=>{
             {
                 data &&
                 <div>
-                    <img src={data.url}  className="h-full w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"></img>
+                    <img src={data.url}  className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"></img>
                 </div>
             }
         </div>

@@ -115,17 +115,17 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
                             <Collections></Collections>
-                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <Link to="/OpenPageNFT">
-                                    <div className="overflow-hidden relative">
+                                    <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                         <img
                                             src={Section1Card1}
                                             alt="/"
-                                            className="h-full rounded-[10px] w-full object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                            className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                         />
-                                        <StatusLive className='absolute -mt-[256px] ml-[206px]' />
+                                        <StatusLive className='absolute -mt-[246px] ml-[196px]' />
                                     </div>
-                                    <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
+                                    <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Cheddar Block Games</h3>
                                     <div className='flex flex-row'>
                                         <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
                                         <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
@@ -133,45 +133,45 @@ const Hero = () => {
                                 </Link>
                             </div> */}
                             {/* card 2 */}
-                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section1Card2}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusLive className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusLive className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Mini Royale x Sank T...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Mini Royale x Sank T...</h3>
                                 <div className='flex flex-row'>
                                     <p className="text-sm font-gilroy text-[#beff55] uppercase pl-5">live</p>
                                     <button className='w-1 h-1 bg-[#beff55] rounded-full mt-2 ml-[5px]'></button>
                                 </div>
                             </div> */}
                             {/* card 3 */}
-                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section1Card3}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTime className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTime className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">03h 16m 15s</p>
                             </div> */}
                             {/* card 4 */}
-                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section1Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTime className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTime className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-white px-5">04h 16m 13s</p>
                             </div> */}
                         </div>
@@ -188,53 +188,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card1}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card2}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card3}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">RentHedz</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card4}
                                         alt="/"
-                                        className="h-full w-full rounded-[10px] object-cover object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">Corn</p>
                             </div>
                         </div>
@@ -343,53 +343,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                         </div>
@@ -408,53 +408,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                         </div>
@@ -471,53 +471,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">CHAINBREAKER</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Ukiyan #1115</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Ukiyan #1115</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">Ukiyan</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">MutantGobz</p>
                             </div>
                         </div>
@@ -529,16 +529,16 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
@@ -548,15 +548,15 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
@@ -566,15 +566,15 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
@@ -584,15 +584,15 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
                                 <div className='flex'>
                                     <p className="text-sm font-gilroy text-[#888989] px-5">RebelBot</p>
                                     <div className='flex'>
@@ -610,53 +610,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">BountyHunter #1340</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">BountyHunter #1340</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">BountyHunter</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #9138</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RENGA #9138</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">RENGA</p>
                             </div>
                         </div>
@@ -668,51 +668,51 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">The Sports Club - League Master</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                         </div>
@@ -731,53 +731,53 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card1}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-xl font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card2}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
-                                    <StatusTop className='absolute -mt-[256px] ml-[206px]' />
+                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card3}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">RentHedz</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[344px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative">
+                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card4}
                                         alt="/"
-                                        className="h-full w-full object-cover rounded-[10px] object-center group-hover:opacity-75 px-[10px] py-[10px]"
+                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-2 text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
+                                <h3 className="mt-[12px] text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
                                 <p className="text-sm font-gilroy text-[#888989] px-5 uppercase">Corn</p>
                             </div>
                         </div>
