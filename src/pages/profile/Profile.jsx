@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { ReactComponent as ProfileImage } from "../../assets/icons/profile.svg"
 import Footer from "../../components/Footer"
 import { ReactComponent as Copy } from "../../assets/copy.svg"
+import { ReactComponent as Vector } from "../../assets/icons/Deposit/vector.svg"
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Darknes2 from "../../assets/darknes2.png"
 import { ReactComponent as ArrowDown } from "../../assets/arrowdown.svg"
@@ -14,28 +15,6 @@ import Section4Card1 from "../../assets/cards/section4card1.png"
 import Section4Card2 from "../../assets/cards/section4card2.png"
 import Section4Card3 from "../../assets/cards/section4card3.png"
 import Section4Card4 from "../../assets/cards/section4card4.png"
-
-const transactions = [
-    {
-        id: 'AAPS0L',
-        company: 'Chase & Co.',
-        share: 'CAC',
-        commission: '+$4.37',
-        price: '$3,509.00',
-        quantity: '12.00',
-        netAmount: '$4,397.00',
-    },
-    {
-        id: '43223',
-        company: 'Chase & Co.',
-        share: '23423423',
-        commission: '4324324',
-        price: '$3,509.00',
-        quantity: '12432432',
-        netAmount: '$4,3973333.00',
-    },
-    // More transactions...
-]
 
 const Profile = () => {
     const [inputValue, setInputValue] = useState("");
@@ -128,7 +107,7 @@ const Profile = () => {
                 </div>
             </div>
             {/* my items section */}
-            <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
+            <div className="relative z-30 mt-[80px] lg:mt-[105px] pl-5 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
                 <div className='flex flex-col md:flex-row justify-between'>
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>My Items</p>
                     <form className="flex mt-3 mr-5 2xl:mr-0" action="#" method="GET">
@@ -149,7 +128,7 @@ const Profile = () => {
                 <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                     <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.65rem]'>
                         {/* card 1 */}
-                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[369px] rounded-[15px] cursor-pointer'>
                             <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                 <img
                                     src={Section4Card1}
@@ -159,9 +138,13 @@ const Profile = () => {
                             </div>
                             <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
                             <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
+                            <div className="flex flex-row justify-end">
+                                <Vector className="mr-3 mt-[9px]"/>
+                                <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                            </div>
                         </div>
                         {/* card 2 */}
-                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[369px] rounded-[15px] cursor-pointer'>
                             <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                 <img
                                     src={Section4Card2}
@@ -171,9 +154,13 @@ const Profile = () => {
                             </div>
                             <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
                             <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
+                            <div className="flex flex-row justify-end">
+                                <Vector className="mr-3 mt-[9px]"/>
+                                <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                            </div>
                         </div>
                         {/* card 3 */}
-                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[369px] rounded-[15px] cursor-pointer'>
                             <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                 <img
                                     src={Section4Card3}
@@ -183,9 +170,13 @@ const Profile = () => {
                             </div>
                             <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
                             <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
+                            <div className="flex flex-row justify-end">
+                                <Vector className="mr-3 mt-[9px]"/>
+                                <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                            </div>
                         </div>
                         {/* card 4 */}
-                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                        <div className='inline-block bg-[#1a1a19] w-[260px] h-[369px] rounded-[15px] cursor-pointer'>
                             <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                 <img
                                     src={Section4Card4}
@@ -195,6 +186,10 @@ const Profile = () => {
                             </div>
                             <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
                             <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
+                            <div className="flex flex-row justify-end">
+                                <Vector className="mr-3 mt-[9px]"/>
+                                <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,25 +213,25 @@ const Profile = () => {
                 <div className="w-full mt-[36px] lg:mt-[45px] space-y-1.5 max-h-max border-2 border-[#303d1b] rounded-[15px] px-[10px] py-[10px]">
                     <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Crypto</p>
-                        <p className="text-[#888888] text-[16px] font-gilroy uppercase whitespace-nowrap text-right pr-[93px]">Amount</p>
-                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">Convert Amount</p>
-                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">Status</p>
+                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">Amount</p>
+                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Convert Amount</p>
+                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Status</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Reason</p>
                     </div>
                     {/* successful transaction */}
                     <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Ethereum</p>
-                        <p className="text-white text-[16px] font-gilroy uppercase whitespace-nowrap text-right pr-[93px]">0.50 ETH</p>
-                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">500 USD</p>
-                        <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">Completed</p>
+                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">0.50 ETH</p>
+                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p>
+                        <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Completed</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Inputting funds</p>
                     </div>
                     {/* unsuccessful transaction */}
                     <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Tether USDT</p>
-                        <p className="text-white text-[16px] font-gilroy uppercase whitespace-nowrap text-right pr-[93px]">1000 USDT</p>
-                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">1000 USD</p>
-                        <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right px-[93px]">Cancelled</p>
+                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">1000 USDT</p>
+                        <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">1000 USD</p>
+                        <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Cancelled</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Inputting funds</p>
                     </div>
                 </div>
