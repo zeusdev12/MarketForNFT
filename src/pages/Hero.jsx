@@ -10,7 +10,6 @@ import { ReactComponent as StatusTime } from "../assets/statustime.svg"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg"
 import { ReactComponent as Validate } from '../assets/validate.svg'
 import { ReactComponent as Views } from '../assets/views.svg'
-// import { ReactComponent as Darknes } from '../assets/darknes.svg'
 import Darknes from '../assets/darknes.png'
 
 import Section1Card1 from "../assets/cards/section1card1.png"

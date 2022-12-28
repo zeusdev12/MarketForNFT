@@ -368,7 +368,7 @@ const Mainpage = () => {
                 </div>
               </form>
             </div>
-            <div className="ml-4 hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
+            <div className="hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
               {
                 account &&
                 <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
@@ -383,7 +383,7 @@ const Mainpage = () => {
               }
               {
                  account &&
-                 <Link to="/profile" className='w-[154px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                 <Link to="/profile" className='relative w-[111px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
                   <p className='mt-[14px]'>Profile</p>
                 </Link>
               }
