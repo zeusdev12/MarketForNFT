@@ -55,6 +55,18 @@ const Mainpage = () => {
 
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
+  const [balance, setBalance] = useState(0);
+
+  const getBalance = (web3 , account) =>{
+    web3.eth.getBalance(account).then((balance)=>{
+      setBalance(parseFloat(web3.utils.fromWei(balance.toString(), "ether")).toFixed(2));
+    });
+  }
+
+  const onSignOut = ()=>{
+    localStorage.removeItem('provider');
+    window.location.href = '/';
+  }
 
   const onConnectMetamask = async () => {
 
@@ -63,9 +75,11 @@ const Mainpage = () => {
       await window.ethereum.enable();
       web3.eth.getAccounts().then((e) => {
         localStorage.setItem('provider', 'm');
+        let account = e[0];
         setWeb3(web3);
-        setAccount(e[0]);
+        setAccount(account);
         setModalConnectWalletActive(false);
+        getBalance(web3, account);
       });
     } else {
       alert("Please install metamask extension")
@@ -79,10 +93,12 @@ const Mainpage = () => {
     await provider.enable();
     const web3 = await new Web3(provider);
     web3.eth.getAccounts().then(e => {
-      localStorage.setItem('provider', 'w');
-      setWeb3(web3);
-      setAccount(e[0]);
-      setModalConnectWalletActive(false);
+        localStorage.setItem('provider', 'w');
+        let account = e[0];
+        setWeb3(web3);
+        setAccount(account);
+        setModalConnectWalletActive(false);
+        getBalance(web3, account);
     });
 
   }
@@ -95,9 +111,11 @@ const Mainpage = () => {
     const web3 = new Web3(provider);
     web3.eth.getAccounts().then(e => {
       localStorage.setItem('provider', 'c');
-      setWeb3(web3);
-      setAccount(e[0]);
-      setModalConnectWalletActive(false);
+        let account = e[0];
+        setWeb3(web3);
+        setAccount(account);
+        setModalConnectWalletActive(false);
+        getBalance(web3, account);
     });
 
   }
@@ -255,20 +273,22 @@ const Mainpage = () => {
                                     <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
                                     <Copy className='w-[18px] h-[18px] ml-1' />
                                   </div>
-                                  <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                                  <p className='text-[16px] text-white font-gilroyMedium'>{balance}</p>
                                 </div>
                               </div>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5">
-                              <div className='flex flex-row'>
-                                <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
-                                <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
-                              </div>
+                              <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                                <div className='flex flex-row'>
+                                  <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                                  <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                                </div>
+                              </Link>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
-                              <div className='flex flex-row'>
+                              <div className='flex flex-row' onClick={onSignOut}>
                                 <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                                 <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                               </div>
@@ -454,20 +474,22 @@ const Mainpage = () => {
                               <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
                               <Copy className='w-[18px] h-[18px] ml-1' />
                             </div>
-                            <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                            <p className='text-[16px] text-white font-gilroyMedium'>{balance}</p>
                           </div>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5">
-                        <div className='flex flex-row'>
-                          <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
-                          <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
-                        </div>
+                        <Link to="/profile" className='relative w-[111px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
+                          <div className='flex flex-row'>
+                            <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                            <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                          </div>
+                        </Link>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
-                        <div className='flex flex-row'>
+                        <div className='flex flex-row'  onClick={onSignOut}>
                           <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                         </div>
@@ -499,7 +521,7 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
-        <Navpage onBuy={onBuy} />
+        <Navpage onBuy={onBuy} web3={web3} account={account} balance={balance}/>
       </div>
       <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect} />
     </div>
