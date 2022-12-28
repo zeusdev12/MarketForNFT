@@ -8,12 +8,14 @@ import { ReactComponent as ArrowDown } from "../../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../../assets/search.svg";
 import "./Profile.css"
 import ModalUserSettings from "./ModalUserSettings"
-import ModalDeposit from "./ModalDeposit"
 import ModalDepositQr from "./ModalDepositQr"
 import { collections } from "../../data";
 import { ABI } from "../../contracts/nft";
 import { getTokenInfo } from "../../contracts/utils";
 import NftMy from "../../components/nftMy/nftMy";
+import axios from 'axios';
+import { config } from "../../config";
+
 
 const Profile = ({web3, account, balance }) => {
 
@@ -24,6 +26,7 @@ const Profile = ({web3, account, balance }) => {
     const [items, setItems] = useState(0);
     const [images, setImages] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [profile, setProfile] = useState({});
 
     const onSearchTextChange = (e)=>{
         setSearchText(e.target.value);
@@ -43,7 +46,7 @@ const Profile = ({web3, account, balance }) => {
                     }
                     Promise.all(tasks).then((result) => {
                          let my = [];
-                         let itemsPrice = 0.
+                         let itemsPrice = 0;
                          result.forEach((nft)=>{
                             if(nft.owner === account){
                                 nft.price = prices[nft.id-1];
@@ -61,10 +64,20 @@ const Profile = ({web3, account, balance }) => {
         });
     }
 
-    useEffect(()=>{
-        collections.forEach((collection)=>{
-            getContractInfo(collection.address, collection.prices);
+    const getProfile = ()=>{
+        axios.get(`${config.api}/users/user-profile?address=${account}`)
+        .then((response)=>{
+            setProfile(response.data);
         });
+    }
+
+    useEffect(()=>{
+        if(account && web3){
+            getProfile();
+            collections.forEach((collection)=>{
+                getContractInfo(collection.address, collection.prices);
+            });
+        }
     },[web3, account]);
 
     const myColections = images.length ? images.map((myColection, index)=>{
@@ -96,7 +109,7 @@ const Profile = ({web3, account, balance }) => {
                                 Edit Profile
                             </button>
                         </div>
-                        <p className="flex flex-wrap text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">Unknown name</p>
+                        <p className="flex flex-wrap text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">{profile.name}</p>
                         <div className="flex flex-row items-center gap-1 mt-[3px]">
                             <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px]"
                                 value={inputValue}>
@@ -243,7 +256,11 @@ const Profile = ({web3, account, balance }) => {
                     <Footer />
                 </div>
             </div>
-            <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} />
+            {
+                modalUserSettingsActive &&
+                <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} account={account} getProfile={getProfile}/>
+            }
+       
             <ModalDepositQr active={modalDepositActive} setActive={setModalDepositActive} account={account}/>
         </div>
     )

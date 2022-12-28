@@ -279,7 +279,7 @@ const Mainpage = () => {
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5">
-                              <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                              <Link to="/profile" className='text-black text-center text-[18px] font-gilroy font-semibold'>
                                 <div className='flex flex-row'>
                                   <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                                   <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
