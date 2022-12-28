@@ -4,13 +4,20 @@ import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Transition, Menu } from '@headlessui/react';
 import Web3 from 'web3';
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import WalletLink from 'walletlink'
+import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
+import { ReactComponent as Copy } from "../assets/copy.svg"
 import { formatAddress } from '../contracts/utils';
 import { config } from '../config';
 import { ABI } from '../contracts/nft';
+
+import { ReactComponent as Icon11 } from "../assets/MenuWallet/icon1.svg"
+import { ReactComponent as Icon12 } from "../assets/MenuWallet/icon2.svg"
+import { ReactComponent as Icon13 } from "../assets/MenuWallet/icon3.svg"
+import { ReactComponent as Icon14 } from "../assets/MenuWallet/icon4.svg"
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
 import { ReactComponent as LogoMini } from "../assets/logomini.svg"
@@ -49,74 +56,74 @@ const Mainpage = () => {
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
 
-  const onConnectMetamask = async ()=>{
+  const onConnectMetamask = async () => {
 
-    if(window.ethereum){
-      const web3 =  new Web3(window.ethereum);
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
       await window.ethereum.enable();
-      web3.eth.getAccounts().then((e) =>{
+      web3.eth.getAccounts().then((e) => {
         localStorage.setItem('provider', 'm');
         setWeb3(web3);
         setAccount(e[0]);
         setModalConnectWalletActive(false);
       });
-    }else{
-       alert("Please install metamask extension")
+    } else {
+      alert("Please install metamask extension")
     }
 
   }
 
-  const onConnectWalletConnect = async ()=>{
+  const onConnectWalletConnect = async () => {
 
-    const provider =  await new WalletConnectProvider({infuraId: config.infura});
+    const provider = await new WalletConnectProvider({ infuraId: config.infura });
     await provider.enable();
     const web3 = await new Web3(provider);
-    web3.eth.getAccounts().then(e =>{
-        localStorage.setItem('provider', 'w');
-        setWeb3(web3);
-        setAccount(e[0]);
-        setModalConnectWalletActive(false);
-     });
+    web3.eth.getAccounts().then(e => {
+      localStorage.setItem('provider', 'w');
+      setWeb3(web3);
+      setAccount(e[0]);
+      setModalConnectWalletActive(false);
+    });
 
   }
 
-  const onConnectCoinbase = async ()=>{
-  
+  const onConnectCoinbase = async () => {
+
     const walletLink = new WalletLink({});
     const provider = walletLink.makeWeb3Provider(config.infura, 1);
     await provider.enable();
     const web3 = new Web3(provider);
-    web3.eth.getAccounts().then(e =>{
+    web3.eth.getAccounts().then(e => {
       localStorage.setItem('provider', 'c');
       setWeb3(web3);
       setAccount(e[0]);
       setModalConnectWalletActive(false);
-   });
+    });
 
   }
 
-  const checkConnection = ()=>{
-     let provider = localStorage.getItem('provider');
-     if(provider == 'm'){
+  const checkConnection = () => {
+    let provider = localStorage.getItem('provider');
+    if (provider == 'm') {
       onConnectMetamask();
-     }else if(provider == 'w'){
+    } else if (provider == 'w') {
       onConnectWalletConnect();
-     }else if(provider == 'c'){
+    } else if (provider == 'c') {
       onConnectWalletConnect();
-     }
+    }
   }
 
-  const transferToken = (owner, to, id, contractAddress)=>{
+  const transferToken = (owner, to, id, contractAddress) => {
 
     const BSC_FORK = Common.forCustomChain(
-          'mainnet',
-          {
-             name: 'Binance Smart Chain Mainnet',
-             networkId: 97,
-             chainId: 97,
-             url: config.rpc
-          },
-          'istanbul',
+      'mainnet',
+      {
+        name: 'Binance Smart Chain Mainnet',
+        networkId: 97,
+        chainId: 97,
+        url: config.rpc
+      },
+      'istanbul',
     );
 
     const provider = new Web3.providers.HttpProvider(config.rpc);
@@ -126,52 +133,52 @@ const Mainpage = () => {
     const contract = new web3.eth.Contract(ABI, contractAddress, { from: owner });
 
     web3.eth.getTransactionCount(owner).then((count) => {
-      
-       let rawTransaction = {
-           'from': owner,
-           'gasPrice': web3.utils.toHex(20 * 1e9),
-           'gasLimit': web3.utils.toHex(410000),
-           'to': contractAddress,
-           'value': 0x0,
-           'data': contract.methods.transferFrom(owner, to, id).encodeABI(),
-           'nonce': web3.utils.toHex(count)
-       };
-   
-       let transaction = new Tx(rawTransaction, { 'common': BSC_FORK });
-       transaction.sign(privateKey);
-       web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
-       .on('receipt', function(receipt){
-            alert("Done!");             
-       }).on('error', function(error){
-            alert("Something wrong!");    
-       });
 
-   });
+      let rawTransaction = {
+        'from': owner,
+        'gasPrice': web3.utils.toHex(20 * 1e9),
+        'gasLimit': web3.utils.toHex(410000),
+        'to': contractAddress,
+        'value': 0x0,
+        'data': contract.methods.transferFrom(owner, to, id).encodeABI(),
+        'nonce': web3.utils.toHex(count)
+      };
+
+      let transaction = new Tx(rawTransaction, { 'common': BSC_FORK });
+      transaction.sign(privateKey);
+      web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+        .on('receipt', function (receipt) {
+          alert("Done!");
+        }).on('error', function (error) {
+          alert("Something wrong!");
+        });
+
+    });
 
   }
 
-  const onBuy = (owner, id, amount, contractAddress)=>{
-    if(web3){
-       web3.eth.sendTransaction({
-          from: account,
-          to: owner, 
-          value: web3.utils.toWei(amount.toString(), "ether"), 
-       }, function(err, transactionHash) {
-             if(!err){
-                transferToken(owner, account, id, contractAddress);
-             }else{
-                alert("Something wrong!");
-             }
-       });
-    }else{
-          setModalConnectWalletActive(true);
+  const onBuy = (owner, id, amount, contractAddress) => {
+    if (web3) {
+      web3.eth.sendTransaction({
+        from: account,
+        to: owner,
+        value: web3.utils.toWei(amount.toString(), "ether"),
+      }, function (err, transactionHash) {
+        if (!err) {
+          transferToken(owner, account, id, contractAddress);
+        } else {
+          alert("Something wrong!");
+        }
+      });
+    } else {
+      setModalConnectWalletActive(true);
     }
-}
+  }
 
 
-  useEffect(()=>{
+  useEffect(() => {
     checkConnection();
-  },[])
+  }, [])
 
 
   return (
@@ -214,27 +221,78 @@ const Mainpage = () => {
                   className="mt-[40px] h-full overflow-scroll"
                   aria-label="Sidebar"
                 >
-                  <div className='w-full text-center'>
+                  <div className='w-full text-center mx-auto'>
                     {
-                       !account &&
-                        <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
+                      !account &&
+                      <button className='relative w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
                         <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
                       </button>
                     }
                     {
-                        account &&
-                        <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
-                          { formatAddress(account) }
-                        </button>
-                      }
-                      {
-                         account &&
-                         <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
-                            <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
-                              <p>Profile</p>
-                            </Link>
-                          </button>
-                      }
+                      account &&
+                      <Menu as="div" className="relative ml-3">
+                          <div className='w-full flex flex-row items-center text-center justify-center'>
+                            <Menu.Button className='flex flex-row text-center justify-center items-center w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                              {formatAddress(account)}
+                              <ArrowDown className='ml-2.5' />
+                            </Menu.Button>
+                          </div>
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <Menu.Items className="absolute z-10 mt-2 w-[281px] h-[350px] ml-14 rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
+                            <div className="pl-[40px] mt-[35px] -ml-[4px]">
+                              <div className='flex flex-row'>
+                                <Icon11 className="mr-[14px] h-[50px] w-[50px] -mt-[1px] flex-shrink-0" aria-hidden="true" />
+                                <div className='flex flex-col'>
+                                  <div className='flex flex-row'>
+                                    <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
+                                    <Copy className='w-[18px] h-[18px] ml-1' />
+                                  </div>
+                                  <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                                </div>
+                              </div>
+                              <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                            </div>
+                            <div className="space-y-1 pl-[40px] mt-5">
+                              <div className='flex flex-row'>
+                                <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                                <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                              </div>
+                              <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                            </div>
+                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
+                              <div className='flex flex-row'>
+                                <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
+                                <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
+                              </div>
+                              <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                            </div>
+                            <div className="space-y-1 pl-[40px] mt-5">
+                              <div className='flex flex-row'>
+                                <Icon14 className="mr-[14px] -mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                                <p className='text-[18px] text-white font-gilroyMedium'>Other wallet</p>
+                              </div>
+                              <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                            </div>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    }
+                    {
+                      account &&
+                      <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
+                        <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                          <p>Profile</p>
+                        </Link>
+                      </button>
+                    }
                     {/* <button className='w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                       Подключенный кошель
                     </button>
@@ -371,28 +429,79 @@ const Mainpage = () => {
             <div className="hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
               {
                 account &&
-                <button className='w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
-                 { formatAddress(account) }
-                </button>
-              } 
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className='flex flex-row text-center justify-center items-center w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                      {formatAddress(account)}
+                      <ArrowDown className='ml-2.5' />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-[281px] h-[350px] origin-top-right rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
+                      <div className="pl-[40px] mt-[35px] -ml-[4px]">
+                        <div className='flex flex-row'>
+                          <Icon11 className="mr-[14px] h-[50px] w-[50px] -mt-[1px] flex-shrink-0" aria-hidden="true" />
+                          <div className='flex flex-col'>
+                            <div className='flex flex-row'>
+                              <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
+                              <Copy className='w-[18px] h-[18px] ml-1' />
+                            </div>
+                            <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                          </div>
+                        </div>
+                        <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-1 pl-[40px] mt-5">
+                        <div className='flex flex-row'>
+                          <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                          <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                        </div>
+                        <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
+                        <div className='flex flex-row'>
+                          <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
+                          <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
+                        </div>
+                        <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-1 pl-[40px] mt-5">
+                        <div className='flex flex-row'>
+                          <Icon14 className="mr-[14px] -mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                          <p className='text-[18px] text-white font-gilroyMedium'>Other wallet</p>
+                        </div>
+                        <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              }
               {
-                 !account &&
-                 <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
+                !account &&
+                <button className='relative w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold -mt-[1px] before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden' onClick={() => setModalConnectWalletActive(true)}>
                   <p onClick={() => setSidebarOpen(false)}>Connect Wallet</p>
                 </button>
               }
               {
-                 account &&
-                 <Link to="/profile" className='relative w-[111px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
+                account &&
+                <Link to="/profile" className='relative w-[111px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
                   <p className='mt-[14px]'>Profile</p>
                 </Link>
               }
             </div>
           </div>
         </div>
-        <Navpage onBuy={onBuy}/>
+        <Navpage onBuy={onBuy} />
       </div>
-      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect}/>
+      <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect} />
     </div>
   )
 }
