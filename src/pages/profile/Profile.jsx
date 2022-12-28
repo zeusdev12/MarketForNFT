@@ -210,8 +210,8 @@ const Profile = () => {
                         </button>
                     </div>
                 </div>
-                <div className="w-full mt-[36px] lg:mt-[45px] space-y-1.5 max-h-max border-2 border-[#303d1b] rounded-[15px] px-[10px] py-[10px]">
-                    <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                <div className="overflow-x-scroll mr-5 lg:mr-0 mt-[36px] lg:mt-[45px] space-y-1.5 max-h-max border-2 border-[#303d1b] rounded-[15px] px-[10px] py-[10px] horizontal_slider">
+                    <div className="grid grid-cols-5 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Crypto</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">Amount</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Convert Amount</p>
@@ -219,7 +219,7 @@ const Profile = () => {
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Reason</p>
                     </div>
                     {/* successful transaction */}
-                    <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                    <div className="grid grid-cols-5 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Ethereum</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">0.50 ETH</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p>
@@ -227,7 +227,7 @@ const Profile = () => {
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Inputting funds</p>
                     </div>
                     {/* unsuccessful transaction */}
-                    <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                    <div className="grid grid-cols-5 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Tether USDT</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">1000 USDT</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">1000 USD</p>
