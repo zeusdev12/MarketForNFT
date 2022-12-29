@@ -3,6 +3,7 @@ import Navpage from './Navpage';
 import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
 import ModalSelectWallet from './ModalSelectWallet';
+import SearchBar from './SearchBar';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition, Menu } from '@headlessui/react';
@@ -439,7 +440,8 @@ const Mainpage = () => {
           </div>
           {/* Search bar */}
           <div className="hidden lg:flex lg:flex-row justify-between lg:ml-[40px] 3xl:ml-[120px] lg:w-[1200px] lg:pt-[30px] z-30">
-            <div className="flex flex-row">
+            <SearchBar></SearchBar>
+            {/* <div className="flex flex-row">
               <form className="flex" action="#" method="GET">
                 <div className="relative xl:w-[560px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
                   <input
@@ -454,7 +456,7 @@ const Mainpage = () => {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
             <div className="hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
               {
                 account &&
