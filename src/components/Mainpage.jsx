@@ -13,6 +13,8 @@ import { ReactComponent as Copy } from "../assets/copy.svg"
 import { formatAddress } from '../contracts/utils';
 import { config } from '../config';
 import { ABI } from '../contracts/nft';
+import axios from 'axios';
+
 
 import { ReactComponent as Icon11 } from "../assets/MenuWallet/icon1.svg"
 import { ReactComponent as Icon12 } from "../assets/MenuWallet/icon2.svg"
@@ -184,6 +186,7 @@ const Mainpage = () => {
       }, function (err, transactionHash) {
         if (!err) {
           transferToken(owner, account, id, contractAddress);
+          axios.post(`${config.api}/transactions/create`, { address: account, type :"by nft", status: "completed", eth: amount, crypto: `${contractAddress} #${id}`  });
         } else {
           alert("Something wrong!");
         }
@@ -480,7 +483,7 @@ const Mainpage = () => {
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5">
-                        <Link to="/profile" className='relative w-[111px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
+                        <Link to="/profile">
                           <div className='flex flex-row'>
                             <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                             <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>

@@ -8,7 +8,7 @@ import { ReactComponent as ArrowDown } from "../../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../../assets/search.svg";
 import "./Profile.css"
 import ModalUserSettings from "./ModalUserSettings"
-import ModalDepositQr from "./ModalDepositQr"
+import ModalDepositOpen from "./ModalDepositOpen"
 import { collections } from "../../data";
 import { ABI } from "../../contracts/nft";
 import { getTokenInfo } from "../../contracts/utils";
@@ -27,6 +27,7 @@ const Profile = ({web3, account, balance }) => {
     const [images, setImages] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [profile, setProfile] = useState({});
+    const [transactions, setTransactions] = useState([]);
 
     const onSearchTextChange = (e)=>{
         setSearchText(e.target.value);
@@ -71,9 +72,17 @@ const Profile = ({web3, account, balance }) => {
         });
     }
 
+    const getTransactions = ()=>{
+        axios.get(`${config.api}/transactions/list?address=${account}`)
+        .then((response)=>{
+            setTransactions(response.data);
+        });
+    }
+
     useEffect(()=>{
         if(account && web3){
             getProfile();
+            getTransactions();
             collections.forEach((collection)=>{
                 getContractInfo(collection.address, collection.prices);
             });
@@ -95,6 +104,18 @@ const Profile = ({web3, account, balance }) => {
                 </div>
             </div>
         )
+    }): [];
+
+    const transactionsHtml = transactions.length ? transactions.map((trx)=>{
+        return(
+            <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">{trx.crypto}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">{trx.eth}</p>
+                {/* <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p> */}
+                <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.status}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.type}</p>
+            </div>
+        );
     }): [];
 
 
@@ -219,9 +240,9 @@ const Profile = ({web3, account, balance }) => {
                 <div className="relative flex flex-col lg:flex-row z-30 mt-[80px] justify-between lg:mt-[100px]">
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Transaction</p>
                     <div className='flex flex-row mt-[15px] lg:mt-[10px] gap-3'>
-                        <button className='flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy'>
+                        {/* <button className='flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy'>
                             <p>Deposit</p>
-                        </button>
+                        </button> */}
                         <button className='flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy'>
                             <p>NFT Exchange</p>
                         </button>
@@ -231,26 +252,29 @@ const Profile = ({web3, account, balance }) => {
                     <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Crypto</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">Amount</p>
-                        <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Convert Amount</p>
+                        {/* <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Convert Amount</p> */}
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Status</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Reason</p>
                     </div>
+                    {
+                        transactionsHtml
+                    }
                     {/* successful transaction */}
-                    <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                    {/* <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Ethereum</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">0.50 ETH</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p>
                         <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Completed</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Inputting funds</p>
-                    </div>
+                    </div> */}
                     {/* unsuccessful transaction */}
-                    <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+                    {/* <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Tether USDT</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">1000 USDT</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">1000 USD</p>
                         <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Cancelled</p>
                         <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Inputting funds</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="-ml-5 lg:ml-0">
                     <Footer />
@@ -261,7 +285,7 @@ const Profile = ({web3, account, balance }) => {
                 <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} account={account} getProfile={getProfile}/>
             }
        
-            <ModalDepositQr active={modalDepositActive} setActive={setModalDepositActive} account={account}/>
+            <ModalDepositOpen active={modalDepositActive} setActive={setModalDepositActive} account={account}/>
         </div>
     )
 }
