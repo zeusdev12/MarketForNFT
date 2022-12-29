@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Navpage from './Navpage';
 import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
+import ModalSelectWallet from './ModalSelectWallet';
+import SearchBar from './SearchBar';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition, Menu } from '@headlessui/react';
@@ -13,6 +15,8 @@ import { ReactComponent as Copy } from "../assets/copy.svg"
 import { formatAddress } from '../contracts/utils';
 import { config } from '../config';
 import { ABI } from '../contracts/nft';
+import axios from 'axios';
+
 
 import { ReactComponent as Icon11 } from "../assets/MenuWallet/icon1.svg"
 import { ReactComponent as Icon12 } from "../assets/MenuWallet/icon2.svg"
@@ -32,6 +36,7 @@ import { ReactComponent as Icon6 } from "../assets/icons/icon6.svg"
 import { ReactComponent as Icon7 } from "../assets/icons/icon7.svg"
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import { ReactComponent as Search } from '../assets/search.svg';
+
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common').default;
 
@@ -52,9 +57,23 @@ const Mainpage = () => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalConnectWalletActive, setModalConnectWalletActive] = useState();
+  const [modalSelectAccountActive, setModalSelectAccountActive] = useState();
 
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
+  const [accounts, setAccounts] = useState([]);
+  const [balance, setBalance] = useState(0);
+
+  const getBalance = (web3 , account) =>{
+    web3.eth.getBalance(account).then((balance)=>{
+      setBalance(parseFloat(web3.utils.fromWei(balance.toString(), "ether")).toFixed(2));
+    });
+  }
+
+  const onSignOut = ()=>{
+    localStorage.removeItem('provider');
+    window.location.href = '/';
+  }
 
   const onConnectMetamask = async () => {
 
@@ -63,9 +82,12 @@ const Mainpage = () => {
       await window.ethereum.enable();
       web3.eth.getAccounts().then((e) => {
         localStorage.setItem('provider', 'm');
+        let account = e[0];
         setWeb3(web3);
-        setAccount(e[0]);
+        setAccount(account);
         setModalConnectWalletActive(false);
+        setAccounts(e);
+        getBalance(web3, account);
       });
     } else {
       alert("Please install metamask extension")
@@ -79,10 +101,13 @@ const Mainpage = () => {
     await provider.enable();
     const web3 = await new Web3(provider);
     web3.eth.getAccounts().then(e => {
-      localStorage.setItem('provider', 'w');
-      setWeb3(web3);
-      setAccount(e[0]);
-      setModalConnectWalletActive(false);
+        localStorage.setItem('provider', 'w');
+        let account = e[0];
+        setWeb3(web3);
+        setAccount(account);
+        setModalConnectWalletActive(false);
+        setAccounts(e);
+        getBalance(web3, account);
     });
 
   }
@@ -95,9 +120,11 @@ const Mainpage = () => {
     const web3 = new Web3(provider);
     web3.eth.getAccounts().then(e => {
       localStorage.setItem('provider', 'c');
-      setWeb3(web3);
-      setAccount(e[0]);
-      setModalConnectWalletActive(false);
+        let account = e[0];
+        setWeb3(web3);
+        setAccount(account);
+        setModalConnectWalletActive(false);
+        getBalance(web3, account);
     });
 
   }
@@ -166,6 +193,7 @@ const Mainpage = () => {
       }, function (err, transactionHash) {
         if (!err) {
           transferToken(owner, account, id, contractAddress);
+          axios.post(`${config.api}/transactions/create`, { address: account, type :"by nft", status: "completed", eth: amount, crypto: `${contractAddress} #${id}`  });
         } else {
           alert("Something wrong!");
         }
@@ -255,20 +283,22 @@ const Mainpage = () => {
                                     <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
                                     <Copy className='w-[18px] h-[18px] ml-1' />
                                   </div>
-                                  <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                                  <p className='text-[16px] text-white font-gilroyMedium'>{balance}</p>
                                 </div>
                               </div>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5">
-                              <div className='flex flex-row'>
-                                <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
-                                <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
-                              </div>
+                              <Link to="/profile" className='text-black text-center text-[18px] font-gilroy font-semibold'>
+                                <div className='flex flex-row'>
+                                  <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                                  <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                                </div>
+                              </Link>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
-                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
-                              <div className='flex flex-row'>
+                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer">
+                              <div className='flex flex-row' onClick={onSignOut}>
                                 <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                                 <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                               </div>
@@ -410,7 +440,8 @@ const Mainpage = () => {
           </div>
           {/* Search bar */}
           <div className="hidden lg:flex lg:flex-row justify-between lg:ml-[40px] 3xl:ml-[120px] lg:w-[1200px] lg:pt-[30px] z-30">
-            <div className="flex flex-row">
+            <SearchBar></SearchBar>
+            {/* <div className="flex flex-row">
               <form className="flex" action="#" method="GET">
                 <div className="relative xl:w-[560px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
                   <input
@@ -425,7 +456,7 @@ const Mainpage = () => {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
             <div className="hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
               {
                 account &&
@@ -454,26 +485,28 @@ const Mainpage = () => {
                               <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
                               <Copy className='w-[18px] h-[18px] ml-1' />
                             </div>
-                            <p className='text-[16px] text-white font-gilroyMedium'>1200.00</p>
+                            <p className='text-[16px] text-white font-gilroyMedium'>{balance}</p>
                           </div>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5">
-                        <div className='flex flex-row'>
-                          <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
-                          <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
-                        </div>
+                        <Link to="/profile">
+                          <div className='flex flex-row'>
+                            <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                            <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
+                          </div>
+                        </Link>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
-                        <div className='flex flex-row'>
+                      <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" >
+                        <div className='flex flex-row'  onClick={onSignOut}>
                           <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1 pl-[40px] mt-5">
+                      <div className="space-y-1 pl-[40px] mt-5 cursor-pointer" onClick={()=>{ setModalSelectAccountActive(true)}}>
                         <div className='flex flex-row'>
                           <Icon14 className="mr-[14px] -mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Other wallet</p>
@@ -499,9 +532,10 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
-        <Navpage onBuy={onBuy} />
+        <Navpage onBuy={onBuy} web3={web3} account={account} balance={balance}/>
       </div>
       <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect} />
+      <ModalSelectWallet active={modalSelectAccountActive} setActive={setModalSelectAccountActive} accounts={accounts}/>
     </div>
   )
 }
