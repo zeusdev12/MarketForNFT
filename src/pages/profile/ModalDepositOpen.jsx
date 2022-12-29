@@ -9,7 +9,7 @@ const ModalDepositOpen = ({ active, setActive, account }) => {
     return (
         <Transition.Root show={open} as={Fragment}>
             <div className={active ? "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-100" : "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-0"} onClick={() => setActive(false)}>
-                <div className="rounded-[15px] bg-[#131313] w-[320px] h-[730px] lg:w-[560px] lg:h-[682px] overflow-hidden" onClick={e => e.stopPropagation()}>
+                <div className="rounded-[15px] bg-[#131313] w-[320px] h-[580px] lg:w-[560px] lg:h-[572px] overflow-hidden" onClick={e => e.stopPropagation()}>
                     <div className="flex flex-row w-full justify-end p-[9px] lg:p-5">
                         <Close className="cursor-pointer" onClick={() => setActive(false)} />
                     </div>
@@ -17,7 +17,7 @@ const ModalDepositOpen = ({ active, setActive, account }) => {
                         <div className='bg-[#1e1f1f] w-[170px] h-[170px] rounded-[15px] cursor-pointer overflow-hidden relative px-[10px] py-[10px]'>
                             {
                                 account &&
-                                <QRCode value={account} />
+                                <QRCode value={account} className="h-[150px] w-[150px] object-cover rounded-[10px] object-center group-hover:opacity-75"/>
                             }
                             {/* <img
                                 src={QRcode}
