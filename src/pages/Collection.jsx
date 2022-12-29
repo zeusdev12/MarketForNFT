@@ -1,4 +1,5 @@
 import { React, Fragment } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
@@ -89,51 +90,55 @@ const Collection = () => {
             <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">Total Supply</p>
           </div>
           {/* collection - 30d Volume (growth) */}
-          <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
-            <div className="flex items-center relative">
-              <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">1</p>
-              <img
-                src={CollectionLogo}
-                alt="/"
-                className="w-[40px] h-[40px] rounded-full mr-[15px]"
-              />
-              <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">Bored Ape Yacht Club</p>
+          <Link to="/openPageCollection">
+            <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
+              <div className="flex items-center relative">
+                <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">1</p>
+                <img
+                  src={CollectionLogo}
+                  alt="/"
+                  className="w-[40px] h-[40px] rounded-full mr-[15px]"
+                />
+                <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">Bored Ape Yacht Club</p>
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">797.4K</p>
+              <div className="relative items-center -mr-[130px]">
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">30.5K</p>
+                <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">2.51%</p>
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">434</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">72.01</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">6.2K</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">100K</p>
             </div>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">797.4K</p>
-            <div className="relative items-center -mr-[130px]">
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">30.5K</p>
-              <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-              <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">2.51%</p>
-            </div>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">434</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">72.01</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">6.2K</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">100K</p>
-          </div>
+          </Link>
           {/* collection 2 collection - 30d Volume (fall) */}
-          <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
-            <div className="flex items-center relative">
-              <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">1</p>
-              <img
-                src={CollectionLogo}
-                alt="/"
-                className="w-[40px] h-[40px] rounded-full mr-[15px]"
-              />
-              <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">Bored Ape Yacht Club</p>
+          <Link to="/openPageCollection">
+            <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
+              <div className="flex items-center relative">
+                <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">1</p>
+                <img
+                  src={CollectionLogo}
+                  alt="/"
+                  className="w-[40px] h-[40px] rounded-full mr-[15px]"
+                />
+                <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">Bored Ape Yacht Club</p>
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">797.4K</p>
+              <div className="relative items-center -mr-[130px]">
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">30.5K</p>
+                <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">2.51%</p>
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">434</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">72.01</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">6.2K</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">100K</p>
             </div>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">797.4K</p>
-            <div className="relative items-center -mr-[130px]">
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">30.5K</p>
-              <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-              <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">2.51%</p>
-            </div>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">434</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">72.01</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">6.2K</p>
-            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">100K</p>
-          </div>
+          </Link>
         </div>
         <div className="-ml-5 lg:ml-0">
           <Footer />

@@ -3,6 +3,7 @@ import Footer from "../components/Footer"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
 import { Transition, Menu } from '@headlessui/react';
+import { ReactComponent as StatusTop } from "../assets/statustop.svg"
 
 import Section4Card1 from "../assets/cards/section4card1.png"
 import Section4Card2 from "../assets/cards/section4card2.png"
@@ -93,6 +94,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -117,6 +119,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -141,6 +144,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -153,6 +157,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -177,6 +182,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -201,6 +207,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -225,6 +232,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -261,6 +269,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
@@ -273,6 +282,7 @@ const NewNFT = () => {
                   alt="/"
                   className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                 />
+                <StatusTop className='absolute -mt-[309px] ml-[256px] lg:-mt-[246px] lg:ml-[196px]' />
               </div>
               <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
               <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>

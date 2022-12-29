@@ -9,6 +9,7 @@ import Launchpad from "../pages/Launchpad";
 import Support from "../pages/Support"
 import OpenPageNFT from "./OpenPageNFT";
 import Profile from "../pages/profile/Profile";
+import OpenPageCollection from "./OpenPageCollection";
 
 const Navpage = ({ onBuy }) => {
     return (
@@ -23,6 +24,7 @@ const Navpage = ({ onBuy }) => {
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
                     <Route path="/openPageNFT/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
+                    <Route path="/openPageCollection" element={<OpenPageCollection />} />
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </section>
