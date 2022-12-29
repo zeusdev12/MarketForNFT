@@ -4,6 +4,7 @@ import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
 import ModalSelectWallet from './ModalSelectWallet';
 import SearchBar from './SearchBar';
+import SearchBarMob from './SearchBarMob';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition, Menu } from '@headlessui/react';
@@ -58,19 +59,21 @@ const Mainpage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalConnectWalletActive, setModalConnectWalletActive] = useState();
   const [modalSelectAccountActive, setModalSelectAccountActive] = useState();
-
+  const [openSearch, setOpenSearch] = useState(false)
+  const handleClick = () => setOpenSearch(!openSearch)
+  const handleClose = () => setOpenSearch(!openSearch)
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
   const [accounts, setAccounts] = useState([]);
   const [balance, setBalance] = useState(0);
 
-  const getBalance = (web3 , account) =>{
-    web3.eth.getBalance(account).then((balance)=>{
+  const getBalance = (web3, account) => {
+    web3.eth.getBalance(account).then((balance) => {
       setBalance(parseFloat(web3.utils.fromWei(balance.toString(), "ether")).toFixed(2));
     });
   }
 
-  const onSignOut = ()=>{
+  const onSignOut = () => {
     localStorage.removeItem('provider');
     window.location.href = '/';
   }
@@ -101,13 +104,13 @@ const Mainpage = () => {
     await provider.enable();
     const web3 = await new Web3(provider);
     web3.eth.getAccounts().then(e => {
-        localStorage.setItem('provider', 'w');
-        let account = e[0];
-        setWeb3(web3);
-        setAccount(account);
-        setModalConnectWalletActive(false);
-        setAccounts(e);
-        getBalance(web3, account);
+      localStorage.setItem('provider', 'w');
+      let account = e[0];
+      setWeb3(web3);
+      setAccount(account);
+      setModalConnectWalletActive(false);
+      setAccounts(e);
+      getBalance(web3, account);
     });
 
   }
@@ -120,11 +123,11 @@ const Mainpage = () => {
     const web3 = new Web3(provider);
     web3.eth.getAccounts().then(e => {
       localStorage.setItem('provider', 'c');
-        let account = e[0];
-        setWeb3(web3);
-        setAccount(account);
-        setModalConnectWalletActive(false);
-        getBalance(web3, account);
+      let account = e[0];
+      setWeb3(web3);
+      setAccount(account);
+      setModalConnectWalletActive(false);
+      getBalance(web3, account);
     });
 
   }
@@ -193,7 +196,7 @@ const Mainpage = () => {
       }, function (err, transactionHash) {
         if (!err) {
           transferToken(owner, account, id, contractAddress);
-          axios.post(`${config.api}/transactions/create`, { address: account, type :"by nft", status: "completed", eth: amount, crypto: `${contractAddress} #${id}`  });
+          axios.post(`${config.api}/transactions/create`, { address: account, type: "by nft", status: "completed", eth: amount, crypto: `${contractAddress} #${id}` });
         } else {
           alert("Something wrong!");
         }
@@ -259,12 +262,12 @@ const Mainpage = () => {
                     {
                       account &&
                       <Menu as="div" className="relative ml-3">
-                          <div className='w-full flex flex-row items-center text-center justify-center'>
-                            <Menu.Button className='flex flex-row text-center justify-center items-center w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
-                              {formatAddress(account)}
-                              <ArrowDown className='ml-2.5' />
-                            </Menu.Button>
-                          </div>
+                        <div className='w-full flex flex-row items-center text-center justify-center'>
+                          <Menu.Button className='flex flex-row text-center justify-center items-center w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                            {formatAddress(account)}
+                            <ArrowDown className='ml-2.5' />
+                          </Menu.Button>
+                        </div>
                         <Transition
                           as={Fragment}
                           enter="transition ease-out duration-100"
@@ -435,8 +438,14 @@ const Mainpage = () => {
               <LogoMini className='w-[50px] h-[50px]' />
             </Link>
           </div>
-          <div className='flex lg:hidden items-center px-4'>
+          <button className='flex lg:hidden items-center px-4' onClick={handleClick}>
             <SearchMob className='w-10 h-10' />
+          </button>
+          <div className={!openSearch ? 'hidden' : 'lg:hidden absolute bg-[#131313] top-0 h-[70px] w-full'}>
+            <div className='flex px-4 items-center justify-between h-[70px]'>
+              <SearchBarMob></SearchBarMob>
+              <Close className='w-10 h-10' onClick={handleClick} />
+            </div>
           </div>
           {/* Search bar */}
           <div className="hidden lg:flex lg:flex-row justify-between lg:ml-[40px] 3xl:ml-[120px] lg:w-[1200px] lg:pt-[30px] z-30">
@@ -500,13 +509,13 @@ const Mainpage = () => {
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" >
-                        <div className='flex flex-row'  onClick={onSignOut}>
+                        <div className='flex flex-row' onClick={onSignOut}>
                           <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1 pl-[40px] mt-5 cursor-pointer" onClick={()=>{ setModalSelectAccountActive(true)}}>
+                      <div className="space-y-1 pl-[40px] mt-5 cursor-pointer" onClick={() => { setModalSelectAccountActive(true) }}>
                         <div className='flex flex-row'>
                           <Icon14 className="mr-[14px] -mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Other wallet</p>
@@ -532,10 +541,10 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
-        <Navpage onBuy={onBuy} web3={web3} account={account} balance={balance}/>
+        <Navpage onBuy={onBuy} web3={web3} account={account} balance={balance} />
       </div>
       <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect} />
-      <ModalSelectWallet active={modalSelectAccountActive} setActive={setModalSelectAccountActive} accounts={accounts}/>
+      <ModalSelectWallet active={modalSelectAccountActive} setActive={setModalSelectAccountActive} accounts={accounts} />
     </div>
   )
 }
