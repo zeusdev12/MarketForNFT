@@ -39,7 +39,7 @@ const Footer = () => {
                             </Link>
                         </div>
                         {/* Desktop menu */}
-                        <div className="hidden mt-12 md:grid grid-cols-2 gap-8 xl:col-span-3 xl:mt-0">
+                        <div className="hidden mt-12 md:grid grid-cols-2 gap-8 xl:col-span-3 xl:mt-0 lg:ml-[50px]">
                             <div className="md:grid md:grid-cols-2 md:gap-8">
                                 <div>
                                     <h3 className="text-[#F9FAFA80] uppercase font-gilroyMedium text-sm tracking-wider">market</h3>
@@ -53,7 +53,7 @@ const Footer = () => {
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="mt-12 md:mt-0">
+                                <div className="mt-12 md:mt-0 ml-2">
                                     <h3 className="text-[#F9FAFA80] uppercase font-gilroyMedium text-sm tracking-wider">features</h3>
                                     <ul className="mt-[30px] space-y-4">
                                         {navigation.features.map((item) => (
@@ -66,7 +66,7 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="md:grid md:grid-cols-2 md:gap-8">
+                            <div className="md:grid md:grid-cols-2 md:gap-8 ml-2">
                                 <div>
                                     <h3 className="text-[#F9FAFA80] uppercase font-gilroyMedium text-sm tracking-wider">resources</h3>
                                     <ul className="mt-[30px] space-y-4">
@@ -79,7 +79,7 @@ const Footer = () => {
                                         ))}
                                     </ul>
                                 </div>
-                                <div>
+                                <div className='ml-[18px]'>
                                     <h3 className="text-[#F9FAFA80] uppercase font-gilroyMedium text-sm tracking-wider">social links</h3>
                                     <div className='flex gap-3 mt-[30px]'>
                                         <Social1 className='cursor-pointer' />
