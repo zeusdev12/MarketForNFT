@@ -177,9 +177,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <buttom className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </buttom>
+                    </button>
                 </div>
                 {/* New to NFTs? section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -332,9 +332,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <buttom className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </buttom>
+                    </button>
                 </div>
                 {/* Upcoming Launches section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -460,9 +460,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <buttom className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </buttom>
+                    </button>
                 </div>
                 {/* OG SOL Projects section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -783,9 +783,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <buttom className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </buttom>
+                    </button>
                 </div>
                 <Footer />
             </div>

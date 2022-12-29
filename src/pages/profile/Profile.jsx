@@ -108,7 +108,7 @@ const Profile = ({web3, account, balance }) => {
 
     const transactionsHtml = transactions.length ? transactions.map((trx)=>{
         return(
-            <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]">
+            <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]" key={trx._id}>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">{trx.crypto}</p>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">{trx.eth}</p>
                 {/* <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p> */}
@@ -232,10 +232,10 @@ const Profile = ({web3, account, balance }) => {
                 }
 
                 <div className="flex justify-center">
-                    <buttom className='hidden lg:flex mt-[30px] lg:mt-[80px] items-center justify-center w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
+                    <button className='hidden lg:flex mt-[30px] lg:mt-[80px] items-center justify-center w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
                         Show More Items
                         <ArrowDown className="ml-3" />
-                    </buttom>
+                    </button>
                 </div>
                 <div className="relative flex flex-col lg:flex-row z-30 mt-[80px] justify-between lg:mt-[100px]">
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Transaction</p>

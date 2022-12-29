@@ -31,7 +31,7 @@ const ModalConnectWallet = ({ active, setActive, account, getProfile }) => {
     return (
         <Transition.Root show={open} as={Fragment}>
             <div className={active ? "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-100" : "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-0"} onClick={() => setActive(false)}>
-                <div className="rounded-[15px] bg-[#131313] w-[320px] h-[477px] lg:w-[560px] lg:h-[522px] overflow-hidden" onClick={e => e.stopPropagation()}>
+                <div className="rounded-[15px] bg-[#131313] w-[320px] h-[477px] lg:w-[560px] lg:h-[442px] overflow-hidden" onClick={e => e.stopPropagation()}>
                     <div className="flex flex-row w-full justify-end p-[9px] lg:p-5">
                         <Close className="cursor-pointer" onClick={() => setActive(false)} />
                     </div>

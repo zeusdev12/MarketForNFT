@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navpage from './Navpage';
 import "./Mainpage.css"
 import ModalConnectWallet from './ModalConnectWallet';
+import ModalSelectWallet from './ModalSelectWallet';
 import { Link, NavLink } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import { Dialog, Transition, Menu } from '@headlessui/react';
@@ -34,6 +35,7 @@ import { ReactComponent as Icon6 } from "../assets/icons/icon6.svg"
 import { ReactComponent as Icon7 } from "../assets/icons/icon7.svg"
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import { ReactComponent as Search } from '../assets/search.svg';
+
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common').default;
 
@@ -54,9 +56,11 @@ const Mainpage = () => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalConnectWalletActive, setModalConnectWalletActive] = useState();
+  const [modalSelectAccountActive, setModalSelectAccountActive] = useState();
 
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
+  const [accounts, setAccounts] = useState([]);
   const [balance, setBalance] = useState(0);
 
   const getBalance = (web3 , account) =>{
@@ -81,6 +85,7 @@ const Mainpage = () => {
         setWeb3(web3);
         setAccount(account);
         setModalConnectWalletActive(false);
+        setAccounts(e);
         getBalance(web3, account);
       });
     } else {
@@ -100,6 +105,7 @@ const Mainpage = () => {
         setWeb3(web3);
         setAccount(account);
         setModalConnectWalletActive(false);
+        setAccounts(e);
         getBalance(web3, account);
     });
 
@@ -290,7 +296,7 @@ const Mainpage = () => {
                               </Link>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
-                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
+                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer">
                               <div className='flex flex-row' onClick={onSignOut}>
                                 <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                                 <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
@@ -491,14 +497,14 @@ const Mainpage = () => {
                         </Link>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1 pl-[40px] mt-5 -ml-[4px]">
+                      <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" >
                         <div className='flex flex-row'  onClick={onSignOut}>
                           <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1 pl-[40px] mt-5">
+                      <div className="space-y-1 pl-[40px] mt-5 cursor-pointer" onClick={()=>{ setModalSelectAccountActive(true)}}>
                         <div className='flex flex-row'>
                           <Icon14 className="mr-[14px] -mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Other wallet</p>
@@ -527,6 +533,7 @@ const Mainpage = () => {
         <Navpage onBuy={onBuy} web3={web3} account={account} balance={balance}/>
       </div>
       <ModalConnectWallet active={modalConnectWalletActive} setActive={setModalConnectWalletActive} onConnectCoinbase={onConnectCoinbase} onConnectMetamask={onConnectMetamask} onConnectWalletConnect={onConnectWalletConnect} />
+      <ModalSelectWallet active={modalSelectAccountActive} setActive={setModalSelectAccountActive} accounts={accounts}/>
     </div>
   )
 }
