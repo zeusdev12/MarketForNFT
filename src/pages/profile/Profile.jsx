@@ -33,36 +33,36 @@ const Profile = ({ web3, account, balance }) => {
         setSearchText(e.target.value);
     }
 
-    const getContractInfo = async (address, prices) => {
-        if (!account || !web3) {
-            return;
-        }
-        const contract = new web3.eth.Contract(ABI, address);
-        contract.methods.balanceOf(account).call().then((count) => {
-            if (count > 0) {
-                contract.methods.totalSupply().call().then((total) => {
-                    let tasks = [];
-                    for (let i = 1; i <= parseInt(total); i++) {
-                        tasks.push(getTokenInfo(contract, i));
-                    }
-                    Promise.all(tasks).then((result) => {
-                        let my = [];
-                        let itemsPrice = 0;
-                        result.forEach((nft) => {
-                            if (nft.owner === account) {
-                                nft.price = prices[nft.id - 1];
-                                nft.contract = address;
-                                itemsPrice += nft.price;
-                                my.push(nft);
-                            }
+    const getContractInfo = (address, prices)=>{
+         return new Promise((resolve, reject)=>{
+            const contract = new web3.eth.Contract(ABI, address);
+            contract.methods.balanceOf(account).call().then((count) => {
+                if(count > 0){
+                    contract.methods.totalSupply().call().then((total) => {
+                        let tasks = [];
+                        for (let i = 1; i <= parseInt(total); i++) {
+                            tasks.push(getTokenInfo(contract, i));
+                        }
+                        Promise.all(tasks).then((result) => {
+                            let list = [];
+                            let itemsPrice = 0;
+                            result.forEach((nft)=>{
+                                if(nft.owner === account){
+                                    nft.price = prices[nft.id-1];
+                                    nft.contract = address;
+                                    itemsPrice += nft.price;
+                                    list.push(nft);
+                                }
+                            });
+                            let item = { list: list };
+                            setPrice(price + itemsPrice);
+                            setItems(items + list.length);
+                            resolve(item);
                         });
-                        setPrice(price + itemsPrice);
-                        setItems(items + my.length);
-                        setImages([...images, my]);
                     });
-                });
-            }
-        });
+                }
+            });
+         })
     }
 
     const getProfile = () => {
@@ -83,16 +83,20 @@ const Profile = ({ web3, account, balance }) => {
         if (account && web3) {
             getProfile();
             getTransactions();
-            collections.forEach((collection) => {
-                getContractInfo(collection.address, collection.prices);
+            let tasks = collections.map((collection)=>{
+                return getContractInfo(collection.address, collection.prices);
             });
+            Promise.all(tasks).then((result)=>{
+                setImages(result)
+            })
         }
     }, [web3, account]);
 
     const myColections = images.length ? images.map((myColection, index) => {
 
-        const otherNft = myColection.map((nft, i) => {
-            return <NftMy ipfs={nft.uri} key={i} price={nft.price} text={searchText}></NftMy>
+
+        const otherNft = myColection.list.map((nft, i)=>{
+            return <NftMy ipfs={nft.uri} key={i}  price={nft.price} text={searchText}></NftMy>
         });
 
         return (

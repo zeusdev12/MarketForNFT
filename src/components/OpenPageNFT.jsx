@@ -11,7 +11,7 @@ import { ABI } from "../contracts/nft";
 import { config } from "../config";
 import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
-import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
+import { getDifference, formatAddress, getTokenInfo, formatDate } from "../contracts/utils";
 
 const OpenPageNFT = ({ onBuy }) => {
 
@@ -76,7 +76,7 @@ const OpenPageNFT = ({ onBuy }) => {
                 {/* Header section */}
                 <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
                     <div className="flex flex-col">
-                        <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{collection.date}</p>
+                        <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{formatDate(collection.date)}</p>
                         <p className="mt-[30px] text-white text-[36px] lg:text-[62px] font-gilroy font-semibold leading-[40px] lg:leading-[65px]">{collection.name}</p>
                         <div className="flex items-center">
                             <p className="mt-[13px] text-[#beff55] text-base lg:text-xl font-gilroy">{collection.owner}</p>
@@ -163,9 +163,9 @@ const OpenPageNFT = ({ onBuy }) => {
                     <div className='flex flex-row justify-between'>
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold leading-[40px] lg:leading-[50px]'>Other NTFs in this <br /> collection</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <button className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
+                            <a href={`/collection/${collection.address}`} className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
                                 See All Collection
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
@@ -177,9 +177,9 @@ const OpenPageNFT = ({ onBuy }) => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <a href={`/collection/${collection.address}`} className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All Collection
-                    </button>
+                    </a>
                 </div>
                 <Footer />
             </div>

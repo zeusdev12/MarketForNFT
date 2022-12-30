@@ -5,7 +5,6 @@ import { ABI } from "../../contracts/nft";
 import Image from "../image/image";
 import { ReactComponent as StatusLive } from "../../assets/statuslive.svg";
 
-
 const getTokenInfo =(contract, id)=>{
     return new Promise((resolve, reject)=>{
         contract.methods.tokenURI(id.toString()).call().then((uri)=>{
@@ -30,7 +29,7 @@ export const Collection = ({collection, web3 })=>{
 
     return (
         <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-            <Link to={`/OpenPageNFT/${collection.address}/1`}>
+            <Link to={`/item/${collection.address}/1`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     {
                         image &&

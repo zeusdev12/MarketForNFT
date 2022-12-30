@@ -43,6 +43,7 @@ export const SearchBar = () => {
                     </div>
                 </div>
             </button>
+
         )
     });
 
