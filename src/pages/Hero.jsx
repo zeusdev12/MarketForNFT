@@ -270,17 +270,42 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-12'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
-                                    <img
-                                        src={Collection1}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
                                         src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
@@ -291,43 +316,93 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
-                                    <img
-                                        src={Collection2}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
-                                        src={Collection2icon}
+                                        src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>MutantGobz</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">34 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
                                     </div>
                                 </div>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
-                                    <img
-                                        src={Collection3}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
-                                        src={Collection3icon}
+                                        src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>LazyApeYachtClub</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">42 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
                                     </div>
                                 </div>
                             </div>
