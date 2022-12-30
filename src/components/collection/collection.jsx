@@ -28,7 +28,7 @@ export const Collection = ({collection, web3 })=>{
     },[]);
 
     return (
-        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer mr-[1.25rem] lg:mr-[2.85rem]'>
             <Link to={`/item/${collection.address}/1`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     {
