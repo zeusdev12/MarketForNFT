@@ -4,7 +4,6 @@ import Footer from "../components/Footer"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
 import { Transition, Menu } from '@headlessui/react';
-import CollectionLogo from "../assets/Collection/collectionlogo.png"
 import { ReactComponent as Validate } from '../assets/validate.svg'
 import { ReactComponent as PolygonUp } from '../assets/Collection/polygonup.svg'
 import { ReactComponent as PolygonDown } from '../assets/Collection/polygondown.svg'
@@ -57,7 +56,7 @@ const Collection = () => {
     }
 
     return(
-          <Link to={`/collection/${col.address}`} style={{ display: display }}>
+          <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
             <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
               <div className="flex items-center relative">
                 <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">{i+1}</p>

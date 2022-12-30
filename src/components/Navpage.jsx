@@ -25,7 +25,7 @@ const Navpage = ({ onBuy, web3, account, balance }) => {
                     <Route path="/support" element={<Support />} />
                     <Route path="/item/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
                     <Route path="/profile" element={<Profile web3={web3} account={account} balance={balance}/>} />
-                    <Route path="/collection/:id" element={<OpenPageCollection />} />
+                    <Route path="/collection/:address" element={<OpenPageCollection />} />
                 </Routes>
             </section>
         </React.Fragment>

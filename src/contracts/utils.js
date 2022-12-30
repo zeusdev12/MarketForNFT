@@ -15,6 +15,17 @@ export const getDifference = ()=>{
     });
 }
 
+export const getPrices = ()=>{
+    return new Promise((resolve, reject)=>{
+        axios.get(`https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=USD&days=1&interval=daily`)
+        .then(function (response) {
+            const data = response.data;
+            const prices = data.prices;
+            resolve(prices);
+        });
+    });
+}
+
 export const getTokenInfo =(contract, id)=>{
     return new Promise((resolve, reject)=>{
         contract.methods.tokenURI(id.toString()).call().then((uri)=>{
