@@ -11,7 +11,7 @@ import { ABI } from "../contracts/nft";
 import { config } from "../config";
 import Web3 from 'web3';
 import NftCard from "./nftCard/nftCard";
-import { getDifference, formatAddress, getTokenInfo } from "../contracts/utils";
+import { getDifference, formatAddress, getTokenInfo, formatDate } from "../contracts/utils";
 
 const OpenPageNFT = ({ onBuy }) => {
 
@@ -76,7 +76,7 @@ const OpenPageNFT = ({ onBuy }) => {
                 {/* Header section */}
                 <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
                     <div className="flex flex-col">
-                        <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{collection.date}</p>
+                        <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{formatDate(collection.date)}</p>
                         <p className="mt-[30px] text-white text-[36px] lg:text-[62px] font-gilroy font-semibold leading-[40px] lg:leading-[65px]">{collection.name}</p>
                         <div className="flex items-center">
                             <p className="mt-[13px] text-[#beff55] text-base lg:text-xl font-gilroy">{collection.owner}</p>

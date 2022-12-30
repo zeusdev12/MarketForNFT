@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const NftCard = ({ ipfs, address, id })=>{
+export const NftCard = ({ ipfs, address, id, text, date, from})=>{
 
     const [data, setData] = useState({});
 
@@ -13,9 +13,20 @@ export const NftCard = ({ ipfs, address, id })=>{
         });
     },[]);
 
+    let display = 'inline-block';
+    if(data.name && text && text.length != 0){
+        if(data.name.toLowerCase().indexOf(text.toLowerCase()) == (-1)){
+            display = 'none';
+        }
+    }
+
+    if(date < from){
+        display = 'none';
+    }
+
     
     return(
-        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer' style={{ display: display }}>
              <a href={`/OpenPageNFT/${address}/${id}`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     <img

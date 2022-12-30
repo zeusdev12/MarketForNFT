@@ -23,9 +23,9 @@ export const SearchBar = ()=>{
         }
     }
 
-    const resultHtml = result.map((r)=>{
+    const resultHtml = result.map((r, i)=>{
         return(
-            <li>{r.name} {r.owner}</li>
+            <li key={i}>{r.name} {r.owner}</li>
         )
     });
 

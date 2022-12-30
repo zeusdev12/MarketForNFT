@@ -5,7 +5,6 @@ import { ABI } from "../../contracts/nft";
 import Image from "../image/image";
 import { ReactComponent as StatusLive } from "../../assets/statuslive.svg";
 
-
 const getTokenInfo =(contract, id)=>{
     return new Promise((resolve, reject)=>{
         contract.methods.tokenURI(id.toString()).call().then((uri)=>{
