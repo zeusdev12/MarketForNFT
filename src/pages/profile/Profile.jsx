@@ -17,7 +17,7 @@ import axios from 'axios';
 import { config } from "../../config";
 
 
-const Profile = ({web3, account, balance }) => {
+const Profile = ({ web3, account, balance }) => {
 
     const [inputValue, setInputValue] = useState("");
     const [modalUserSettingsActive, setModalUserSettingsActive] = useState();
@@ -29,7 +29,7 @@ const Profile = ({web3, account, balance }) => {
     const [profile, setProfile] = useState({});
     const [transactions, setTransactions] = useState([]);
 
-    const onSearchTextChange = (e)=>{
+    const onSearchTextChange = (e) => {
         setSearchText(e.target.value);
     }
 
@@ -65,22 +65,22 @@ const Profile = ({web3, account, balance }) => {
          })
     }
 
-    const getProfile = ()=>{
+    const getProfile = () => {
         axios.get(`${config.api}/users/user-profile?address=${account}`)
-        .then((response)=>{
-            setProfile(response.data);
-        });
+            .then((response) => {
+                setProfile(response.data);
+            });
     }
 
-    const getTransactions = ()=>{
+    const getTransactions = () => {
         axios.get(`${config.api}/transactions/list?address=${account}`)
-        .then((response)=>{
-            setTransactions(response.data);
-        });
+            .then((response) => {
+                setTransactions(response.data);
+            });
     }
 
-    useEffect(()=>{
-        if(account && web3){
+    useEffect(() => {
+        if (account && web3) {
             getProfile();
             getTransactions();
             let tasks = collections.map((collection)=>{
@@ -90,9 +90,10 @@ const Profile = ({web3, account, balance }) => {
                 setImages(result)
             })
         }
-    },[web3, account]);
+    }, [web3, account]);
 
-    const myColections = images.length ? images.map((myColection, index)=>{
+    const myColections = images.length ? images.map((myColection, index) => {
+
 
         const otherNft = myColection.list.map((nft, i)=>{
             return <NftMy ipfs={nft.uri} key={i}  price={nft.price} text={searchText}></NftMy>
@@ -107,19 +108,18 @@ const Profile = ({web3, account, balance }) => {
                 </div>
             </div>
         )
-    }): [];
+    }) : [];
 
-    const transactionsHtml = transactions.length ? transactions.map((trx)=>{
-        return(
-            <div className="grid grid-cols-5 text-right justify-between items-center px-[30px] w-full h-[56px] bg-[#1a1a19] rounded-[10px]" key={trx._id}>
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">{trx.crypto}</p>
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">{trx.eth}</p>
-                {/* <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">500 USD</p> */}
+    const transactionsHtml = transactions.length ? transactions.map((trx) => {
+        return (
+            <div className="grid grid-cols-4 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]" key={trx._id}>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap max-w-[335px] truncate text-left pr-[93px]">{trx.crypto}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px] uppercase">{trx.eth}</p>
                 <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.status}</p>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.type}</p>
             </div>
         );
-    }): [];
+    }) : [];
 
 
     return (
@@ -135,7 +135,7 @@ const Profile = ({web3, account, balance }) => {
                         </div>
                         <p className="flex flex-wrap text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">{profile.name}</p>
                         <div className="flex flex-row items-center gap-1 mt-[3px]">
-                            <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px]"
+                            <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px] max-w-[250px] lg:max-w-[450px] truncate"
                                 value={inputValue}>
                                 {account}
                             </p>
@@ -183,13 +183,13 @@ const Profile = ({web3, account, balance }) => {
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">total <br /> items</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{images.length}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{items}</p>
                                     </div>
                                 </div>
                                 <div className='inline-block bg-[#1a1a19] w-[200px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">main wallet <br /> (eth)</p>
                                     <div className="w-[160px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">0</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{balance}</p>
                                     </div>
                                 </div>
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
@@ -229,7 +229,7 @@ const Profile = ({web3, account, balance }) => {
                         </div>
                     </form>
                 </div>
-                
+
                 {
                     myColections
                 }
@@ -252,10 +252,9 @@ const Profile = ({web3, account, balance }) => {
                     </div>
                 </div>
                 <div className="overflow-x-scroll mr-5 lg:mr-0 mt-[36px] lg:mt-[45px] space-y-1.5 max-h-max border-2 border-[#303d1b] rounded-[15px] px-[10px] py-[10px] horizontal_slider">
-                    <div className="grid grid-cols-5 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
+                    <div className="grid grid-cols-4 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]">
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-left pr-[93px]">Crypto</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px]">Amount</p>
-                        {/* <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Convert Amount</p> */}
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Status</p>
                         <p className="text-[#888888] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">Reason</p>
                     </div>
@@ -270,10 +269,10 @@ const Profile = ({web3, account, balance }) => {
             </div>
             {
                 modalUserSettingsActive &&
-                <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} account={account} getProfile={getProfile}/>
+                <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} account={account} getProfile={getProfile} />
             }
-       
-            <ModalDepositOpen active={modalDepositActive} setActive={setModalDepositActive} account={account}/>
+
+            <ModalDepositOpen active={modalDepositActive} setActive={setModalDepositActive} account={account} />
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
 import Collections from '../components/collections/collections'
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 
 import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
 import { ReactComponent as StatusTime } from "../assets/statustime.svg"
@@ -70,24 +71,26 @@ const Hero = () => {
             <div className='lg:mt-24 flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
                 {/* Header section */}
                 <div className="relative block items-center lg:max-w-[1200px] overflow-hidden">
-                    <div className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[904px] lg:w-[1200px] mt-[300px] lg:ml-[24px]">
+                    <div className="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[904px] z-20 lg:w-[1200px] mt-[300px] lg:ml-[24px]">
                         <img
                             src={Cards}
                             alt="/"
                         />
                     </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[100px] mt-[70px] lg:mt-[64px]">
+                    <div className="absolute z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[100px] mt-[70px] lg:mt-[64px]">
                         <img
                             src={Darknes}
                             alt="/"
                         />
                     </div>
-                    <p className='relative font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
+                    <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
-                        <button className='w-[319px] lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
+                        <button className='w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
                             Explore Collection
                         </button>
                     </div>
+                    {/* <Blur className='absolute top-0 -mt-[100px] -mr-[50px] right-0 z-10 lg:w-[800px] lg:h-[500px]'/>
+                    <Blur className='absolute top-0 mt-[160px] rotate-90 right-0 z-10 lg:w-[800px] lg:h-[500px]'/> */}
                 </div>
                 {/* Launchpad Drops section */}
                 <div className="relative z-30 mt-[100px] lg:mt-[120px] pl-5 lg:px-0 lg:mr-5">
@@ -267,17 +270,42 @@ const Hero = () => {
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-12'>
                             {/* card 1 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden">
-                                    <img
-                                        src={Collection1}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
                                         src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
@@ -288,43 +316,93 @@ const Hero = () => {
                             </div>
                             {/* card 2 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
-                                    <img
-                                        src={Collection2}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
-                                        src={Collection2icon}
+                                        src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>MutantGobz</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">34 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
                                     </div>
                                 </div>
                             </div>
                             {/* card 3 */}
                             <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden ">
-                                    <img
-                                        src={Collection3}
-                                        alt="/"
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75 px-5 py-5"
-                                    />
+                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                                    <div className='flex gap-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
+                                    <div className='flex gap-2 mt-2'>
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                        <img
+                                            src={Section1Card1}
+                                            alt="/"
+                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="flex items-center ml-5 mt-1">
+                                <div className="flex items-center ml-5 mt-5">
                                     <img
-                                        src={Collection3icon}
+                                        src={Collection1icon}
                                         alt=""
+                                        className='w-[50px] h-[50px] rounded-full'
                                     />
                                     <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
                                     <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>LazyApeYachtClub</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">42 Items</p>
+                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
+                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
                                     </div>
                                 </div>
                             </div>
