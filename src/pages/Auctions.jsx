@@ -4,10 +4,13 @@ import Footer from "../components/Footer";
 import { ReactComponent as Validate } from "../assets/validate.svg"
 import Darknes2 from "../assets/darknes2.png"
 
-import Card1Section1 from "../assets/cards/card1section1.png"
-import Card2Section1 from "../assets/cards/card2section1.png"
-import Card3Section1 from "../assets/cards/card3section1.png"
-import Card4Section1 from "../assets/cards/card4section1.png"
+import Card1 from "../assets/cards/Auction/card1.png"
+import Card2 from "../assets/cards/Auction/card2.png"
+import Card3 from "../assets/cards/Auction/card3.png"
+import Card5 from "../assets/cards/Auction/card5.png"
+import Card6 from "../assets/cards/Auction/card6.png"
+import Card8 from "../assets/cards/Auction/card8.png"
+
 
 const Auctions = () => {
   return (
@@ -76,7 +79,7 @@ const Auctions = () => {
                     <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">25.00</p>
                   </div>
                 </div>
-                <div className='inline-block bg-[#1a1a19] w-[300px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
+                <div className='inline-block bg-[#1a1a19] w-[300px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[23px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">AUCTION ENDED</p>
                   <div className="w-[160px] ml-[90px]">
                     <div className="flex flex-row gap-5 -ml-1">
@@ -84,7 +87,7 @@ const Auctions = () => {
                       <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">00</p>
                       <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">00</p>
                     </div>
-                    <div className="flex flex-row -mt-[50px]">
+                    <div className="flex flex-row -mt-[53px]">
                       <p className="justify-end font-gilroyMedium text-[14px] mt-16 text-[#828383] leading-[16px]">Hours</p>
                       <p className="justify-end font-gilroyMedium text-[14px] pl-5 mt-16 text-[#828383] leading-[16px]">Minutes</p>
                       <p className="justify-end font-gilroyMedium text-[14px] mt-16 pl-5 text-[#828383]  leading-[16px]">Seconds</p>
@@ -109,16 +112,16 @@ const Auctions = () => {
               <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
-                    src={Card1Section1}
+                    src={Card1}
                     alt="/"
                     className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                   />
                 </div>
-                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">The Sol Army GV Pass 2.0 Auction #39</h3>
                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
                 <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
                   <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
-                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">55.10 SOL</span>
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">55.10 sol</span>
                     </p>
                   </div>
                   <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
@@ -128,16 +131,16 @@ const Auctions = () => {
               <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
-                    src={Card1Section1}
+                    src={Card2}
                     alt="/"
                     className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                   />
                 </div>
-                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Utility Ape Gen 2 Legendary #2</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Utility Ape</p>
                 <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
                   <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
-                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">55.10 SOL</span>
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">4.10 sol</span>
                     </p>
                   </div>
                   <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
@@ -147,16 +150,16 @@ const Auctions = () => {
               <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
-                    src={Card1Section1}
+                    src={Card3}
                     alt="/"
                     className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                   />
                 </div>
-                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">ThorNode Gold Pass</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">ThorNode</p>
                 <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
                   <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
-                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">55.10 SOL</span>
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">82.20 sol</span>
                     </p>
                   </div>
                   <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
@@ -166,16 +169,172 @@ const Auctions = () => {
               <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
-                    src={Card1Section1}
+                    src={Card1}
                     alt="/"
                     className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
                   />
                 </div>
-                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">The Sol Army GV Pass 2.0 Auction #39</h3>
                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
                 <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
                   <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
-                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">55.10 SOL</span>
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">2.76 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+               {/* card 1 */}
+               <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card5}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Rifters Demigod Solana Princess's Weekly Wish #5</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Solana Princess (Rifters)</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">8.10 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 2 */}
+              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card6}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Genesis of Realm</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Genesis of Realm</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">65.90 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 3 */}
+              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card1}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">The Sol Army GV Pass 2.0 Auction #39</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">8.10 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 4 */}
+              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card8}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Movember® Bear</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Okay Bears</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">14.33 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='hidden mt-[30px] lg:mt-10 lg:block w-full overflow-x-scroll horizontal_slider'>
+            <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
+              {/* card 1 */}
+              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card5}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Rifters Demigod Solana Princess's Weekly Wish #5</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Solana Princess (Rifters)</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">8.10 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 2 */}
+              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card6}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Genesis of Realm</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Genesis of Realm</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">65.90 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 3 */}
+              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card1}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">The Sol Army GV Pass 2.0 Auction #39</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">The Sol Army</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">8.10 sol</span>
+                    </p>
+                  </div>
+                  <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
+                </div>
+              </div>
+              {/* card 4 */}
+              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+                <div className="overflow-hidden relative px-[10px] pt-[10px]">
+                  <img
+                    src={Card8}
+                    alt="/"
+                    className="h-[250px] w-[388px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Movember® Bear</h3>
+                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#828383] px-5">Okay Bears</p>
+                <div className="flex flex-row mt-[15px] px-[20px] gap-1.5">
+                  <div className="w-[121px] h-[34px] truncate border-2 border-[#3b3c3c] rounded-[5px] text-center">
+                    <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate uppercase text-[#828383] mt-[4px]">FINAL<span className="ml-1 text-white">14.33 sol</span>
                     </p>
                   </div>
                   <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
