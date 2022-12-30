@@ -27,7 +27,7 @@ export const NftCard = ({ ipfs, address, id, text, date, from})=>{
     
     return(
         <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer' style={{ display: display }}>
-             <a href={`/OpenPageNFT/${address}/${id}`}>
+             <a href={`/item/${address}/${id}`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     <img
                         src={data.url}

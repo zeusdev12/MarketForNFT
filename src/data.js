@@ -6,7 +6,16 @@ export const collections = [
         name: "Collection 1",
         date: 1672278318,
         description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits",
-        prices: [1,0.002, 0.001, 0.1, 0.003, 0.0001, 0.01, 0.01]
+        prices: [1,0.002, 0.001, 0.1, 0.003, 0.0001, 0.01, 0.01],
+        volumeTotal: 100,
+        volume30: 1,
+        sales: 10,
+        floorPrice: 100,
+        owners: 10,
+        totalSupply: 15,
+        change: 2.5,
+        grow: true,
+        image: "/images/collectionlogo.png"
     },
     {
         owner: "Bored Ape Yacht Club",
@@ -15,6 +24,15 @@ export const collections = [
         name: "Collection 2",
         date: 1669772718,
         description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits",
-        prices: [0.002, 0.001, 0.1, 0.003, 0.0001, 0.01, 0.01]
+        prices: [0.002, 0.001, 0.1, 0.003, 0.0001, 0.01, 0.01],
+        volumeTotal: 100,
+        volume30: 1,
+        sales: 10,
+        floorPrice: 100,
+        owners: 10,
+        totalSupply: 15,
+        change: 2.5,
+        grow: false,
+        image: "/images/collectionlogo.png"
     }
 ];
