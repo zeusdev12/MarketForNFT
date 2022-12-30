@@ -179,13 +179,13 @@ const Profile = ({ web3, account, balance }) => {
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">total <br /> items</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{images.length}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{items}</p>
                                     </div>
                                 </div>
                                 <div className='inline-block bg-[#1a1a19] w-[200px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">main wallet <br /> (eth)</p>
                                     <div className="w-[160px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">0</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{balance}</p>
                                     </div>
                                 </div>
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
