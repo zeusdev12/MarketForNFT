@@ -27,7 +27,7 @@ const OpenPageNFT = ({ onBuy }) => {
 
     useEffect(() => {
 
-        const collection = collections.filter((c)=> c.address == params.address )[0];
+        const collection = collections.filter((c) => c.address == params.address)[0];
         const contract = new web3.eth.Contract(ABI, collection.address);
 
         contract.methods.totalSupply().call().then((total) => {
@@ -41,32 +41,32 @@ const OpenPageNFT = ({ onBuy }) => {
                 let current = result[parseInt(params.id) - 1];
                 let other = result.filter((nft) => { return nft.id != current.id; });
                 setImages(other);
-                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://","")}`)
-                .then((response) => response.json())
-                .then((body) =>{
-                    body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://","")}`;
-                    body.owner = current.owner;
-                    setCurrent(body);
-                });
+                fetch(`https://ipfs.io/ipfs/${current.uri.replace("ipfs://", "")}`)
+                    .then((response) => response.json())
+                    .then((body) => {
+                        body.url = `https://ipfs.io/ipfs/${body.image.replace("ipfs://", "")}`;
+                        body.owner = current.owner;
+                        setCurrent(body);
+                    });
             });
 
         });
 
         setCollection(collection);
-        setPrice(collection.prices[parseInt(params.id)-1]);
+        setPrice(collection.prices[parseInt(params.id) - 1]);
 
-        getDifference().then((diff)=>{
+        getDifference().then((diff) => {
             setDifference(diff);
         });
 
 
     }, []);
 
-    const onBuyClick = ()=>{
+    const onBuyClick = () => {
         onBuy(collection.ownerAddress, params.id, price, collection.address)
     }
 
-    const otherNft = images.map((nft, i)=>{
+    const otherNft = images.map((nft, i) => {
         return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id}></NftCard>
     });
 
@@ -89,8 +89,8 @@ const OpenPageNFT = ({ onBuy }) => {
                         <Menu as="div" className="relative mt-[30px]">
                             <div className="flex flex-col border-2 border-[#3b3c3c] rounded-[15px] max-w-[560px] lg:max-w-[560px] max-h-[251px] px-[30px] lg:hover:border-[#beff55]">
                                 <Menu.Button className="flex flex-row max-w-[560px] lg:max-w-[497px] justify-between items-center h-[60px]">
-                                        <p className="text-lg font-gilroy text-white">More Details</p>
-                                        <ArrowDown />
+                                    <p className="text-lg font-gilroy text-white">More Details</p>
+                                    <ArrowDown />
                                 </Menu.Button>
                                 <Transition
                                     as={Fragment}
@@ -148,11 +148,11 @@ const OpenPageNFT = ({ onBuy }) => {
                         </div>
                     </div>
                     <div className="lg:mr-5 3xl:mr-0">
-                        <div className="bg-[#1a1a19] w-[364px] h-[364px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
+                        <div className="bg-[#1a1a19] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
                             <div className="overflow-hidden relative px-[10px] py-[10px]">
                                 {
                                     current &&
-                                    <img src={current.url} className="w-[344px] h-[344px] 2xl:w-[540px] 2xl:h-[540px] rounded-[10px] object-cover object-center group-hover:opacity-75"></img>
+                                    <img src={current.url} className="w-[349px] h-[349px] 2xl:w-[540px] 2xl:h-[540px] rounded-[10px] object-cover object-center group-hover:opacity-75"></img>
                                 }
                                 <StatusTop className='absolute right-0 top-0 mt-[14px] mr-[14px] xl:mt-[17px] xl:mr-[17px]' />
                             </div>

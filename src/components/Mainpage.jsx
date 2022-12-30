@@ -261,7 +261,7 @@ const Mainpage = () => {
                     }
                     {
                       account &&
-                      <Menu as="div" className="relative ml-3">
+                      <Menu as="div" className="relative">
                         <div className='w-full flex flex-row items-center text-center justify-center'>
                           <Menu.Button className='flex flex-row text-center justify-center items-center w-[340px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
                             {formatAddress(account)}
