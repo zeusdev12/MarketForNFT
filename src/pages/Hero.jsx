@@ -86,7 +86,9 @@ const Hero = () => {
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
                         <button className='w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
-                            Explore Collection
+                           <a href='/collection'>
+                               Explore Collection
+                           </a>
                         </button>
                     </div>
                     {/* <Blur className='absolute top-0 -mt-[100px] -mr-[50px] right-0 z-10 lg:w-[800px] lg:h-[500px]'/>

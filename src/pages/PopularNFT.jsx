@@ -289,10 +289,10 @@ const PopularNFT = () => {
         </div>
         <div className="-ml-5 lg:ml-0">
           <div className="flex flex-row justify-center">
-            <buttom className='flex mt-[30px] lg:mt-[80px] items-center justify-center w-[350px] lg:w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
+            <button className='flex mt-[30px] lg:mt-[80px] items-center justify-center w-[350px] lg:w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
               Show More Items
               <ArrowDown className="ml-3" />
-            </buttom>
+            </button>
           </div>
           <Footer />
         </div>
