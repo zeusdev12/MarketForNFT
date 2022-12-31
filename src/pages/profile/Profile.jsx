@@ -45,18 +45,14 @@ const Profile = ({ web3, account, balance }) => {
                         }
                         Promise.all(tasks).then((result) => {
                             let list = [];
-                            let itemsPrice = 0;
                             result.forEach((nft)=>{
                                 if(nft.owner === account){
                                     nft.price = prices[nft.id-1];
                                     nft.contract = address;
-                                    itemsPrice += nft.price;
                                     list.push(nft);
                                 }
                             });
                             let item = { list: list };
-                            setPrice(price + itemsPrice);
-                            setItems(items + list.length);
                             resolve(item);
                         });
                     });
@@ -87,7 +83,17 @@ const Profile = ({ web3, account, balance }) => {
                 return getContractInfo(collection.address, collection.prices);
             });
             Promise.all(tasks).then((result)=>{
-                setImages(result)
+                let items = 0;
+                let price = 0;
+                result.forEach((r)=>{
+                    items += r.list.length;
+                    r.list.forEach((l)=>{
+                        price += l.price;
+                    })
+                });
+                setImages(result);
+                setItems(items);
+                setPrice(price);
             })
         }
     }, [web3, account]);
