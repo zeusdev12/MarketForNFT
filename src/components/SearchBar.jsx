@@ -25,13 +25,13 @@ export const SearchBar = () => {
         }
     }
 
-    const resultHtml = result.map((r) => {
+    const resultHtml = result.map((r, i) => {
         return (
-            <button className='w-[406px] flex flex-row items-center justify-left xl:w-[506px] h-[70px] bg-transparent rounded-[15px] hover:bg-[#242424] text-white ml-7 text-base font-gilroy px-4'>
+            <a  href={`/collection/${r.address}`} key={i} className='w-[406px] flex flex-row items-center justify-left xl:w-[506px] h-[70px] bg-transparent rounded-[15px] hover:bg-[#242424] text-white ml-7 text-base font-gilroy px-4'>
                 <div className='flex flex-row'>
                     <div className='relative'>
                         <img
-                            src={Section1Card1}
+                            src={r.image}
                             alt="/"
                             className='h-[50px] w-[50px] rounded-full mr-4'
                         />
@@ -42,7 +42,7 @@ export const SearchBar = () => {
                         <p className='font-gilroy lg:max-w-[400px] truncate text-[#828383] text-[14px] -mt-[3px]'>{r.owner}</p>
                     </div>
                 </div>
-            </button>
+            </a>
 
         )
     });
@@ -63,7 +63,7 @@ export const SearchBar = () => {
                     {
                         result.length != 0 &&
                         <div className='flex flex-col w-[360px] xl:w-[560px] rounded-[15px] max-h-max bg-[#131313] mt-3'>
-                            <p className='mt-[10px] font-gilroy text-[18px] ml-[30px] text-[#828383]'>Found <span className='text-white font-gilroy text-[18px]'>1 similarities</span></p>
+                            <p className='mt-[10px] font-gilroy text-[18px] ml-[30px] text-[#828383]'>Found <span className='text-white font-gilroy text-[18px]'>{result.length} similarities</span></p>
                             <div className='mb-[10px]'>
                                 {resultHtml}
                             </div>

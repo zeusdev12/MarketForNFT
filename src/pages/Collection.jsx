@@ -10,12 +10,14 @@ import { ReactComponent as PolygonDown } from '../assets/Collection/polygondown.
 import { collections } from "../data";
 import { config } from "../config";
 import Web3 from 'web3';
+import { getPrices } from "../contracts/utils";
 
 const Collection = () => {
 
   const provider = new Web3.providers.HttpProvider(config.rpc);
   const web3 = new Web3(provider);
   const [searchText, setSearchText] = useState("");
+  const [price, setPrice] = useState(0);
 
   let d1 = new Date();
   d1.setMonth(d1.getMonth() - 1);   
@@ -42,6 +44,14 @@ const Collection = () => {
     setSearchText(e.target.value);
   }
 
+  getPrices().then((prices)=>{
+
+    let price = prices[1][1];
+    setPrice(price);
+
+  });
+
+
   const collectionsHtml = collections.map((col, i)=>{
 
     let display = 'inline-block';
@@ -51,9 +61,14 @@ const Collection = () => {
         }
     }
 
-    if(col.date < from){
+    if(col.date >= from){
         display = 'none';
     }
+
+    let totalEth = 0;
+    col.prices.forEach((p)=>{
+      totalEth += p;
+    });
 
     return(
           <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
@@ -87,7 +102,7 @@ const Collection = () => {
                 }
               </div>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">{col.sales}</p>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{col.floorPrice}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{(totalEth * price).toFixed(1)}</p>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">{col.owners}</p>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
             </div>
