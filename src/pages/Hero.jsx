@@ -90,12 +90,12 @@ const Hero = () => {
                         />
                     </div>
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
-                    <div className='mt-[30px] text-center z-40'>
-                        <Link to="/collection">
-                            <button className='w-[319px] z-50 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
-                                Explore Collection
-                            </button>
-                        </Link>
+                    <div className='mt-[30px] text-center'>
+                        <button className='w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
+                           <a href='/collection'>
+                               Explore Collection
+                           </a>
+                        </button>
                     </div>
                 </div>
                 {/* Launchpad Drops section */}

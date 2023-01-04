@@ -11,12 +11,14 @@ import { collections } from "../data";
 import { config } from "../config";
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import Web3 from 'web3';
+import { getPrices } from "../contracts/utils";
 
 const Collection = () => {
 
   const provider = new Web3.providers.HttpProvider(config.rpc);
   const web3 = new Web3(provider);
   const [searchText, setSearchText] = useState("");
+  const [price, setPrice] = useState(0);
 
   let d1 = new Date();
   d1.setMonth(d1.getMonth() - 1);
@@ -48,6 +50,24 @@ const Collection = () => {
     let display = 'inline-block';
     if (searchText.length != 0) {
       if (col.name.toLowerCase().indexOf(searchText.toLowerCase()) == (-1)) {
+  getPrices().then((prices)=>{
+
+    let price = prices[1][1];
+    setPrice(price);
+
+  });
+
+
+  const collectionsHtml = collections.map((col, i)=>{
+
+    let display = 'inline-block';
+    if(searchText.length != 0){
+        if(col.name.toLowerCase().indexOf(searchText.toLowerCase()) == (-1)){
+            display = 'none';
+        }
+    }
+
+    if(col.date >= from){
         display = 'none';
       }
     }
@@ -93,6 +113,48 @@ const Collection = () => {
           <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
         </div>
       </Link>
+    let totalEth = 0;
+    col.prices.forEach((p)=>{
+      totalEth += p;
+    });
+
+    return(
+          <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
+            <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
+              <div className="flex items-center relative">
+                <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">{i+1}</p>
+                <img
+                  src={col.image}
+                  alt="/"
+                  className="w-[40px] h-[40px] rounded-full mr-[15px]"
+                />
+                <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">{col.name}</p>
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volumeTotal}</p>
+              <div className="relative items-center -mr-[130px]">
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">{col.volume30}</p>
+                {
+                   col.grow &&
+                   <>
+                      <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                      <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+                   </>
+                }
+                {
+                   !col.grow &&
+                   <>
+                       <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                       <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+                   </>
+                }
+              </div>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">{col.sales}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{(totalEth * price).toFixed(1)}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">{col.owners}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
+            </div>
+          </Link>
     )
   });
 
