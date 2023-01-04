@@ -234,11 +234,8 @@ const OpenPageCollection = () => {
           <form className="flex mt-3 pr-5 xl:pr-1" action="#" method="GET">
             <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
               <input
-                id="search-field"
-                name="search-field"
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"
-                type="search"
                 value={searchText}
                 onChange={onSearchTextChange}
               />
