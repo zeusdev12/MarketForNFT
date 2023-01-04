@@ -4,16 +4,17 @@ import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
 import { Transition, Menu } from '@headlessui/react';
 import Web3 from 'web3';
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { collections } from "../data";
 import { config } from "../config";
 import { ABI } from "../contracts/nft";
 import NftCard from "../components/nftCard/nftCard";
 
-const getTokenInfo =(contract, id, address, date)=>{
-  return new Promise((resolve, reject)=>{
-      contract.methods.tokenURI(id.toString()).call().then((uri)=>{
-          resolve({ uri, id , address, date});
-      });
+const getTokenInfo = (contract, id, address, date) => {
+  return new Promise((resolve, reject) => {
+    contract.methods.tokenURI(id.toString()).call().then((uri) => {
+      resolve({ uri, id, address, date });
+    });
   });
 }
 
@@ -25,78 +26,77 @@ const NewNFT = () => {
   const [searchText, setSearchText] = useState("");
 
   let d1 = new Date();
-  d1.setMonth(d1.getMonth() - 1);   
+  d1.setMonth(d1.getMonth() - 1);
   d1.setHours(0, 0, 0, 0);
 
   let d2 = new Date();
-  d2.setDate(d1.getDate() - 7);   
+  d2.setDate(d1.getDate() - 7);
   d2.setHours(0, 0, 0, 0);
 
   let d3 = new Date();
-  d3.setDate(d1.getDate() - 1);   
+  d3.setDate(d1.getDate() - 1);
   d3.setHours(0, 0, 0, 0);
 
-  const [from, setFrom] = useState(d1.getTime()/1000);
-  const [month] = useState(d1.getTime()/1000);
-  const [week] = useState(d2.getTime()/1000);
-  const [day] = useState(d3.getTime()/1000);
+  const [from, setFrom] = useState(d1.getTime() / 1000);
+  const [month] = useState(d1.getTime() / 1000);
+  const [week] = useState(d2.getTime() / 1000);
+  const [day] = useState(d3.getTime() / 1000);
 
-  const onFromChange = (from)=>{
+  const onFromChange = (from) => {
     setFrom(from);
   }
- 
-  const onSearchTextChange = (e)=>{
+
+  const onSearchTextChange = (e) => {
     setSearchText(e.target.value);
   }
 
-  const getContractInfo = (address, date)=>{
-    return new Promise((resolve, reject)=>{
-       const contract = new web3.eth.Contract(ABI, address);
-       contract.methods.totalSupply().call().then((total) => {
+  const getContractInfo = (address, date) => {
+    return new Promise((resolve, reject) => {
+      const contract = new web3.eth.Contract(ABI, address);
+      contract.methods.totalSupply().call().then((total) => {
         let tasks = [];
         for (let i = 1; i <= parseInt(total); i++) {
-            tasks.push(getTokenInfo(contract, i, address, date));
+          tasks.push(getTokenInfo(contract, i, address, date));
         }
         Promise.all(tasks).then((result) => {
-            resolve(result);
+          resolve(result);
         });
-    });
+      });
     })
-}
+  }
 
   useEffect(() => {
 
-    let tasks = collections.map((collection)=>{
+    let tasks = collections.map((collection) => {
       return getContractInfo(collection.address, collection.date);
     });
 
-    Promise.all(tasks).then((result)=>{
-        let images = [];
-        result.forEach((r)=>{
-          images =  images.concat(r);
-        });
-        setImages(images)
+    Promise.all(tasks).then((result) => {
+      let images = [];
+      result.forEach((r) => {
+        images = images.concat(r);
+      });
+      setImages(images)
     });
 
   }, [])
 
-  const Nfts = images.map((nft, i)=>{
+  const Nfts = images.map((nft, i) => {
     return <NftCard ipfs={nft.uri} key={i} address={nft.address} id={nft.id} text={searchText} date={nft.date} from={from}></NftCard>
   });
 
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
       <div className="relative z-30 mt-[110px] lg:mt-[188px] pl-5 lg:pl-0 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
         <p className='text-white text-[36px] lg:text-[54px] font-gilroy font-semibold'>New Nft</p>
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>
           <form className="flex mt-3 pr-5 xl:pr-1" action="#" method="GET">
             <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
               <input
-                id="search-field"
-                name="search-field"
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"
-                type="search"
                 onChange={onSearchTextChange}
               />
               <div className="pointer-events-none absolute inset-y-0 right-0 pr-4 md:pr-[30px] flex items-center" aria-hidden="true">
@@ -135,17 +135,17 @@ const NewNFT = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute -ml-[2px] z-10 mt-2 w-[179px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
-                <button onClick={()=>{ onFromChange(month);}} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(month); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[16px] text-white text-base font-gilroy">
                     Last 30 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(week);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(week); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[26px] text-white text-base font-gilroy">
                     Last 7 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(day);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(day); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[33px] text-white text-base font-gilroy">
                     Last 1 day
                   </p>

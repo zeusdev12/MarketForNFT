@@ -1,8 +1,10 @@
-import React from 'react'
+import { React, useState } from 'react'
 import Footer from "../components/Footer"
 import { Link } from "react-router-dom"
+import ModalSupport from '../components/ModalSupport'
 
 const Support = () => {
+  const [modalSupportActive, setModalSupportActive] = useState();
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
       <div className='mt-[120px] md:mt-[200px] flex flex-col md:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
@@ -47,7 +49,7 @@ const Support = () => {
             />
           </div>
           <div className='flex flex-col md:block mt-[30px] md:mt-[40px] gap-2 md:space-x-3'>
-            <button className='md:w-[181px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+            <button className='md:w-[181px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-center text-[18px] font-gilroy tracking-wide font-semibold' onClick={() => setModalSupportActive(true)}>
               Send Message
             </button>
             <button className='md:w-[179px] h-[58px] rounded-[41px] bg-transparent border-2 border-[#beff55] text-white text-[18px] font-gilroy tracking-wide'>
@@ -59,6 +61,7 @@ const Support = () => {
         </div>
         <Footer />
       </div>
+      <ModalSupport active={modalSupportActive} setActive={setModalSupportActive} />
     </div>
   )
 }

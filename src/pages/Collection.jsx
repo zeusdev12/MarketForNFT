@@ -9,6 +9,7 @@ import { ReactComponent as PolygonUp } from '../assets/Collection/polygonup.svg'
 import { ReactComponent as PolygonDown } from '../assets/Collection/polygondown.svg'
 import { collections } from "../data";
 import { config } from "../config";
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import Web3 from 'web3';
 
 const Collection = () => {
@@ -18,96 +19,95 @@ const Collection = () => {
   const [searchText, setSearchText] = useState("");
 
   let d1 = new Date();
-  d1.setMonth(d1.getMonth() - 1);   
+  d1.setMonth(d1.getMonth() - 1);
   d1.setHours(0, 0, 0, 0);
 
   let d2 = new Date();
-  d2.setDate(d1.getDate() - 7);   
+  d2.setDate(d1.getDate() - 7);
   d2.setHours(0, 0, 0, 0);
 
   let d3 = new Date();
-  d3.setDate(d1.getDate() - 1);   
+  d3.setDate(d1.getDate() - 1);
   d3.setHours(0, 0, 0, 0);
 
-  const [from, setFrom] = useState(d1.getTime()/1000);
-  const [month] = useState(d1.getTime()/1000);
-  const [week] = useState(d2.getTime()/1000);
-  const [day] = useState(d3.getTime()/1000);
+  const [from, setFrom] = useState(d1.getTime() / 1000);
+  const [month] = useState(d1.getTime() / 1000);
+  const [week] = useState(d2.getTime() / 1000);
+  const [day] = useState(d3.getTime() / 1000);
 
-  const onFromChange = (from)=>{
+  const onFromChange = (from) => {
     setFrom(from);
   }
- 
-  const onSearchTextChange = (e)=>{
+
+  const onSearchTextChange = (e) => {
     setSearchText(e.target.value);
   }
 
-  const collectionsHtml = collections.map((col, i)=>{
+  const collectionsHtml = collections.map((col, i) => {
 
     let display = 'inline-block';
-    if(searchText.length != 0){
-        if(col.name.toLowerCase().indexOf(searchText.toLowerCase()) == (-1)){
-            display = 'none';
-        }
-    }
-
-    if(col.date < from){
+    if (searchText.length != 0) {
+      if (col.name.toLowerCase().indexOf(searchText.toLowerCase()) == (-1)) {
         display = 'none';
+      }
     }
 
-    return(
-          <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
-            <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
-              <div className="flex items-center relative">
-                <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">{i+1}</p>
-                <img
-                  src={col.image}
-                  alt="/"
-                  className="w-[40px] h-[40px] rounded-full mr-[15px]"
-                />
-                <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">{col.name}</p>
-              </div>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volumeTotal}</p>
-              <div className="relative items-center -mr-[130px]">
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">{col.volume30}</p>
-                {
-                   col.grow &&
-                   <>
-                      <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-                      <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
-                   </>
-                }
-                {
-                   !col.grow &&
-                   <>
-                       <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-                       <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
-                   </>
-                }
-              </div>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">{col.sales}</p>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{col.floorPrice}</p>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">{col.owners}</p>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
-            </div>
-          </Link>
+    if (col.date < from) {
+      display = 'none';
+    }
+
+    return (
+      <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
+        <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
+          <div className="flex items-center relative">
+            <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">{i + 1}</p>
+            <img
+              src={col.image}
+              alt="/"
+              className="w-[40px] h-[40px] rounded-full mr-[15px]"
+            />
+            <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
+            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">{col.name}</p>
+          </div>
+          <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volumeTotal}</p>
+          <div className="relative items-center -mr-[130px]">
+            <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">{col.volume30}</p>
+            {
+              col.grow &&
+              <>
+                <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+              </>
+            }
+            {
+              !col.grow &&
+              <>
+                <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
+                <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+              </>
+            }
+          </div>
+          <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">{col.sales}</p>
+          <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{col.floorPrice}</p>
+          <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">{col.owners}</p>
+          <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
+        </div>
+      </Link>
     )
   });
 
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
       <div className="relative z-30 mt-[110px] lg:mt-[188px] pl-5 lg:pl-0 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
         <p className='text-white text-[36px] lg:text-[54px] font-gilroy font-semibold'>Collection</p>
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>
           <form className="flex mt-3 pr-5 xl:pr-1" action="#" method="GET">
             <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
               <input
-                id="search-field"
-                name="search-field"
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"
-                type="search"
                 value={searchText}
                 onChange={onSearchTextChange}
               />
@@ -147,17 +147,17 @@ const Collection = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute -ml-[2px] z-10 mt-2 w-[179px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
-                <button onClick={()=>{ onFromChange(month);}} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(month); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[16px] text-white text-base font-gilroy">
                     Last 30 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(week);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(week); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[26px] text-white text-base font-gilroy">
                     Last 7 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(day);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(day); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[33px] text-white text-base font-gilroy">
                     Last 1 day
                   </p>

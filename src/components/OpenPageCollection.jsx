@@ -13,6 +13,7 @@ import { Transition, Menu } from '@headlessui/react';
 import { ReactComponent as Vector } from "../assets/icons/Deposit/vector.svg"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg";
 import { getPrices, getTokenInfo } from "../contracts/utils";
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { collections } from "../data";
 import Web3 from 'web3';
 import { config } from "../config";
@@ -33,7 +34,7 @@ const OpenPageCollection = () => {
   const [images, setImages] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  const onSearchTextChange = (e)=>{
+  const onSearchTextChange = (e) => {
     setSearchText(e.target.value);
   }
 
@@ -42,35 +43,35 @@ const OpenPageCollection = () => {
 
   useEffect(() => {
 
-    const collection = collections.filter((c)=> c.address == params.address )[0];
+    const collection = collections.filter((c) => c.address == params.address)[0];
     const contract = new web3.eth.Contract(ABI, collection.address);
 
     contract.methods.totalSupply().call().then((total) => {
 
       let tasks = [];
       for (let i = 1; i <= parseInt(total); i++) {
-          tasks.push(getTokenInfo(contract, i));
+        tasks.push(getTokenInfo(contract, i));
       }
 
       Promise.all(tasks).then((result) => {
         setImages(result);
       });
 
-  });
+    });
 
 
     setCollection(collection);
 
-    getPrices().then((prices)=>{
+    getPrices().then((prices) => {
 
       let price = prices[1][1];
       let totalEth = 0;
-      collection.prices.forEach((p)=>{
+      collection.prices.forEach((p) => {
         totalEth += p;
       });
       let a = prices[0][1]
       let b = prices[1][1]
-      const differens = 100 * Math.abs( ( a - b ) / ( (a+b)/2 ) );
+      const differens = 100 * Math.abs((a - b) / ((a + b) / 2));
       let diff = a > b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
       setPrice(totalEth * price);
       setDifference(diff);
@@ -78,14 +79,16 @@ const OpenPageCollection = () => {
     })
 
 
-  },[]);
+  }, []);
 
-  const nfts = images.map((nft, i)=>{
+  const nfts = images.map((nft, i) => {
     return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id} text={searchText}></NftCard>
   });
 
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
       <div className='mt-[120px] md:mt-[190px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]'>
         <div className="flex flex-col lg:flex-row justify-between lg:mr-5 2xl:mr-0 mx-auto lg:mx-0">
           <div className="flex flex-col items-center lg:items-start">
@@ -282,7 +285,7 @@ const OpenPageCollection = () => {
         </div>
         <div className='mt-[34px] lg:mt-14 -ml-3 lg:ml-0 w-full overflow-x-hidden'>
           <div className='flex flex-col lg:flex-row lg:flex-wrap w-full items-center lg:items-start gap-3.5 lg:gap-[2.55rem]'>
-             { nfts }
+            {nfts}
           </div>
         </div>
         <div className="-ml-5 lg:ml-0">

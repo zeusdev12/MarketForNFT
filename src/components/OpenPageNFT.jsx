@@ -5,6 +5,7 @@ import "./OpenPageNFT.css"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Validate } from '../assets/validate.svg'
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import Footer from "./Footer";
 import { collections } from "../data";
 import { ABI } from "../contracts/nft";
@@ -72,9 +73,11 @@ const OpenPageNFT = ({ onBuy }) => {
 
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
             <div className='mt-[140px] lg:mt-[208px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
                 {/* Header section */}
-                <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
+                <div className="relative z-50 flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
                     <div className="flex flex-col">
                         <p className="mt-[40px] lg:mt-0 text-[#828383] text-sm uppercase font-gilroyMedium">{formatDate(collection.date)}</p>
                         <p className="mt-[30px] text-white text-[36px] lg:text-[62px] font-gilroy font-semibold leading-[40px] lg:leading-[65px]">{collection.name}</p>

@@ -10,6 +10,9 @@ import Support from "../pages/Support"
 import OpenPageNFT from "./OpenPageNFT";
 import Profile from "../pages/profile/Profile";
 import OpenPageCollection from "./OpenPageCollection";
+import CopyrightPolice from "../pages/CopyrightPolice";
+import TermsOfService from "../pages/TermsOfService";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 const Navpage = ({ onBuy, web3, account, balance }) => {
     return (
@@ -26,6 +29,9 @@ const Navpage = ({ onBuy, web3, account, balance }) => {
                     <Route path="/item/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
                     <Route path="/profile" element={<Profile web3={web3} account={account} balance={balance}/>} />
                     <Route path="/collection/:address" element={<OpenPageCollection />} />
+                    <Route path="/copyrightPolice" element={<CopyrightPolice />} />
+                    <Route path="/termsOfService" element={<TermsOfService />} />
+                    <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
                 </Routes>
             </section>
         </React.Fragment>

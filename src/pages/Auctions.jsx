@@ -3,7 +3,7 @@ import CardApeGen from "../assets/cards/cardApeGen.png"
 import Footer from "../components/Footer";
 import { ReactComponent as Validate } from "../assets/validate.svg"
 import Darknes2 from "../assets/darknes2.png"
-
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import Card1 from "../assets/cards/Auction/card1.png"
 import Card2 from "../assets/cards/Auction/card2.png"
 import Card3 from "../assets/cards/Auction/card3.png"
@@ -15,6 +15,8 @@ import Card8 from "../assets/cards/Auction/card8.png"
 const Auctions = () => {
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
       <div className='mt-[140px] lg:mt-[208px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
         {/* Header section */}
         <div className="relative flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-8 overflow-hidden items-center lg:items-start px-4 lg:px-0">
@@ -184,8 +186,8 @@ const Auctions = () => {
                   <p className="text-sm font-gilroy rounded-[5px] max-w-[150px] truncate ml-2 uppercase text-[#beff55] mt-[6px]">ENDED!</p>
                 </div>
               </div>
-               {/* card 1 */}
-               <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              {/* card 1 */}
+              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card5}

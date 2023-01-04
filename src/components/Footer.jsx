@@ -5,6 +5,7 @@ import { ReactComponent as Logomini } from "../assets/logomini.svg";
 import { ReactComponent as Social1 } from "../assets/social1.svg";
 import { ReactComponent as Social2 } from "../assets/social2.svg";
 import { ReactComponent as Social3 } from "../assets/social3.svg";
+import { ReactComponent as Blur2 } from "../assets/blurs/blur2.svg"
 
 const navigation = {
     market: [
@@ -13,22 +14,24 @@ const navigation = {
         { name: 'Auction', path: '/auction' },
     ],
     features: [
-        { name: 'Insights', path: '/insights' },
+        { name: 'Collection', path: '/collection' },
         { name: 'Launchpad', path: '/launchpad' },
     ],
     resources: [
         { name: 'Support', path: '/support' },
-        { name: 'Copyright Police', href: '#' },
-        { name: 'Terms of Service', href: '#' },
-        { name: 'Privacy Policy', href: '#' },
+        { name: 'Copyright Police', path: '/copyrightPolice' },
+        { name: 'Terms of Service', path: "/termsOfService" },
+        { name: 'Privacy Policy', path: "/privacyPolicy" },
     ],
 }
 
 const Footer = () => {
     return (
         <section>
-            <div className='bg-transparent w-full pt-[70px] lg:pt-[150px]'>
-                <div className="mx-auto max-w-[1200px] ml-5 lg:ml-0">
+            <div className='bg-transparent relative w-full lg:h-[540px] overflow-hidden pt-[70px] lg:pt-[150px]'>
+                <Blur2 className='absolute z-10 w-[1150px] h-[773px] md:w-[1150px] md:h-[573px]' />
+                <Blur2 className='absolute z-10 w-[1150px] h-[773px] md:w-[1200px] md:h-[573px]' />
+                <div className="mx-auto relative 3xl:absolute z-50 max-w-[1200px] 3xl:w-[1190px] ml-5 lg:ml-0">
                     <div className="xl:grid xl:grid-cols-4">
                         <div className="space-y-8 xl:col-span-1">
                             <Link to="/" className='hidden sm:block'>
@@ -141,7 +144,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-[60px] md:mt-[90px] pb-8 md:pb-16 -ml-5">
+                    <div className="mt-[60px] md:mt-[90px] pb-8 md:pb-[60px] -ml-5">
                         <p className="text-sm text-[#F9FAFA80] font-gilroy font-medium tracking-wider text-center">©2022 Crypto Market, Inc. All Rights Reserved.</p>
                     </div>
                 </div>

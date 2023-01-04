@@ -68,6 +68,12 @@ import Collection3icon from "../assets/cards/collection3icon.png"
 const Hero = () => {
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[2260px] lg:mt-[2300px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[2260px] lg:mt-[4430px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
+            <Blur className='lg:hidden absolute top-0 mt-[4430px] lg:mt-[2300px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
+            <Blur className='lg:hidden absolute top-0 mt-[4430px] lg:mt-[4430px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
             <div className='lg:mt-24 flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
                 {/* Header section */}
                 <div className="relative block items-center lg:max-w-[1200px] overflow-hidden">
@@ -84,13 +90,13 @@ const Hero = () => {
                         />
                     </div>
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
-                    <div className='mt-[30px] text-center'>
-                        <button className='w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
-                            Explore Collection
-                        </button>
+                    <div className='mt-[30px] text-center z-40'>
+                        <Link to="/collection">
+                            <button className='w-[319px] z-50 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
+                                Explore Collection
+                            </button>
+                        </Link>
                     </div>
-                    {/* <Blur className='absolute top-0 -mt-[100px] -mr-[50px] right-0 z-10 lg:w-[800px] lg:h-[500px]'/>
-                    <Blur className='absolute top-0 mt-[160px] rotate-90 right-0 z-10 lg:w-[800px] lg:h-[500px]'/> */}
                 </div>
                 {/* Launchpad Drops section */}
                 <div className="relative z-30 mt-[100px] lg:mt-[120px] pl-5 lg:px-0 lg:mr-5">
@@ -108,9 +114,9 @@ const Hero = () => {
                             </button>
                         </div>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <button className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                            <Link to="/launchpad" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                                 See All
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
@@ -180,9 +186,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/launchpad" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </button>
+                    </Link>
                 </div>
                 {/* New to NFTs? section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -261,9 +267,9 @@ const Hero = () => {
                             </button>
                         </div>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <button className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                            <Link to="/collection" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                                 See All
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
@@ -409,10 +415,10 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center">
-                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                <div className="relative z-50 flex justify-center">
+                    <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </button>
+                    </Link>
                 </div>
                 {/* Upcoming Launches section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -477,9 +483,9 @@ const Hero = () => {
                     <div className='flex flex-row justify-between'>
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Top Marketcap Projects</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <button className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
+                            <Link to="/popularNFT" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
                                 See All
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
@@ -538,9 +544,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/popularNFT" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </button>
+                    </Link>
                 </div>
                 {/* OG SOL Projects section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
@@ -800,9 +806,9 @@ const Hero = () => {
                     <div className='flex flex-row justify-between'>
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>New NFT</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <button className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
+                            <Link to="/newNFT" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
                                 See All
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
@@ -861,9 +867,9 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <button className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/newNFT" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
                         See All
-                    </button>
+                    </Link>
                 </div>
                 <Footer />
             </div>
