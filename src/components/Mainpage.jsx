@@ -297,7 +297,7 @@ const Mainpage = () => {
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5">
-                              <Link to="/profile" className='text-black text-center text-[18px] font-gilroy font-semibold'>
+                              <Link to="/profile" className='text-black text-center text-[18px]' onClick={() => setSidebarOpen(false)}>
                                 <div className='flex flex-row'>
                                   <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
                                   <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
@@ -305,7 +305,7 @@ const Mainpage = () => {
                               </Link>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
                             </div>
-                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer">
+                            <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" onClick={() => setSidebarOpen(false)}>
                               <div className='flex flex-row' onClick={onSignOut}>
                                 <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                                 <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
@@ -326,7 +326,7 @@ const Mainpage = () => {
                     {
                       account &&
                       <button className='mt-5 w-[340px] h-[58px] rounded-[41px] text-black bg-[#beff55]'>
-                        <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold'>
+                        <Link to="/profile" className='text-black text-center text-[18px] font-gilroy tracking-wide font-semibold' onClick={() => setSidebarOpen(false)}>
                           <p>Profile</p>
                         </Link>
                       </button>

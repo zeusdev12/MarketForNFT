@@ -5,6 +5,7 @@ import { ReactComponent as Copy } from "../../assets/copy.svg"
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Darknes2 from "../../assets/darknes2.png"
 import { ReactComponent as ArrowDown } from "../../assets/arrowdown.svg"
+import { ReactComponent as Blur } from "../../assets/blurs/blur.svg"
 import { ReactComponent as Search } from "../../assets/search.svg";
 import "./Profile.css"
 import ModalUserSettings from "./ModalUserSettings"
@@ -36,47 +37,47 @@ const Profile = ({ web3, account, balance }) => {
         setSearchText(e.target.value);
     }
 
-    const switchTab = (tab)=>{
+    const switchTab = (tab) => {
         setTab(tab);
-        if(tab === "deposit"){
+        if (tab === "deposit") {
             setTransactions(depositTransactions);
-        }else{
+        } else {
             setTransactions(nftTransactions);
         }
     }
 
     const getProfile = () => {
         axios.get(`${config.api}/users/user-profile?address=${account}`)
-        .then((response) => {
-            setProfile(response.data);
-        });
+            .then((response) => {
+                setProfile(response.data);
+            });
     }
 
     const getTransactions = () => {
         axios.get(`${config.api}/transactions/list?address=${account}`)
-        .then((response) => {
-            let transactions = response.data;
-            let nftTransactions = transactions.filter((t)=>{ return t.type === "buy nft"});
-            let depositTransactions = transactions.filter((t)=>{ return t.type === "deposit"});
-            setTransactions(nftTransactions);
-            setNftTransactions(nftTransactions);
-            setDepositTransactions(depositTransactions);
-        });
+            .then((response) => {
+                let transactions = response.data;
+                let nftTransactions = transactions.filter((t) => { return t.type === "buy nft" });
+                let depositTransactions = transactions.filter((t) => { return t.type === "deposit" });
+                setTransactions(nftTransactions);
+                setNftTransactions(nftTransactions);
+                setDepositTransactions(depositTransactions);
+            });
     }
 
     const getBalance = () => {
         axios.get(`${config.api}/transactions/balance?address=${account}`)
-        .then((response) => {
-            setServiceBalance(response.data.balance);
-        });
+            .then((response) => {
+                setServiceBalance(response.data.balance);
+            });
     }
 
     const getMy = () => {
         axios.get(`${config.api}/nft/get-my?address=${account}`)
-        .then((response) => {
-            const nfts = response.data;
-            setImages(nfts);
-        });
+            .then((response) => {
+                const nfts = response.data;
+                setImages(nfts);
+            });
     }
 
     useEffect(() => {
@@ -92,8 +93,8 @@ const Profile = ({ web3, account, balance }) => {
         }
     }, [web3, account]);
 
-    const nfts = images.map((nft, i)=>{
-        return <NftMy data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance}/>
+    const nfts = images.map((nft, i) => {
+        return <NftMy data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance} />
     });
 
     const tabClass = "flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy";
@@ -103,7 +104,7 @@ const Profile = ({ web3, account, balance }) => {
         return (
             <div className="grid grid-cols-4 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]" key={trx._id}>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap max-w-[335px] truncate text-left pr-[93px]">{trx.crypto}</p>
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px] uppercase">{trx.from === account ? '-':''}{trx.eth}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px] uppercase">{trx.from === account ? '-' : ''}{trx.eth}</p>
                 <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.status}</p>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.type}</p>
             </div>
@@ -113,18 +114,20 @@ const Profile = ({ web3, account, balance }) => {
 
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
             <div className='mt-[120px] md:mt-[190px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]'>
                 <div className="flex flex-col lg:flex-row justify-between lg:mr-5 2xl:mr-0 mx-auto lg:mx-0">
                     <div className="flex flex-col">
                         <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-5">
                             <ProfileImage className="w-[100px] h-[100px]" />
-                            <button className="border-2 border-[#3b3c3c] hover:border-[#beff55] text-white font-gilroyMedium tracking-wide text-[16px] bg-transparent w-[127px] h-[46px] rounded-[41px]" onClick={() => setModalUserSettingsActive(true)}>
+                            <button className="relative z-50 border-2 border-[#3b3c3c] hover:border-[#beff55] text-white font-gilroyMedium tracking-wide text-[16px] bg-transparent w-[127px] h-[46px] rounded-[41px]" onClick={() => setModalUserSettingsActive(true)}>
                                 Edit Profile
                             </button>
                         </div>
                         <p className="flex flex-wrap text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">{profile.name}</p>
-                        <div className="flex flex-row items-center gap-1 mt-[3px]">
-                            <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px] max-w-[250px] lg:max-w-[450px] truncate"
+                        <div className="flex text-center justify-center lg:justify-start items-center gap-1 mt-[3px]">
+                            <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px] max-w-[250px] 2xl:max-w-[450px] truncate"
                                 value={inputValue}>
                                 {account}
                             </p>
@@ -133,14 +136,14 @@ const Profile = ({ web3, account, balance }) => {
                             </CopyToClipboard>
                         </div>
                         <div className="text-center lg:text-left mt-[30px]">
-                            <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalDepositActive(true)}>
+                            <button className="relative z-50 w-[320px] lg:w-[143px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
+                                Import Nft
+                            </button>
+                            <button className="relative z-50 mt-[10px] lg:mt-0 sm:ml-[10px] w-[136px] lg:w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalDepositActive(true)}>
                                 Deposit
                             </button>
-                            <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
-                                Withdraw
-                            </button>
-                            <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
-                                Import Nft
+                            <button className="relative z-50 mt-[10px] xl:mt-0 ml-[10px] w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
+                                Withdrawals
                             </button>
                         </div>
                     </div>
@@ -210,11 +213,8 @@ const Profile = ({ web3, account, balance }) => {
                     <form className="flex mt-3 mr-5 2xl:mr-0" action="#" method="GET">
                         <div className="relative w-full xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
                             <input
-                                id="search-field"
-                                name="search-field"
                                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                                 placeholder="Search"
-                                type="search"
                                 value={searchText}
                                 onChange={onSearchTextChange}
                             />
@@ -232,7 +232,7 @@ const Profile = ({ web3, account, balance }) => {
                         }
                     </div>
                 </div>
-{/* 
+                {/* 
                 <div className="flex justify-center">
                     <button className='hidden lg:flex mt-[30px] lg:mt-[80px] items-center justify-center w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
                         Show More Items
@@ -242,10 +242,10 @@ const Profile = ({ web3, account, balance }) => {
                 <div className="relative flex flex-col lg:flex-row z-30 mt-[80px] justify-between lg:mt-[100px]">
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Transaction</p>
                     <div className='flex flex-row mt-[15px] lg:mt-[10px] gap-3'>
-                        <button className={tab === "deposit" ? activeTabClass : tabClass} onClick={()=>{ switchTab('deposit')}}>
+                        <button className={tab === "deposit" ? activeTabClass : tabClass} onClick={() => { switchTab('deposit') }}>
                             <p>Deposit</p>
                         </button>
-                        <button  className={tab === "nft" ? activeTabClass : tabClass} onClick={()=>{ switchTab('nft')}}>
+                        <button className={tab === "nft" ? activeTabClass : tabClass} onClick={() => { switchTab('nft') }}>
                             <p>NFT Exchange</p>
                         </button>
                     </div>
@@ -276,11 +276,11 @@ const Profile = ({ web3, account, balance }) => {
             }
             {
                 modalWithdrawActive &&
-                <ModalWithdrawOpen active={modalWithdrawActive} setActive={setModalWithdrawActive} account={account} web3={web3} getBalance={getBalance} serviceBalance={serviceBalance}/>
+                <ModalWithdrawOpen active={modalWithdrawActive} setActive={setModalWithdrawActive} account={account} web3={web3} getBalance={getBalance} serviceBalance={serviceBalance} />
             }
             {
                 modalImprtActive &&
-                <ModalImportNft active={modalImprtActive} setActive={setModalImportActive} account={account} web3={web3} getMy={getMy}/>
+                <ModalImportNft active={modalImprtActive} setActive={setModalImportActive} account={account} web3={web3} getMy={getMy} />
             }
         </div>
     )
