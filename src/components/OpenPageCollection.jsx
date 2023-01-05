@@ -6,16 +6,11 @@ import CollectionOpenLogo from "../assets/Collection/collectionopenlogo.png"
 import { ReactComponent as Validate } from "../assets/validate.svg"
 import { ReactComponent as Social1 } from "../assets/Collection/social1.svg"
 import { ReactComponent as Social2 } from "../assets/Collection/social2.svg"
+import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { ReactComponent as Social3 } from "../assets/Collection/social3.svg"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
 import { Transition, Menu } from '@headlessui/react';
-import { ReactComponent as Vector } from "../assets/icons/Deposit/vector.svg"
-import { ReactComponent as StatusTop } from "../assets/statustop.svg";
-import { getPrices, getTokenInfo } from "../contracts/utils";
-import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
-import { collections } from "../data";
-import Web3 from 'web3';
 import { getPrices } from "../contracts/utils";
 import { config } from "../config";
 import NftCard from "./nftCard/nftCard";
@@ -33,23 +28,23 @@ const OpenPageCollection = () => {
   const [volume, setVolume] = useState(0);
 
   let d1 = new Date();
-  d1.setMonth(d1.getMonth() - 1);   
+  d1.setMonth(d1.getMonth() - 1);
   d1.setHours(0, 0, 0, 0);
 
   let d2 = new Date();
-  d2.setDate(d1.getDate() - 7);   
+  d2.setDate(d1.getDate() - 7);
   d2.setHours(0, 0, 0, 0);
 
   let d3 = new Date();
-  d3.setDate(d1.getDate() - 1);   
+  d3.setDate(d1.getDate() - 1);
   d3.setHours(0, 0, 0, 0);
 
-  const [from, setFrom] = useState(d1.getTime()/1000);
-  const [month] = useState(d1.getTime()/1000);
-  const [week] = useState(d2.getTime()/1000);
-  const [day] = useState(d3.getTime()/1000);
+  const [from, setFrom] = useState(d1.getTime() / 1000);
+  const [month] = useState(d1.getTime() / 1000);
+  const [week] = useState(d2.getTime() / 1000);
+  const [day] = useState(d3.getTime() / 1000);
 
-  const onFromChange = (from)=>{
+  const onFromChange = (from) => {
     setFrom(from);
   }
 
@@ -59,81 +54,53 @@ const OpenPageCollection = () => {
 
   useEffect(() => {
 
-    const collection = collections.filter((c) => c.address == params.address)[0];
-    const contract = new web3.eth.Contract(ABI, collection.address);
     axios.get(`${config.api}/collections/get?address=${params.address}`)
-    .then((response) => {
+      .then((response) => {
 
         const collection = response.data;
         setCollection(collection);
 
-      let tasks = [];
-      for (let i = 1; i <= parseInt(total); i++) {
-        tasks.push(getTokenInfo(contract, i));
-      }
         axios.get(`${config.api}/nft/collection?address=${params.address}&limit=500`)
-        .then((response) => {
+          .then((response) => {
 
             const list = response.data;
             setImages(list);
 
-    });
             axios.get(`${config.api}/transactions/volume?address=${params.address}`)
-            .then((response) => {
+              .then((response) => {
 
                 const volume = response.data;
                 setVolume(volume.volume);
 
-                getPrices().then((prices)=>{
+                getPrices().then((prices) => {
 
-    getPrices().then((prices) => {
-
-      let price = prices[1][1];
-      let totalEth = 0;
-      collection.prices.forEach((p) => {
-        totalEth += p;
-      });
-      let a = prices[0][1]
-      let b = prices[1][1]
-      const differens = 100 * Math.abs((a - b) / ((a + b) / 2));
-      let diff = a > b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
-      setPrice(totalEth * price);
-      setDifference(diff);
-
-    })
-
-
-  }, []);
-
-  const nfts = images.map((nft, i) => {
-    return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id} text={searchText}></NftCard>
                   let price = prices[1][1];
                   let totalEth = 0;
                   let owners = new Set();
-  
-                  list.forEach((l)=>{
+
+                  list.forEach((l) => {
                     totalEth += l.price;
                     owners.add(l.owner)
                   });
-  
+
                   let a = prices[0][1]
                   let b = prices[1][1]
-  
-                  const differens = 100 * Math.abs( ( a - b ) / ( (a+b)/2 ) );
+
+                  const differens = 100 * Math.abs((a - b) / ((a + b) / 2));
                   let diff = a < b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
-  
+
                   setPrice(totalEth * price);
                   setDifference(diff);
                   setOwners(owners.size);
-                  
+
                 })
-            });
-        });
-    });
+              });
+          });
+      });
 
-  },[params.address]);
+  }, [params.address]);
 
-  const nfts = images.map((nft, i)=>{
+  const nfts = images.map((nft, i) => {
     return <NftCard data={nft} key={i} text={searchText} date={new Date(nft.createdAt).getTime()} from={from}></NftCard>
   });
 
@@ -313,17 +280,17 @@ const OpenPageCollection = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute -ml-[2px] z-10 mt-2 w-[179px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
-                <button onClick={()=>{ onFromChange(month);}} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(month); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[16px] text-white text-base font-gilroy">
                     Last 30 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(week);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(week); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[26px] text-white text-base font-gilroy">
                     Last 7 days
                   </p>
                 </button>
-                <button onClick={()=>{ onFromChange(day);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={() => { onFromChange(day); }} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[33px] text-white text-base font-gilroy">
                     Last 1 day
                   </p>
