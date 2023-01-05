@@ -84,6 +84,7 @@ const NewNFT = () => {
               <input
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"
+                value={searchText}
                 onChange={onSearchTextChange}
               />
               <div className="pointer-events-none absolute inset-y-0 right-0 pr-4 md:pr-[30px] flex items-center" aria-hidden="true">
