@@ -37,7 +37,7 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
         }
 
         if(serviceBalance - fee < 0){
-            alert("Unsuficiant balance!");
+            alert("Insufficient balance!");
             return;
         }
 

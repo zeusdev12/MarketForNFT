@@ -24,7 +24,7 @@ const ModalWithdrawOpen = ({ active, setActive, account, web3, getBalance, servi
             return;
         }
         if((serviceBalance - amount) - fee < 0){
-            alert("Unsuficiant amount!");
+            alert("Insufficient balance!");
             return;
         }
 
