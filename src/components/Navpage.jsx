@@ -14,19 +14,19 @@ import CopyrightPolice from "../pages/CopyrightPolice";
 import TermsOfService from "../pages/TermsOfService";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 
-const Navpage = ({ onBuy, web3, account, balance }) => {
+const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
     return (
         <React.Fragment>
             <section>
                 <Routes>
                     <Route path="/" element={<Hero />} />
-                    <Route path="/popularNFT" element={<PopularNFT />} />
-                    <Route path="/newNFT" element={<NewNFT />} />
+                    <Route path="/popular" element={<PopularNFT />} />
+                    <Route path="/new" element={<NewNFT />} />
                     <Route path="/collection" element={<Collection />} />
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/item/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
+                    <Route path="/item/:id" element={<OpenPageNFT onBuy={onBuy}  account={account}  />} />
                     <Route path="/profile" element={<Profile web3={web3} account={account} balance={balance}/>} />
                     <Route path="/collection/:address" element={<OpenPageCollection />} />
                     <Route path="/copyrightPolice" element={<CopyrightPolice />} />

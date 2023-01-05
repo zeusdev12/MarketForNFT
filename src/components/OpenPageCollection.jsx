@@ -16,14 +16,10 @@ import { getPrices, getTokenInfo } from "../contracts/utils";
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { collections } from "../data";
 import Web3 from 'web3';
+import { getPrices } from "../contracts/utils";
 import { config } from "../config";
-import { ABI } from "../contracts/nft";
 import NftCard from "./nftCard/nftCard";
-
-import Card1 from "../assets/Collection/card1.png"
-import Card2 from "../assets/Collection/card2.png"
-import Card3 from "../assets/Collection/card3.png"
-import Card4 from "../assets/Collection/card4.png"
+import axios from 'axios';
 
 const OpenPageCollection = () => {
 
@@ -33,34 +29,62 @@ const OpenPageCollection = () => {
   const [difference, setDifference] = useState(0);
   const [images, setImages] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [owners, setOwners] = useState(0);
+  const [volume, setVolume] = useState(0);
+
+  let d1 = new Date();
+  d1.setMonth(d1.getMonth() - 1);   
+  d1.setHours(0, 0, 0, 0);
+
+  let d2 = new Date();
+  d2.setDate(d1.getDate() - 7);   
+  d2.setHours(0, 0, 0, 0);
+
+  let d3 = new Date();
+  d3.setDate(d1.getDate() - 1);   
+  d3.setHours(0, 0, 0, 0);
+
+  const [from, setFrom] = useState(d1.getTime()/1000);
+  const [month] = useState(d1.getTime()/1000);
+  const [week] = useState(d2.getTime()/1000);
+  const [day] = useState(d3.getTime()/1000);
+
+  const onFromChange = (from)=>{
+    setFrom(from);
+  }
 
   const onSearchTextChange = (e) => {
     setSearchText(e.target.value);
   }
 
-  const provider = new Web3.providers.HttpProvider(config.rpc);
-  const web3 = new Web3(provider);
-
   useEffect(() => {
 
     const collection = collections.filter((c) => c.address == params.address)[0];
     const contract = new web3.eth.Contract(ABI, collection.address);
+    axios.get(`${config.api}/collections/get?address=${params.address}`)
+    .then((response) => {
 
-    contract.methods.totalSupply().call().then((total) => {
+        const collection = response.data;
+        setCollection(collection);
 
       let tasks = [];
       for (let i = 1; i <= parseInt(total); i++) {
         tasks.push(getTokenInfo(contract, i));
       }
+        axios.get(`${config.api}/nft/collection?address=${params.address}&limit=500`)
+        .then((response) => {
 
-      Promise.all(tasks).then((result) => {
-        setImages(result);
-      });
+            const list = response.data;
+            setImages(list);
 
     });
+            axios.get(`${config.api}/transactions/volume?address=${params.address}`)
+            .then((response) => {
 
+                const volume = response.data;
+                setVolume(volume.volume);
 
-    setCollection(collection);
+                getPrices().then((prices)=>{
 
     getPrices().then((prices) => {
 
@@ -83,6 +107,34 @@ const OpenPageCollection = () => {
 
   const nfts = images.map((nft, i) => {
     return <NftCard ipfs={nft.uri} key={i} address={collection.address} id={nft.id} text={searchText}></NftCard>
+                  let price = prices[1][1];
+                  let totalEth = 0;
+                  let owners = new Set();
+  
+                  list.forEach((l)=>{
+                    totalEth += l.price;
+                    owners.add(l.owner)
+                  });
+  
+                  let a = prices[0][1]
+                  let b = prices[1][1]
+  
+                  const differens = 100 * Math.abs( ( a - b ) / ( (a+b)/2 ) );
+                  let diff = a < b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
+  
+                  setPrice(totalEth * price);
+                  setDifference(diff);
+                  setOwners(owners.size);
+                  
+                })
+            });
+        });
+    });
+
+  },[params.address]);
+
+  const nfts = images.map((nft, i)=>{
+    return <NftCard data={nft} key={i} text={searchText} date={new Date(nft.createdAt).getTime()} from={from}></NftCard>
   });
 
   return (
@@ -95,7 +147,7 @@ const OpenPageCollection = () => {
             <div className='relative'>
               <div className='w-[100px] h-[100px] bg-transparent border-2 border-[#beff55] rounded-full'>
                 <img
-                  src={collection.image}
+                  src={`${config.api}/${collection.logo}`}
                   alt="/"
                   className='w-[90px] h-[90px] ml-[3.2px] mt-[2.5px] object-cover rounded-full object-center'
                 />
@@ -130,16 +182,16 @@ const OpenPageCollection = () => {
                 <div className='bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">LISTED</p>
                   <div className="w-[120px] text-right">
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-[82px] text-white leading-[16px]">{collection.totalSupply}</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-[82px] text-white leading-[16px]">{images.length}</p>
                   </div>
                 </div>
                 <div className='bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">TOTAL <br /> VOL</p>
                   <div className="w-[120px] text-right mt-[23px]">
-                    <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
+                    {/* <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
                       <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+1.5K</p>
-                    </div>
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{collection.volumeTotal}</p>
+                    </div> */}
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{volume}</p>
                   </div>
                 </div>
               </div>
@@ -162,7 +214,7 @@ const OpenPageCollection = () => {
                     <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
                       <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+1</p>
                     </div>
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{collection.owners}</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{owners}</p>
                   </div>
                 </div>
               </div>
@@ -260,18 +312,18 @@ const OpenPageCollection = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute z-10 mt-2 w-[189px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
-                <button className="w-[179px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+              <Menu.Items className="absolute -ml-[2px] z-10 mt-2 w-[179px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
+                <button onClick={()=>{ onFromChange(month);}} className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[16px] text-white text-base font-gilroy">
                     Last 30 days
                   </p>
                 </button>
-                <button className="w-[179px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={()=>{ onFromChange(week);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[26px] text-white text-base font-gilroy">
                     Last 7 days
                   </p>
                 </button>
-                <button className="w-[179px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                <button onClick={()=>{ onFromChange(day);}}  className="w-[169px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                   <p className="-ml-[33px] text-white text-base font-gilroy">
                     Last 1 day
                   </p>
@@ -286,12 +338,12 @@ const OpenPageCollection = () => {
           </div>
         </div>
         <div className="-ml-5 lg:ml-0">
-          <div className="flex flex-row justify-center">
+          {/* <div className="flex flex-row justify-center">
             <button className='flex mt-[30px] lg:mt-[80px] items-center justify-center w-[350px] lg:w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
               Show More Items
               <ArrowDown className="ml-3" />
             </button>
-          </div>
+          </div> */}
           <Footer />
         </div>
       </div>

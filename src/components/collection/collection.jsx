@@ -1,40 +1,13 @@
-
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ABI } from "../../contracts/nft";
-import Image from "../image/image";
 import { ReactComponent as StatusLive } from "../../assets/statuslive.svg";
 
-const getTokenInfo =(contract, id)=>{
-    return new Promise((resolve, reject)=>{
-        contract.methods.tokenURI(id.toString()).call().then((uri)=>{
-            resolve({ uri });
-        });
-    });
-}
-
-export const Collection = ({collection, web3 })=>{
-
-    const [image, setImage] = useState(null);
-
-    useEffect(()=>{
-
-        const contract = new web3.eth.Contract(ABI, collection.address);
-
-        getTokenInfo(contract, 1).then((result)=>{
-            setImage(result);
-        });
-
-    },[]);
+export const Collection = ({collection })=>{
 
     return (
         <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer mr-[1.25rem] lg:mr-[2.85rem]'>
             <Link to={`/item/${collection.address}/1`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                    {
-                        image &&
-                        <Image ipfs={image.uri}></Image>
-                    }
+                    <img src={collection.nft.data.url}  className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"/>
                     <StatusLive className='absolute -mt-[246px] ml-[196px]' />
                 </div>
                 <h3 className="mt-[12px] text-xl font-gilroy text-white max-w-[250px] truncate hover:text-[#beff55] px-5">{ collection.name }</h3>

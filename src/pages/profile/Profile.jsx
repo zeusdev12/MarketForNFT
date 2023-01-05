@@ -9,10 +9,9 @@ import { ReactComponent as Search } from "../../assets/search.svg";
 import "./Profile.css"
 import ModalUserSettings from "./ModalUserSettings"
 import ModalDepositOpen from "./ModalDepositOpen"
-import { collections } from "../../data";
-import { ABI } from "../../contracts/nft";
-import { getTokenInfo } from "../../contracts/utils";
-import NftMy from "../../components/nftMy/nftMy";
+import ModalWithdrawOpen from "./ModalWithdrawOpen"
+import ModalImportNft from "./ModalImportNft"
+import NftMy from "./nftMy";
 import axios from 'axios';
 import { config } from "../../config";
 
@@ -22,99 +21,89 @@ const Profile = ({ web3, account, balance }) => {
     const [inputValue, setInputValue] = useState("");
     const [modalUserSettingsActive, setModalUserSettingsActive] = useState();
     const [modalDepositActive, setModalDepositActive] = useState();
-    const [price, setPrice] = useState(0);
-    const [items, setItems] = useState(0);
+    const [modalImprtActive, setModalImportActive] = useState();
+    const [modalWithdrawActive, setModalWithdrawActive] = useState();
+    const [serviceBalance, setServiceBalance] = useState(0);
     const [images, setImages] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [profile, setProfile] = useState({});
     const [transactions, setTransactions] = useState([]);
+    const [nftTransactions, setNftTransactions] = useState([]);
+    const [depositTransactions, setDepositTransactions] = useState([]);
+    const [tab, setTab] = useState("nft");
 
     const onSearchTextChange = (e) => {
         setSearchText(e.target.value);
     }
 
-    const getContractInfo = (address, prices)=>{
-         return new Promise((resolve, reject)=>{
-            const contract = new web3.eth.Contract(ABI, address);
-            contract.methods.balanceOf(account).call().then((count) => {
-                if(count > 0){
-                    contract.methods.totalSupply().call().then((total) => {
-                        let tasks = [];
-                        for (let i = 1; i <= parseInt(total); i++) {
-                            tasks.push(getTokenInfo(contract, i));
-                        }
-                        Promise.all(tasks).then((result) => {
-                            let list = [];
-                            let itemsPrice = 0;
-                            result.forEach((nft)=>{
-                                if(nft.owner === account){
-                                    nft.price = prices[nft.id-1];
-                                    nft.contract = address;
-                                    itemsPrice += nft.price;
-                                    list.push(nft);
-                                }
-                            });
-                            let item = { list: list };
-                            setPrice(price + itemsPrice);
-                            setItems(items + list.length);
-                            resolve(item);
-                        });
-                    });
-                }
-            });
-         })
+    const switchTab = (tab)=>{
+        setTab(tab);
+        if(tab === "deposit"){
+            setTransactions(depositTransactions);
+        }else{
+            setTransactions(nftTransactions);
+        }
     }
 
     const getProfile = () => {
         axios.get(`${config.api}/users/user-profile?address=${account}`)
-            .then((response) => {
-                setProfile(response.data);
-            });
+        .then((response) => {
+            setProfile(response.data);
+        });
     }
 
     const getTransactions = () => {
         axios.get(`${config.api}/transactions/list?address=${account}`)
-            .then((response) => {
-                setTransactions(response.data);
-            });
+        .then((response) => {
+            let transactions = response.data;
+            let nftTransactions = transactions.filter((t)=>{ return t.type === "buy nft"});
+            let depositTransactions = transactions.filter((t)=>{ return t.type === "deposit"});
+            setTransactions(nftTransactions);
+            setNftTransactions(nftTransactions);
+            setDepositTransactions(depositTransactions);
+        });
+    }
+
+    const getBalance = () => {
+        axios.get(`${config.api}/transactions/balance?address=${account}`)
+        .then((response) => {
+            setServiceBalance(response.data.balance);
+        });
+    }
+
+    const getMy = () => {
+        axios.get(`${config.api}/nft/get-my?address=${account}`)
+        .then((response) => {
+            const nfts = response.data;
+            setImages(nfts);
+        });
     }
 
     useEffect(() => {
+
         if (account && web3) {
+
             getProfile();
             getTransactions();
-            let tasks = collections.map((collection)=>{
-                return getContractInfo(collection.address, collection.prices);
-            });
-            Promise.all(tasks).then((result)=>{
-                setImages(result)
-            })
+            getBalance();
+            getMy();
+
+
         }
     }, [web3, account]);
 
-    const myColections = images.length ? images.map((myColection, index) => {
+    const nfts = images.map((nft, i)=>{
+        return <NftMy data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance}/>
+    });
 
-
-        const otherNft = myColection.list.map((nft, i)=>{
-            return <NftMy ipfs={nft.uri} key={i}  price={nft.price} text={searchText}></NftMy>
-        });
-
-        return (
-            <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider' key={index}>
-                <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.65rem]'>
-                    {
-                        otherNft
-                    }
-                </div>
-            </div>
-        )
-    }) : [];
+    const tabClass = "flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy";
+    const activeTabClass = "flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy";
 
     const transactionsHtml = transactions.length ? transactions.map((trx) => {
         return (
             <div className="grid grid-cols-4 w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px]" key={trx._id}>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap max-w-[335px] truncate text-left pr-[93px]">{trx.crypto}</p>
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px] uppercase">{trx.eth}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[93px] uppercase">{trx.from === account ? '-':''}{trx.eth}</p>
                 <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.status}</p>
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[93px]">{trx.type}</p>
             </div>
@@ -147,6 +136,12 @@ const Profile = ({ web3, account, balance }) => {
                             <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalDepositActive(true)}>
                                 Deposit
                             </button>
+                            <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
+                                Withdraw
+                            </button>
+                            <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
+                                Import Nft
+                            </button>
                         </div>
                     </div>
                     {/* section profile balance for desktop */}
@@ -156,7 +151,7 @@ const Profile = ({ web3, account, balance }) => {
                                 <div className='bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">total <br /> items</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{items}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{images.length}</p>
                                     </div>
                                 </div>
                                 <div className='bg-[#1a1a19] w-[200px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
@@ -168,7 +163,7 @@ const Profile = ({ web3, account, balance }) => {
                                 <div className='bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">estimated value (eth)</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{price}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{serviceBalance.toFixed(4)}</p>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +178,7 @@ const Profile = ({ web3, account, balance }) => {
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">total <br /> items</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{items}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{images.length}</p>
                                     </div>
                                 </div>
                                 <div className='inline-block bg-[#1a1a19] w-[200px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
@@ -195,7 +190,7 @@ const Profile = ({ web3, account, balance }) => {
                                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                                     <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">estimated value <br /> (eth)</p>
                                     <div className="w-[120px] text-right">
-                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{price}</p>
+                                        <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{serviceBalance}</p>
                                     </div>
                                 </div>
                             </div>
@@ -230,23 +225,27 @@ const Profile = ({ web3, account, balance }) => {
                     </form>
                 </div>
 
-                {
-                    myColections
-                }
-
+                <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
+                    <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.65rem]'>
+                        {
+                            nfts
+                        }
+                    </div>
+                </div>
+{/* 
                 <div className="flex justify-center">
                     <button className='hidden lg:flex mt-[30px] lg:mt-[80px] items-center justify-center w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
                         Show More Items
                         <ArrowDown className="ml-3" />
                     </button>
-                </div>
+                </div> */}
                 <div className="relative flex flex-col lg:flex-row z-30 mt-[80px] justify-between lg:mt-[100px]">
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Transaction</p>
                     <div className='flex flex-row mt-[15px] lg:mt-[10px] gap-3'>
-                        {/* <button className='flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy'>
+                        <button className={tab === "deposit" ? activeTabClass : tabClass} onClick={()=>{ switchTab('deposit')}}>
                             <p>Deposit</p>
-                        </button> */}
-                        <button className='flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy'>
+                        </button>
+                        <button  className={tab === "nft" ? activeTabClass : tabClass} onClick={()=>{ switchTab('nft')}}>
                             <p>NFT Exchange</p>
                         </button>
                     </div>
@@ -271,8 +270,18 @@ const Profile = ({ web3, account, balance }) => {
                 modalUserSettingsActive &&
                 <ModalUserSettings active={modalUserSettingsActive} setActive={setModalUserSettingsActive} account={account} getProfile={getProfile} />
             }
-
-            <ModalDepositOpen active={modalDepositActive} setActive={setModalDepositActive} account={account} />
+            {
+                modalDepositActive &&
+                <ModalDepositOpen active={modalDepositActive} setActive={setModalDepositActive} account={account} web3={web3} getBalance={getBalance} />
+            }
+            {
+                modalWithdrawActive &&
+                <ModalWithdrawOpen active={modalWithdrawActive} setActive={setModalWithdrawActive} account={account} web3={web3} getBalance={getBalance} serviceBalance={serviceBalance}/>
+            }
+            {
+                modalImprtActive &&
+                <ModalImportNft active={modalImprtActive} setActive={setModalImportActive} account={account} web3={web3} getMy={getMy}/>
+            }
         </div>
     )
 }
