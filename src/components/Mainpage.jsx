@@ -53,8 +53,8 @@ const BSC_FORK = Common.forCustomChain(
 );
 
 const sidebarNavigation = [
-  { name: 'Popular NFT', path: '/popularNFT', icon: Icon1, arrow: Arrow },
-  { name: 'New NFT', path: '/newNFT', icon: Icon2, arrow: Arrow },
+  { name: 'Popular NFT', path: '/popular', icon: Icon1, arrow: Arrow },
+  { name: 'New NFT', path: '/new', icon: Icon2, arrow: Arrow },
   { name: 'Collection', path: '/collection', icon: Icon3, arrow: Arrow },
   { name: 'Auctions', path: '/auctions', icon: Icon5, arrow: Arrow },
   { name: 'Launchpad', path: '/launchpad', icon: Icon6, arrow: Arrow },

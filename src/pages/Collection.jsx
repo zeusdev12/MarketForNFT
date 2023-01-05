@@ -35,7 +35,6 @@ const Collection = () => {
   const [day] = useState(d3);
 
   const onFromChange = (from)=>{
-    console.log(from)
     setFrom(from);
   }
  

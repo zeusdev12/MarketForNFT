@@ -17,8 +17,8 @@ const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
             <section>
                 <Routes>
                     <Route path="/" element={<Hero />} />
-                    <Route path="/popularNFT" element={<PopularNFT />} />
-                    <Route path="/newNFT" element={<NewNFT />} />
+                    <Route path="/popular" element={<PopularNFT />} />
+                    <Route path="/new" element={<NewNFT />} />
                     <Route path="/collection" element={<Collection />} />
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />

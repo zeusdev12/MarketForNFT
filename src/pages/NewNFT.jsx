@@ -3,26 +3,13 @@ import Footer from "../components/Footer"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
 import { ReactComponent as Search } from "../assets/search.svg";
 import { Transition, Menu } from '@headlessui/react';
-import Web3 from 'web3';
-import { collections } from "../data";
 import { config } from "../config";
-import { ABI } from "../contracts/nft";
-import NftCard from "../components/nftCard/nftCard";
-
-const getTokenInfo =(contract, id, address, date)=>{
-  return new Promise((resolve, reject)=>{
-      contract.methods.tokenURI(id.toString()).call().then((uri)=>{
-          resolve({ uri, id , address, date});
-      });
-  });
-}
+import axios from "axios";
 
 const NewNFT = () => {
 
-  const provider = new Web3.providers.HttpProvider(config.rpc);
-  const web3 = new Web3(provider);
-  const [images, setImages] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [images, setImages] = useState([]);
 
   let d1 = new Date();
   d1.setMonth(d1.getMonth() - 1);   
@@ -36,10 +23,10 @@ const NewNFT = () => {
   d3.setDate(d1.getDate() - 1);   
   d3.setHours(0, 0, 0, 0);
 
-  const [from, setFrom] = useState(d1.getTime()/1000);
-  const [month] = useState(d1.getTime()/1000);
-  const [week] = useState(d2.getTime()/1000);
-  const [day] = useState(d3.getTime()/1000);
+  const [from, setFrom] = useState(d1);
+  const [month] = useState(d1);
+  const [week] = useState(d2);
+  const [day] = useState(d3);
 
   const onFromChange = (from)=>{
     setFrom(from);
@@ -49,40 +36,40 @@ const NewNFT = () => {
     setSearchText(e.target.value);
   }
 
-  const getContractInfo = (address, date)=>{
-    return new Promise((resolve, reject)=>{
-       const contract = new web3.eth.Contract(ABI, address);
-       contract.methods.totalSupply().call().then((total) => {
-        let tasks = [];
-        for (let i = 1; i <= parseInt(total); i++) {
-            tasks.push(getTokenInfo(contract, i, address, date));
-        }
-        Promise.all(tasks).then((result) => {
-            resolve(result);
-        });
-    });
-    })
-}
+  const fetch = ()=>{
 
-  useEffect(() => {
-
-    let tasks = collections.map((collection)=>{
-      return getContractInfo(collection.address, collection.date);
+    axios.get(`${config.api}/collections/popular?text=${searchText}&from=${from}`)
+    .then((response) => {
+        const images = response.data;
+        setImages(images);
     });
 
-    Promise.all(tasks).then((result)=>{
-        let images = [];
-        result.forEach((r)=>{
-          images =  images.concat(r);
-        });
-        setImages(images)
-    });
+  }
+  
+  useEffect(()=>{
 
-  }, [])
+    fetch();
 
-  const Nfts = images.map((nft, i)=>{
-    return <NftCard ipfs={nft.uri} key={i} address={nft.address} id={nft.id} text={searchText} date={nft.date} from={from}></NftCard>
-  });
+  },[from, searchText])
+
+  let imagesHtml = images.map((nft)=>{
+    return (
+      <div className='bg-[#1a1a19] w-[320px] h-[402px] lg:w-[260px] lg:h-[339px] rounded-[15px] cursor-pointer'>
+         <a href={`/item/${nft._id}`}>
+         <div className="overflow-hidden relative px-[10px] pt-[10px]">
+        <img
+          src={nft.data.url}
+          alt="/"
+          className="w-[300px] h-[313px] lg:w-[240px] lg:h-[250px] object-cover rounded-[10px] object-center group-hover:opacity-75"
+        />
+      </div>
+      <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">{nft.collection} #{nft.id}</h3>
+      <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">{nft.data.name}</p>
+         </a>
+      </div>
+    )
+  })
+
 
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
@@ -157,17 +144,17 @@ const NewNFT = () => {
         <div className='mt-[34px] lg:mt-14 -ml-3 lg:ml-0 w-full overflow-x-hidden'>
           <div className='flex flex-col lg:flex-row lg:flex-wrap w-full items-center lg:items-start gap-3.5 lg:gap-[2.55rem]'>
             {
-              Nfts
+              imagesHtml
             }
           </div>
         </div>
         <div className="-ml-5 lg:ml-0">
-          <div className="flex flex-row justify-center">
+          {/* <div className="flex flex-row justify-center">
             <button className='flex mt-[30px] lg:mt-[80px] items-center justify-center w-[350px] lg:w-[228px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-[18px] font-gilroy cursor-pointer'>
               Show More Items
               <ArrowDown className="ml-3" />
             </button>
-          </div>
+          </div> */}
           <Footer />
         </div>
       </div>
