@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { ReactComponent as Search } from '../assets/search.svg';
-import { collections } from "../data";
 import { ReactComponent as Validate } from "../assets/validate.svg"
-import Section1Card1 from "../assets/cards/section1card1.png"
+import axios from 'axios';
+import { config } from '../config';
 
 export const SearchBarMob = () => {
 
     const [searchText, setSearchText] = useState("");
     const [result, setResult] = useState([]);
+    const [collections, setCollections] = useState([]);
+
+    useEffect(()=>{
+        axios.get(`${config.api}/collections/list`)
+        .then((response) => {
+            setCollections(response.data);
+        });
+    },[])
 
     const onSearchtextChange = (e) => {
         const text = e.target.value;
@@ -31,7 +38,7 @@ export const SearchBarMob = () => {
                 <div className='flex flex-row'>
                     <div className='relative'>
                         <img
-                            src={r.image}
+                             src={`${config.api}/${r.logo}`}
                             alt="/"
                             className='h-[50px] w-[50px] rounded-full mr-4'
                         />
@@ -57,7 +64,7 @@ export const SearchBarMob = () => {
                         onChange={onSearchtextChange}
                     />
                     {
-                        result.length != 0 &&
+                        result.length !== 0 &&
                         <div className='flex flex-col w-[300px] rounded-[15px] max-h-max bg-[#131313] mt-5'>
                             <p className='mt-[10px] font-gilroy text-[18px] ml-[30px] text-[#828383]'>Found <span className='text-white font-gilroy text-[18px]'>{result.length} similarities</span></p>
                             <div className='mb-[10px]'>

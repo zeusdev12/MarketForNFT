@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { ReactComponent as Search } from '../assets/search.svg';
-import { collections } from "../data";
 import { ReactComponent as Validate } from "../assets/validate.svg"
-import Section1Card1 from "../assets/cards/section1card1.png"
+import axios from 'axios';
+import { config } from '../config';
 
 export const SearchBar = () => {
 
     const [searchText, setSearchText] = useState("");
     const [result, setResult] = useState([]);
+    const [collections, setCollections] = useState([]);
+
+    useEffect(()=>{
+        axios.get(`${config.api}/collections/list`)
+        .then((response) => {
+            setCollections(response.data);
+        });
+    },[])
 
     const onSearchtextChange = (e) => {
         const text = e.target.value;
@@ -31,7 +39,7 @@ export const SearchBar = () => {
                 <div className='flex flex-row'>
                     <div className='relative'>
                         <img
-                            src={r.image}
+                            src={`${config.api}/${r.logo}`}
                             alt="/"
                             className='h-[50px] w-[50px] rounded-full mr-4'
                         />
@@ -39,7 +47,7 @@ export const SearchBar = () => {
                     </div>
                     <div className='flex flex-col text-left'>
                         <p className='font-gilroy lg:max-w-[400px] truncate text-white text-[18px] mt-[4px]'>{r.name}</p>
-                        <p className='font-gilroy lg:max-w-[400px] truncate text-[#828383] text-[14px] -mt-[3px]'>{r.owner}</p>
+                        <p className='font-gilroy lg:max-w-[400px] truncate text-[#828383] text-[14px] -mt-[3px]'>{r.author}</p>
                     </div>
                 </div>
             </a>
@@ -61,7 +69,7 @@ export const SearchBar = () => {
                         <Search className="h-[19px] w-[19px] text-[#828383]" aria-hidden="true" />
                     </div>
                     {
-                        result.length != 0 &&
+                        result.length !== 0 &&
                         <div className='flex flex-col w-[360px] xl:w-[560px] rounded-[15px] max-h-max bg-[#131313] mt-3'>
                             <p className='mt-[10px] font-gilroy text-[18px] ml-[30px] text-[#828383]'>Found <span className='text-white font-gilroy text-[18px]'>{result.length} similarities</span></p>
                             <div className='mb-[10px]'>

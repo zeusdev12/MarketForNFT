@@ -41,6 +41,17 @@ import { ReactComponent as Search } from '../assets/search.svg';
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common').default;
 
+const BSC_FORK = Common.forCustomChain(
+  'mainnet',
+  {
+    name: 'Binance Smart Chain Mainnet',
+    networkId: 97,
+    chainId: 97,
+    url: config.rpc
+  },
+  'istanbul',
+);
+
 const sidebarNavigation = [
   { name: 'Popular NFT', path: '/popularNFT', icon: Icon1, arrow: Arrow },
   { name: 'New NFT', path: '/newNFT', icon: Icon2, arrow: Arrow },
@@ -143,34 +154,23 @@ const Mainpage = () => {
     }
   }
 
-  const transferToken = (owner, to, id, contractAddress) => {
-
-    const BSC_FORK = Common.forCustomChain(
-      'mainnet',
-      {
-        name: 'Binance Smart Chain Mainnet',
-        networkId: 97,
-        chainId: 97,
-        url: config.rpc
-      },
-      'istanbul',
-    );
+  const transferToken = ( to, id, address) => {
 
     const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
 
-    const privateKey = Buffer.from("8ecde3cb39bd68246b9e56ce2ab693653abe7481d68b24e942582c0123d59393", 'hex');
-    const contract = new web3.eth.Contract(ABI, contractAddress, { from: owner });
+    const privateKey = Buffer.from(config.serviceKey, 'hex');
+    const contract = new web3.eth.Contract(ABI, address, { from: config.serviceAddress });
 
-    web3.eth.getTransactionCount(owner).then((count) => {
+    web3.eth.getTransactionCount(config.serviceAddress).then((count) => {
 
       let rawTransaction = {
-        'from': owner,
+        'from': config.serviceAddress,
         'gasPrice': web3.utils.toHex(20 * 1e9),
         'gasLimit': web3.utils.toHex(410000),
-        'to': contractAddress,
+        'to': address,
         'value': 0x0,
-        'data': contract.methods.transferFrom(owner, to, id).encodeABI(),
+        'data': contract.methods.transferFrom(config.serviceAddress, to, id).encodeABI(),
         'nonce': web3.utils.toHex(count)
       };
 
@@ -187,25 +187,30 @@ const Mainpage = () => {
 
   }
 
-  const onBuy = (owner, id, amount, contractAddress) => {
+  const onBuy = (owner, id, amount, address) => {
+
     if (web3) {
+
       web3.eth.sendTransaction({
         from: account,
-        to: owner,
+        to: config.serviceAddress,
         value: web3.utils.toWei(amount.toString(), "ether"),
       }, function (err, transactionHash) {
+
         if (!err) {
-          transferToken(owner, account, id, contractAddress);
-          axios.post(`${config.api}/transactions/create`, { address: account, type: "by nft", status: "completed", eth: amount, crypto: `${contractAddress} #${id}` });
+          axios.post(`${config.api}/nft/buy`, {from : account, to: owner, id: id, address: address, eth: amount, crypto: `${address} #${id}` }).then(()=>{
+            window.location.reload();
+          });
         } else {
           alert("Something wrong!");
         }
+
       });
+
     } else {
       setModalConnectWalletActive(true);
     }
   }
-
 
   useEffect(() => {
     checkConnection();

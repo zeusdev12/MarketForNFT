@@ -9,7 +9,7 @@ export const getDifference = ()=>{
             let a = prices[0][1]
             let b = prices[1][1]
             const differens = 100 * Math.abs( ( a - b ) / ( (a+b)/2 ) );
-            let diff = a > b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
+            let diff = a < b ? '+ ' + differens.toFixed(2) : '- ' + differens.toFixed(2);
             resolve(diff);
         });
     });
@@ -47,6 +47,19 @@ export const formatAddress = (address) =>{
 
 export const formatDate = (unix_timestamp) =>{
     let a = new Date(unix_timestamp * 1000);
+    let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    let year = a.getFullYear();
+    let month = months[a.getMonth()];
+    let date = a.getDate();
+    let hour = a.getHours();
+    let min = a.getMinutes();
+    let sec = a.getSeconds();
+    let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+}
+
+export const formaStringDate = (unix_timestamp) =>{
+    let a = new Date(unix_timestamp);
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     let year = a.getFullYear();
     let month = months[a.getMonth()];

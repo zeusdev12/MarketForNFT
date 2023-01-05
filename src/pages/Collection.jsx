@@ -1,4 +1,4 @@
-import { React, Fragment, useState } from "react";
+import { React, Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer"
 import { ReactComponent as ArrowDown } from "../assets/arrowdown.svg"
@@ -7,17 +7,15 @@ import { Transition, Menu } from '@headlessui/react';
 import { ReactComponent as Validate } from '../assets/validate.svg'
 import { ReactComponent as PolygonUp } from '../assets/Collection/polygonup.svg'
 import { ReactComponent as PolygonDown } from '../assets/Collection/polygondown.svg'
-import { collections } from "../data";
-import { config } from "../config";
-import Web3 from 'web3';
 import { getPrices } from "../contracts/utils";
+import axios from 'axios';
+import { config } from '../config';
 
 const Collection = () => {
 
-  const provider = new Web3.providers.HttpProvider(config.rpc);
-  const web3 = new Web3(provider);
   const [searchText, setSearchText] = useState("");
   const [price, setPrice] = useState(0);
+  const [collections, setCollections] = useState([]);
 
   let d1 = new Date();
   d1.setMonth(d1.getMonth() - 1);   
@@ -31,12 +29,13 @@ const Collection = () => {
   d3.setDate(d1.getDate() - 1);   
   d3.setHours(0, 0, 0, 0);
 
-  const [from, setFrom] = useState(d1.getTime()/1000);
-  const [month] = useState(d1.getTime()/1000);
-  const [week] = useState(d2.getTime()/1000);
-  const [day] = useState(d3.getTime()/1000);
+  const [from, setFrom] = useState(d1);
+  const [month] = useState(d1);
+  const [week] = useState(d2);
+  const [day] = useState(d3);
 
   const onFromChange = (from)=>{
+    console.log(from)
     setFrom(from);
   }
  
@@ -44,65 +43,75 @@ const Collection = () => {
     setSearchText(e.target.value);
   }
 
-  getPrices().then((prices)=>{
+  const fetch = ()=>{
 
-    let price = prices[1][1];
-    setPrice(price);
+    axios.get(`${config.api}/collections/collections?text=${searchText}&from=${from}`)
+    .then((response) => {
+        const collections = response.data;
+        setCollections(collections);
+    });
 
-  });
+  }
+
+  useEffect(()=>{
+
+    fetch();
+
+    if(price === 0){
+
+      getPrices().then((prices)=>{
+
+        let price = prices[1][1];
+        setPrice(price);
+    
+      });
+
+    }
+
+  },[from, searchText]);
+
 
 
   const collectionsHtml = collections.map((col, i)=>{
 
-    let display = 'inline-block';
-    if(searchText.length != 0){
-        if(col.name.toLowerCase().indexOf(searchText.toLowerCase()) == (-1)){
-            display = 'none';
-        }
-    }
-
-    if(col.date >= from){
-        display = 'none';
-    }
-
     let totalEth = 0;
-    col.prices.forEach((p)=>{
-      totalEth += p;
-    });
+    // col.prices.forEach((p)=>{
+    //   totalEth += p;
+    // });
 
     return(
-          <Link to={`/collection/${col.address}`} style={{ display: display }} key={i}>
+          <Link to={`/collection/${col.address}`} key={i}>
             <div className="grid grid-cols-7 hover:bg-[#252624] cursor-pointer w-[1145px] text-right justify-between items-center px-[30px] h-[56px] bg-[#1a1a19] rounded-[10px] mt-1.5">
               <div className="flex items-center relative">
                 <p className="text-[#888888] text-[16px] font-gilroy mr-[15px]">{i+1}</p>
                 <img
-                  src={col.image}
+                  src={`${config.api}/${col.logo}`}
                   alt="/"
                   className="w-[40px] h-[40px] rounded-full mr-[15px]"
                 />
                 <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
                 <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">{col.name}</p>
               </div>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volumeTotal}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volume}</p>
               <div className="relative items-center -mr-[130px]">
-                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">{col.volume30}</p>
+                <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pr-[30px] inline-block">{col.volume}</p>
                 {
-                   col.grow &&
+                  col.diff.indexOf('+') > (-1) &&
                    <>
                       <PolygonUp className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-                      <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+                      <p className="text-[#beff55] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.diff}%</p>
                    </>
                 }
                 {
-                   !col.grow &&
+                   col.diff.indexOf('-') > (-1) &&
                    <>
                        <PolygonDown className="absolute mt-[9px] right-0 mr-[44px] inline-block" />
-                       <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.change}%</p>
+                       <p className="text-[#ff7455] text-[16px] font-gilroy whitespace-nowrap text-right inline-block">{col.diff}%</p>
                    </>
                 }
               </div>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[80px]">{col.sales}</p>
-              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{(totalEth * price).toFixed(1)}</p>
+              <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[60px]">{(col.price * price).toFixed(1)} USD</p>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right -mr-[20px]">{col.owners}</p>
               <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-right pl-[20px]">{col.totalSupply}</p>
             </div>

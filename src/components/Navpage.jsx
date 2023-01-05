@@ -11,7 +11,7 @@ import OpenPageNFT from "./OpenPageNFT";
 import Profile from "../pages/profile/Profile";
 import OpenPageCollection from "./OpenPageCollection";
 
-const Navpage = ({ onBuy, web3, account, balance }) => {
+const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
     return (
         <React.Fragment>
             <section>
@@ -23,7 +23,7 @@ const Navpage = ({ onBuy, web3, account, balance }) => {
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/launchpad" element={<Launchpad />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/item/:address/:id" element={<OpenPageNFT onBuy={onBuy} />} />
+                    <Route path="/item/:id" element={<OpenPageNFT onBuy={onBuy}  account={account}  />} />
                     <Route path="/profile" element={<Profile web3={web3} account={account} balance={balance}/>} />
                     <Route path="/collection/:address" element={<OpenPageCollection />} />
                 </Routes>

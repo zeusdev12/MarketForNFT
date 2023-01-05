@@ -3,7 +3,7 @@ import Cards from "../assets/cards.png"
 import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
-import Collections from '../components/collections/collections'
+import Launchpad from '../components/launchpad/launchpad'
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 
 import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
@@ -118,7 +118,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <Collections></Collections>
+                            <Launchpad/>
                             {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <Link to="/OpenPageNFT">
                                     <div className="overflow-hidden relative px-[10px] pt-[10px]">
