@@ -13,8 +13,12 @@ import OpenPageCollection from "./OpenPageCollection";
 import CopyrightPolice from "../pages/CopyrightPolice";
 import TermsOfService from "../pages/TermsOfService";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import MyCollections from "../pages/MyCollections";
+import MyCollectionEdit from "../pages/MyCollectionEdit";
+import MyCollectionAdd from "../pages/MyCollectionAdd";
+import MyCollectionMint from "../pages/MyCollectionMint";
 
-const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
+const Navpage = ({ onBuy, web3, account, balance }) => {
     return (
         <React.Fragment>
             <section>
@@ -32,6 +36,10 @@ const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
                     <Route path="/copyrightPolice" element={<CopyrightPolice />} />
                     <Route path="/termsOfService" element={<TermsOfService />} />
                     <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+                    <Route path="/collections" element={<MyCollections  web3={web3} account={account} />} />
+                    <Route path="/collections/edit/:address" element={<MyCollectionEdit ccount={account} />} />
+                    <Route path="/collections/add" element={<MyCollectionAdd  web3={web3} account={account} />} />
+                    <Route path="/collections/mint/:address" element={<MyCollectionMint  web3={web3} account={account} />} />
                 </Routes>
             </section>
         </React.Fragment>

@@ -89,7 +89,6 @@ const Profile = ({ web3, account, balance }) => {
             getBalance();
             getMy();
 
-
         }
     }, [web3, account]);
 
@@ -145,6 +144,9 @@ const Profile = ({ web3, account, balance }) => {
                             <button className="relative z-50 mt-[10px] xl:mt-0 ml-[10px] w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
                                 Withdrawals
                             </button>
+                            <a href="/collections" className="text-white">
+                               My Collections
+                            </a>
                         </div>
                     </div>
                     {/* section profile balance for desktop */}
