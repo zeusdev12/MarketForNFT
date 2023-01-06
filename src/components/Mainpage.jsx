@@ -89,20 +89,30 @@ const Mainpage = () => {
     window.location.href = '/';
   }
 
+  const init = (web3)=>{
+    web3.eth.getAccounts().then((accounts) => {
+       let account = accounts[0];
+       web3.eth.net.getId().then((chainId) => {
+        if(chainId === 97){
+          setWeb3(web3);
+          setAccount(account);
+          setModalConnectWalletActive(false);
+          setAccounts(accounts);
+          getBalance(web3, account);
+        }else{
+           alert("Switch to main network!")
+        }
+      });
+    });
+  }
+
   const onConnectMetamask = async () => {
 
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
       await window.ethereum.enable();
-      web3.eth.getAccounts().then((e) => {
-        localStorage.setItem('provider', 'm');
-        let account = e[0];
-        setWeb3(web3);
-        setAccount(account);
-        setModalConnectWalletActive(false);
-        setAccounts(e);
-        getBalance(web3, account);
-      });
+      localStorage.setItem('provider', 'm');
+      init(web3);
     } else {
       alert("Please install metamask extension")
     }
@@ -114,15 +124,8 @@ const Mainpage = () => {
     const provider = await new WalletConnectProvider({ infuraId: config.infura });
     await provider.enable();
     const web3 = await new Web3(provider);
-    web3.eth.getAccounts().then(e => {
-      localStorage.setItem('provider', 'w');
-      let account = e[0];
-      setWeb3(web3);
-      setAccount(account);
-      setModalConnectWalletActive(false);
-      setAccounts(e);
-      getBalance(web3, account);
-    });
+    localStorage.setItem('provider', 'w');
+    init(web3);
 
   }
 
@@ -132,14 +135,8 @@ const Mainpage = () => {
     const provider = walletLink.makeWeb3Provider(config.infura, 1);
     await provider.enable();
     const web3 = new Web3(provider);
-    web3.eth.getAccounts().then(e => {
-      localStorage.setItem('provider', 'c');
-      let account = e[0];
-      setWeb3(web3);
-      setAccount(account);
-      setModalConnectWalletActive(false);
-      getBalance(web3, account);
-    });
+    localStorage.setItem('provider', 'c');
+    init(web3);
 
   }
 
