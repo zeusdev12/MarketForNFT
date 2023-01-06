@@ -88,7 +88,6 @@ const Profile = ({ web3, account, balance }) => {
             getBalance();
             getMy();
 
-
         }
     }, [web3, account]);
 
@@ -142,6 +141,9 @@ const Profile = ({ web3, account, balance }) => {
                             <button className="relative w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
                                 Import Nft
                             </button>
+                            <a href="/collections" className="text-white">
+                               My Collections
+                            </a>
                         </div>
                     </div>
                     {/* section profile balance for desktop */}

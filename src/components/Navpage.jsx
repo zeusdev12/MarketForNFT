@@ -10,8 +10,12 @@ import Support from "../pages/Support"
 import OpenPageNFT from "./OpenPageNFT";
 import Profile from "../pages/profile/Profile";
 import OpenPageCollection from "./OpenPageCollection";
+import MyCollections from "../pages/MyCollections";
+import MyCollectionEdit from "../pages/MyCollectionEdit";
+import MyCollectionAdd from "../pages/MyCollectionAdd";
+import MyCollectionMint from "../pages/MyCollectionMint";
 
-const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
+const Navpage = ({ onBuy, web3, account, balance }) => {
     return (
         <React.Fragment>
             <section>
@@ -26,6 +30,10 @@ const Navpage = ({ onBuy, onAllow, web3, account, balance }) => {
                     <Route path="/item/:id" element={<OpenPageNFT onBuy={onBuy}  account={account}  />} />
                     <Route path="/profile" element={<Profile web3={web3} account={account} balance={balance}/>} />
                     <Route path="/collection/:address" element={<OpenPageCollection />} />
+                    <Route path="/collections" element={<MyCollections  web3={web3} account={account} />} />
+                    <Route path="/collections/edit/:address" element={<MyCollectionEdit ccount={account} />} />
+                    <Route path="/collections/add" element={<MyCollectionAdd  web3={web3} account={account} />} />
+                    <Route path="/collections/mint/:address" element={<MyCollectionMint  web3={web3} account={account} />} />
                 </Routes>
             </section>
         </React.Fragment>
