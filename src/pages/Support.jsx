@@ -11,21 +11,15 @@ const Support = () => {
       <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
       <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
       <div className='mt-[120px] md:mt-[200px] flex flex-col md:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
-        <div className='text-center md:w-[560px] px-4 md:px-0 md:mx-auto'>
+        <div className='relative z-50 text-center md:w-[560px] px-4 md:px-0 md:mx-auto'>
           <p className='text-white text-[36px] md:text-[62px] font-gilroy font-semibold leading-[40px] md:leading-[65px]'>Contact us and we <br /> will help you</p>
           <div className='flex flex-col md:flex-row mt-[40px] md:mt-[60px] gap-2 lg:gap-4'>
             <input
-              type="name"
-              name="name"
-              id="name"
               className="block w-full md:w-[260px] h-[56px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0"
               placeholder="Name"
               aria-describedby="name-description"
             />
             <input
-              type="email"
-              name="email"
-              id="email"
               className="block w-full md:w-[285px] h-[56px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0"
               placeholder="Email Address"
               aria-describedby="email-description"
@@ -33,9 +27,6 @@ const Support = () => {
           </div>
           <div className='mt-[8px] md:mt-[16px]'>
             <input
-              type="subject"
-              name="subject"
-              id="subject"
               className="block w-full md:w-[560px] h-[56px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0"
               placeholder="Subject"
               aria-describedby="subject-description"
@@ -43,8 +34,6 @@ const Support = () => {
           </div>
           <div className='mt-[8px] lg:mt-[16px]'>
             <textarea
-              id="message"
-              name="message"
               rows={4}
               className="block w-full md:w-[560px] h-[168px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0 py-[17px]"
               placeholder="Message"
