@@ -17,6 +17,7 @@ import MyCollections from "../pages/MyCollections";
 import MyCollectionEdit from "../pages/MyCollectionEdit";
 import MyCollectionAdd from "../pages/MyCollectionAdd";
 import MyCollectionMint from "../pages/MyCollectionMint";
+import MyCollectionCreate from "../pages/MyCollectionCreate";
 
 const Navpage = ({ onBuy, web3, account, balance }) => {
     return (
@@ -39,6 +40,7 @@ const Navpage = ({ onBuy, web3, account, balance }) => {
                     <Route path="/collections" element={<MyCollections  web3={web3} account={account} />} />
                     <Route path="/collections/edit/:address" element={<MyCollectionEdit ccount={account} />} />
                     <Route path="/collections/add" element={<MyCollectionAdd  web3={web3} account={account} />} />
+                    <Route path="/collections/create" element={<MyCollectionCreate  web3={web3} account={account} />} />
                     <Route path="/collections/mint/:address" element={<MyCollectionMint  web3={web3} account={account} />} />
                 </Routes>
             </section>
