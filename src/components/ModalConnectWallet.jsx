@@ -238,28 +238,28 @@ const ModalConnectWallet = ({ active, setActive, onConnectMetamask, onConnectWal
                                     </Tab.Panel> */}
 
                                     <Tab.Panel className="pb-[40px] lg:pb-[50px]">
-                                        <button onClick={onConnectMetamask} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[30px] lg:mt-[40px] ml-[14px] lg:ml-[30px]">
+                                        <button onClick={onConnectMetamask} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] hover:bg-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[30px] lg:mt-[40px] ml-[14px] lg:ml-[30px]">
                                             <img
                                                 src={MetaMask}
                                                 alt="/"
                                                 className="mr-3" />
                                             <p className="text-lg font-gilroy text-white">MetaMask</p>
                                         </button>
-                                        <button onClick={onConnectWalletConnect} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
+                                        <button onClick={onConnectWalletConnect} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] hover:bg-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
                                             <img
                                                 src={WalletConnect}
                                                 alt="/"
                                                 className="mr-3" />
                                             <p className="text-lg font-gilroy text-white">WalletConnect</p>
                                         </button>
-                                        <button onClick={onConnectCoinbase} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
+                                        <button onClick={onConnectCoinbase} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] hover:bg-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
                                             <img
                                                 src={Coinbase}
                                                 alt="/"
                                                 className="mr-3" />
                                             <p className="text-lg font-gilroy text-white">Coinbase</p>
                                         </button>
-                                        <button onClick={onConnectWalletConnect} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
+                                        <button onClick={onConnectWalletConnect} className="flex flex-row px-5 items-center border-2 border-[#2a2a2a] hover:bg-[#2a2a2a] w-[290px] lg:w-[500px] h-[70px] rounded-[15px] mt-[10px] ml-[14px] lg:ml-[30px]">
                                             <img
                                                 src={CryptoCom}
                                                 alt="/"

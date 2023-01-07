@@ -12,7 +12,7 @@ export const NftCard = ({ data, text, date, from})=>{
     }
 
     return(
-        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer' style={{ display: display }}>
+        <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer' style={{ display: display }}>
              <a href={`/item/${data._id}`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     <img

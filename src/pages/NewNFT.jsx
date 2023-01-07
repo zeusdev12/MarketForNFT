@@ -80,7 +80,7 @@ const NewNFT = () => {
         <p className='text-white text-[36px] lg:text-[54px] font-gilroy font-semibold'>New Nft</p>
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>
           <form className="flex mt-3 pr-5 xl:pr-1" action="#" method="GET">
-            <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
+            <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] hover:border-[#beff55] rounded-[41px] text-black">
               <input
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"

@@ -65,6 +65,10 @@ import Collection1icon from "../assets/cards/collection1icon.png"
 import Collection2icon from "../assets/cards/collection2icon.png"
 import Collection3icon from "../assets/cards/collection3icon.png"
 
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
 const Hero = () => {
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
@@ -91,7 +95,7 @@ const Hero = () => {
                     </div>
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
-                        <button className='w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold'>
+                        <button className='relative w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
                            <a href='/collection'>
                                Explore Collection
                            </a>
@@ -103,18 +107,18 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Launchpad Drops</p>
                     <div className='flex flex-row justify-between mt-[20px] lg:mt-[30px]'>
                         <div className='block whitespace-nowrap space-x-2.5 lg:flex lg:flex-row w-full overflow-x-scroll horizontal_slider'>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[146px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[146px] h-[56px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-white rounded-[41px] text-base font-gilroy'>
                                 <p>Next 7 days</p>
                             </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[158px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[158px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
                                 <p>Coming soon</p>
                             </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[89px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[89px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
                                 <p>Live</p>
                             </button>
                         </div>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <Link to="/launchpad" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                            <Link to="/launchpad" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                                 See All
                             </Link>
                         </div>
@@ -186,7 +190,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <Link to="/launchpad" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/launchpad" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
                     </Link>
                 </div>
@@ -196,7 +200,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card1}
@@ -208,7 +212,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card2}
@@ -221,7 +225,7 @@ const Hero = () => {
                                 <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card3}
@@ -233,7 +237,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RentHedz</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card4}
@@ -253,21 +257,21 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Popular Collections</p>
                     <div className='flex flex-row justify-between mt-[20px] lg:mt-[30px]'>
                         <div className='block whitespace-nowrap space-x-2.5 lg:flex lg:flex-row w-full overflow-x-scroll horizontal_slider'>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[138px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[138px] h-[56px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-white rounded-[41px] text-base font-gilroy'>
                                 <p>Last 1 hour</p>
                             </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[157px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[157px] h-[56px] text-white rounded-[41px] bg-[#181818] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent hover:bg-[#232323] text-base font-gilroy'>
                                 <p>Last 24 hours</p>
                             </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[142px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[142px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
                                 <p>Last 7 days</p>
                             </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy'>
+                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
                                 <p>Last 30 days</p>
                             </button>
                         </div>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <Link to="/collection" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                            <Link to="/collection" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                                 See All
                             </Link>
                         </div>
@@ -275,7 +279,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-12'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[20px] pt-[20px]">
                                     <div className='flex gap-2'>
                                         <img
@@ -321,7 +325,7 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[20px] pt-[20px]">
                                     <div className='flex gap-2'>
                                         <img
@@ -367,7 +371,7 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[20px] pt-[20px]">
                                     <div className='flex gap-2'>
                                         <img
@@ -416,7 +420,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="relative z-50 flex justify-center">
-                    <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
                     </Link>
                 </div>
@@ -426,7 +430,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card1}
@@ -438,7 +442,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card2}
@@ -450,7 +454,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card3}
@@ -463,7 +467,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card4}
@@ -481,9 +485,9 @@ const Hero = () => {
                 {/* Top Marketcap Projects section */}
                 <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
                     <div className='flex flex-row justify-between'>
-                        <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Top Marketcap Projects</p>
+                        <p className='text-white text-[36px] lg:text-[46px] leading-[40px] sm:leading-none font-gilroy font-semibold'>Top Marketcap Projects</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <Link to="/popularNFT" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
+                            <Link to="/popular" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy mt-2'>
                                 See All
                             </Link>
                         </div>
@@ -491,7 +495,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card1}
@@ -504,7 +508,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card2}
@@ -516,7 +520,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card3}
@@ -528,7 +532,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section4Card4}
@@ -544,7 +548,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <Link to="/popularNFT" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/popular" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
                     </Link>
                 </div>
@@ -554,7 +558,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card1}
@@ -567,7 +571,7 @@ const Hero = () => {
                                 <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card2}
@@ -579,7 +583,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">CHAINBREAKER</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card3}
@@ -592,7 +596,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">Ukiyan</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section5Card4}
@@ -612,7 +616,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card1}
@@ -631,7 +635,7 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card2}
@@ -649,7 +653,7 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card3}
@@ -667,7 +671,7 @@ const Hero = () => {
                                 </div>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section6Card4}
@@ -693,7 +697,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card1}
@@ -706,7 +710,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">BountyHunter</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card2}
@@ -718,7 +722,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card3}
@@ -730,7 +734,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section7Card4}
@@ -751,7 +755,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card1}
@@ -763,7 +767,7 @@ const Hero = () => {
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">The Sports Club - League Master</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card2}
@@ -775,7 +779,7 @@ const Hero = () => {
                                 <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card3}
@@ -787,7 +791,7 @@ const Hero = () => {
                                 <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section8Card4}
@@ -806,7 +810,7 @@ const Hero = () => {
                     <div className='flex flex-row justify-between'>
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>New NFT</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <Link to="/newNFT" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-2'>
+                            <Link to="/new" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy mt-2'>
                                 See All
                             </Link>
                         </div>
@@ -814,7 +818,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card1}
@@ -824,10 +828,10 @@ const Hero = () => {
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 2 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card2}
@@ -837,10 +841,10 @@ const Hero = () => {
                                     <StatusTop className='absolute -mt-[246px] ml-[196px]' />
                                 </div>
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">KanpaiPanda</p>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
                             {/* card 3 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card3}
@@ -849,10 +853,10 @@ const Hero = () => {
                                     />
                                 </div>
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">RentHedz</p>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">RentHedz</p>
                             </div>
                             {/* card 4 */}
-                            <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section9Card4}
@@ -861,13 +865,13 @@ const Hero = () => {
                                     />
                                 </div>
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5 uppercase">Corn</p>
+                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">Corn</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <Link to="/newNFT" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <Link to="/new" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
                     </Link>
                 </div>

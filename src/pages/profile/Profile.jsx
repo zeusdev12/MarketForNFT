@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { ReactComponent as ProfileImage } from "../../assets/icons/profile.svg"
 import Footer from "../../components/Footer"
+import { Link } from "react-router-dom";
 import { ReactComponent as Copy } from "../../assets/copy.svg"
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Darknes2 from "../../assets/darknes2.png"
@@ -144,9 +145,11 @@ const Profile = ({ web3, account, balance }) => {
                             <button className="relative z-50 mt-[10px] xl:mt-0 ml-[10px] w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
                                 Withdrawals
                             </button>
-                            <a href="/collections" className="text-white">
-                               My Collections
-                            </a>
+                            <Link to="/collections">
+                                <button className="relative mt-[10px] z-50 w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden">
+                                    My Collections
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     {/* section profile balance for desktop */}

@@ -41,7 +41,7 @@ const Launchpad = () => {
             </button>
           </div>
           <div className="lg:mr-5 3xl:mr-0">
-            <div className="bg-[#1a1a19] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
+            <div className="bg-[#1a1a19] border border-[#232323] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
               <div className="overflow-hidden relative px-[10px] py-[10px]">
                 <img
                   src={CardAstonMartin}
@@ -65,7 +65,7 @@ const Launchpad = () => {
           <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1Section1}
@@ -89,7 +89,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card2Section1}
@@ -113,7 +113,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card3Section1}
@@ -137,7 +137,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card4Section1}
@@ -165,7 +165,7 @@ const Launchpad = () => {
           <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1Section2}
@@ -190,7 +190,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card2Section2}
@@ -215,7 +215,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card3Section2}
@@ -240,7 +240,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card4Section2}
@@ -273,7 +273,7 @@ const Launchpad = () => {
           <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1Section3}
@@ -297,7 +297,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card2Section3}
@@ -321,7 +321,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card3Section3}
@@ -345,7 +345,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card4Section3}
@@ -368,7 +368,7 @@ const Launchpad = () => {
                   </div>
                 </div>
               </div>
-              <div className='lg:hidden inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='lg:hidden inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card5Section3}
@@ -392,7 +392,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='lg:hidden inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='lg:hidden inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card6Section3}
@@ -416,7 +416,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='lg:hidden inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='lg:hidden inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card7Section3}
@@ -440,7 +440,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='lg:hidden inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='lg:hidden inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card8Section3}
@@ -468,7 +468,7 @@ const Launchpad = () => {
           <div className='mt-[30px] hidden lg:mt-10 lg:block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card5Section3}
@@ -492,7 +492,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card6Section3}
@@ -516,7 +516,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card7Section3}
@@ -540,7 +540,7 @@ const Launchpad = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card8Section3}

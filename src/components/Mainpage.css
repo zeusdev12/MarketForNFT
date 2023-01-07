@@ -1,13 +1,13 @@
-a.active {
+/* a.active {
     color: black;
     font: 600;
     background-color: #beff55;
     border-radius: 41px;
-}
+} */
 
-a.active svg path {
+a:hover svg path {
     stroke: black;
 }
-a.active svg circle {
+a:hover svg circle {
     stroke: black;
 }

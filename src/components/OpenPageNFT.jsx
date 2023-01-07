@@ -139,7 +139,7 @@ const OpenPageNFT = ({ onBuy, account }) => {
                         </div>
                     </div>
                     <div className="lg:mr-5 3xl:mr-0">
-                        <div className="bg-[#1a1a19] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
+                        <div className="bg-[#1a1a19] border border-[#232323] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
                             <div className="overflow-hidden relative px-[10px] py-[10px]">
                                 {
                                     current && current.data &&

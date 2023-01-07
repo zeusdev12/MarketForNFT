@@ -60,7 +60,7 @@ const Auctions = () => {
             </div>
           </div>
           <div className="lg:mr-5 3xl:mr-0">
-            <div className="bg-[#1a1a19] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
+            <div className="bg-[#1a1a19] border border-[#232323] w-[369px] h-[369px] 2xl:w-[560px] 2xl:h-[560px] rounded-[15px]">
               <div className="overflow-hidden relative px-[10px] py-[10px]">
                 <img
                   src={CardApeGen}
@@ -111,7 +111,7 @@ const Auctions = () => {
           <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1}
@@ -130,7 +130,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card2}
@@ -149,7 +149,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card3}
@@ -168,7 +168,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1}
@@ -187,7 +187,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 1 */}
-              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block lg:hidden border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card5}
@@ -206,7 +206,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block lg:hidden border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card6}
@@ -225,7 +225,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block lg:hidden border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1}
@@ -244,7 +244,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block lg:hidden bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block lg:hidden border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card8}
@@ -267,7 +267,7 @@ const Auctions = () => {
           <div className='hidden mt-[30px] lg:mt-10 lg:block w-full overflow-x-scroll horizontal_slider'>
             <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
               {/* card 1 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card5}
@@ -286,7 +286,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 2 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card6}
@@ -305,7 +305,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 3 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card1}
@@ -324,7 +324,7 @@ const Auctions = () => {
                 </div>
               </div>
               {/* card 4 */}
-              <div className='inline-block bg-[#1a1a19] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
+              <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[388px] rounded-[15px] cursor-pointer'>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                   <img
                     src={Card8}

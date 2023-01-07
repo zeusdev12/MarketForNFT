@@ -4,7 +4,7 @@ import { ReactComponent as StatusLive } from "../../assets/statuslive.svg";
 export const Collection = ({collection })=>{
 
     return (
-        <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer mr-[1.25rem] lg:mr-[2.85rem]'>
+        <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer mr-[1.25rem] lg:mr-[2.85rem]'>
             <Link to={`/item/${collection.address}/1`}>
                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                     <img src={collection.nft.data.url}  className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"/>

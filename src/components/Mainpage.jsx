@@ -20,15 +20,15 @@ import axios from 'axios';
 
 
 import { ReactComponent as Icon11 } from "../assets/MenuWallet/icon1.svg"
-import { ReactComponent as Icon12 } from "../assets/MenuWallet/icon2.svg"
+import Icon12 from "../assets/MenuWallet/icon2.png"
 import { ReactComponent as Icon13 } from "../assets/MenuWallet/icon3.svg"
 import { ReactComponent as Icon14 } from "../assets/MenuWallet/icon4.svg"
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
-import { ReactComponent as LogoMini } from "../assets/logomini.svg"
+import LogoMini from "../assets/logomini.png"
 import { ReactComponent as SearchMob } from "../assets/searchmob.svg"
 import { ReactComponent as Close } from "../assets/close.svg"
-import { ReactComponent as Logo } from "../assets/logo.svg"
+import Logo from "../assets/logo.png"
 import { ReactComponent as Icon1 } from "../assets/icons/icon1.svg"
 import { ReactComponent as Icon2 } from "../assets/icons/icon2.svg"
 import { ReactComponent as Icon3 } from "../assets/icons/icon3.svg"
@@ -36,7 +36,6 @@ import { ReactComponent as Icon5 } from "../assets/icons/icon5.svg"
 import { ReactComponent as Icon6 } from "../assets/icons/icon6.svg"
 import { ReactComponent as Icon7 } from "../assets/icons/icon7.svg"
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
-import { ReactComponent as Search } from '../assets/search.svg';
 
 const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common').default;
@@ -89,18 +88,18 @@ const Mainpage = () => {
     window.location.href = '/';
   }
 
-  const init = (web3)=>{
+  const init = (web3) => {
     web3.eth.getAccounts().then((accounts) => {
-       let account = accounts[0];
-       web3.eth.net.getId().then((chainId) => {
-        if(chainId === 97){
+      let account = accounts[0];
+      web3.eth.net.getId().then((chainId) => {
+        if (chainId === 97) {
           setWeb3(web3);
           setAccount(account);
           setModalConnectWalletActive(false);
           setAccounts(accounts);
           getBalance(web3, account);
-        }else{
-           alert("Switch to main network!")
+        } else {
+          alert("Switch to main network!")
         }
       });
     });
@@ -151,7 +150,7 @@ const Mainpage = () => {
     }
   }
 
-  const transferToken = ( to, id, address) => {
+  const transferToken = (to, id, address) => {
 
     const provider = new Web3.providers.HttpProvider(config.rpc);
     const web3 = new Web3(provider);
@@ -195,7 +194,7 @@ const Mainpage = () => {
       }, function (err, transactionHash) {
 
         if (!err) {
-          axios.post(`${config.api}/nft/buy`, {from : account, to: owner, id: id, address: address, eth: amount, crypto: `${address} #${id}` }).then(()=>{
+          axios.post(`${config.api}/nft/buy`, { from: account, to: owner, id: id, address: address, eth: amount, crypto: `${address} #${id}` }).then(() => {
             window.location.reload();
           });
         } else {
@@ -288,7 +287,7 @@ const Mainpage = () => {
                                     <p className='text-[14px] text-[#828383] font-gilroyMedium'>Main wallet</p>
                                     <Copy className='w-[18px] h-[18px] ml-1' />
                                   </div>
-                                  <p className='text-[16px] text-white font-gilroyMedium'>{balance}</p>
+                                  <p className='flex text-[16px] text-white font-gilroyMedium'>{balance}</p>
                                 </div>
                               </div>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
@@ -296,7 +295,10 @@ const Mainpage = () => {
                             <div className="space-y-1 pl-[40px] mt-5">
                               <Link to="/profile" className='text-black text-center text-[18px]' onClick={() => setSidebarOpen(false)}>
                                 <div className='flex flex-row'>
-                                  <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                                  <img
+                                  src={Icon12} 
+                                  alt="/"
+                                  className="mr-[14px] -mt-[1px] h-[28px] w-[28px] flex-shrink-0"/>
                                   <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
                                 </div>
                               </Link>
@@ -304,7 +306,7 @@ const Mainpage = () => {
                             </div>
                             <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" onClick={() => setSidebarOpen(false)}>
                               <div className='flex flex-row' onClick={onSignOut}>
-                                <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
+                                <Icon13 className="mr-[12px] -mt-[5px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                                 <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                               </div>
                               <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />
@@ -382,7 +384,10 @@ const Mainpage = () => {
           <div className="flex flex-shrink-0 items-center ml-[45px]">
             <div className='hidden lg:flex justify-start items-center flex-1'>
               <Link to="/">
-                <Logo />
+                <img
+                  src={Logo}
+                  alt="/"
+                />
               </Link>
             </div>
           </div>
@@ -393,7 +398,7 @@ const Mainpage = () => {
                 <NavLink
                   key={item.name}
                   to={item.path}
-                  className='flex flex-row justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                  className='flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
                     <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
@@ -409,7 +414,7 @@ const Mainpage = () => {
                 <NavLink
                   key={item.name}
                   to={item.path}
-                  className='flex flex-row justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                  className='flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium  justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
                     <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
@@ -437,7 +442,11 @@ const Mainpage = () => {
           </div>
           <div className='flex lg:hidden items-center'>
             <Link to="/">
-              <LogoMini className='w-[50px] h-[50px]' />
+              <img
+                src={LogoMini}
+                alt="/"
+                className='w-[50px] h-[50px]'
+              />
             </Link>
           </div>
           <button className='flex lg:hidden items-center px-4' onClick={handleClick}>
@@ -473,7 +482,7 @@ const Mainpage = () => {
                 account &&
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className='flex flex-row text-center justify-center items-center w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c]'>
+                    <Menu.Button className='flex flex-row text-center justify-center items-center w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c] hover:border-[#beff55]'>
                       {formatAddress(account)}
                       <ArrowDown className='ml-2.5' />
                     </Menu.Button>
@@ -504,7 +513,10 @@ const Mainpage = () => {
                       <div className="space-y-1 pl-[40px] mt-5">
                         <Link to="/profile">
                           <div className='flex flex-row'>
-                            <Icon12 className="mr-[14px] mt-[2px] h-[28px] w-[28px] flex-shrink-0" aria-hidden="true" />
+                            <img
+                              src={Icon12}
+                              alt="/"
+                              className="mr-[14px] -mt-[px] h-[28px] w-[28px] flex-shrink-0" />
                             <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
                           </div>
                         </Link>
@@ -512,7 +524,7 @@ const Mainpage = () => {
                       </div>
                       <div className="space-y-1 pl-[40px] mt-5 -ml-[4px] cursor-pointer" >
                         <div className='flex flex-row' onClick={onSignOut}>
-                          <Icon13 className="mr-[12px] -mt-[3px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
+                          <Icon13 className="mr-[12px] -mt-[4px] h-[34px] w-[34px] flex-shrink-0" aria-hidden="true" />
                           <p className='text-[18px] text-white font-gilroyMedium'>Sign out</p>
                         </div>
                         <Arrow className="h-[18px] w-[18px] flex-shrink-0 mr-5" aria-hidden="true" />

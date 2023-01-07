@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as Logomini } from "../assets/logomini.svg";
+import Logo from "../assets/logo.png"
+import LogoMini from "../assets/logomini.png";
 import { ReactComponent as Social1 } from "../assets/social1.svg";
 import { ReactComponent as Social2 } from "../assets/social2.svg";
 import { ReactComponent as Social3 } from "../assets/social3.svg";
@@ -9,9 +9,9 @@ import { ReactComponent as Blur2 } from "../assets/blurs/blur2.svg"
 
 const navigation = {
     market: [
-        { name: 'Popular NFT', path: '/popularNFT' },
-        { name: 'New NFT', path: '/newNFT' },
-        { name: 'Auction', path: '/auction' },
+        { name: 'Popular NFT', path: '/popular' },
+        { name: 'New NFT', path: '/new' },
+        { name: 'Auction', path: '/auctions' },
     ],
     features: [
         { name: 'Collection', path: '/collection' },
@@ -35,10 +35,16 @@ const Footer = () => {
                     <div className="xl:grid xl:grid-cols-4">
                         <div className="space-y-8 xl:col-span-1">
                             <Link to="/" className='hidden sm:block'>
-                                <Logo />
+                                <img
+                                    src={Logo}
+                                    alt="/"
+                                />
                             </Link>
                             <Link to="/" className='block sm:hidden'>
-                                <Logomini />
+                                <img
+                                    src={LogoMini}
+                                    alt="/"
+                                />
                             </Link>
                         </div>
                         {/* Desktop menu */}

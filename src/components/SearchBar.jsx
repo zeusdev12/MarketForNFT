@@ -58,7 +58,7 @@ export const SearchBar = () => {
     return (
         <div className="flex flex-row">
             <form className="flex" action="#" method="GET">
-                <div className="relative w-[360px] xl:w-[560px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
+                <div className="relative w-[360px] xl:w-[560px] h-[56px] border-2 border-[#3b3c3c] hover:border-[#beff55] rounded-[41px] text-black">
                     <input
                         className="w-[300px] xl:w-[400px] block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                         placeholder="Search Collections and Creators"
