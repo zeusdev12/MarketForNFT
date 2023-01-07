@@ -121,7 +121,7 @@ const Profile = ({ web3, account, balance }) => {
                     <div className="flex flex-col">
                         <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-5">
                             <ProfileImage className="w-[100px] h-[100px]" />
-                            <button className="relative z-50 border-2 border-[#3b3c3c] hover:border-[#beff55] text-white font-gilroyMedium tracking-wide text-[16px] bg-transparent w-[127px] h-[46px] rounded-[41px]" onClick={() => setModalUserSettingsActive(true)}>
+                            <button className="relative z-30 border-2 border-[#3b3c3c] hover:border-[#beff55] text-white font-gilroyMedium tracking-wide text-[16px] bg-transparent w-[127px] h-[46px] rounded-[41px]" onClick={() => setModalUserSettingsActive(true)}>
                                 Edit Profile
                             </button>
                         </div>
@@ -136,17 +136,17 @@ const Profile = ({ web3, account, balance }) => {
                             </CopyToClipboard>
                         </div>
                         <div className="text-center lg:text-left mt-[30px]">
-                            <button className="relative z-50 w-[320px] lg:w-[143px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
+                            <button className="relative z-30 w-[320px] lg:w-[143px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalImportActive(true)}>
                                 Import Nft
                             </button>
-                            <button className="relative z-50 mt-[10px] lg:mt-0 sm:ml-[10px] w-[136px] lg:w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalDepositActive(true)}>
+                            <button className="relative z-30 mt-[10px] lg:mt-0 sm:ml-[10px] w-[136px] lg:w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalDepositActive(true)}>
                                 Deposit
                             </button>
-                            <button className="relative z-50 mt-[10px] xl:mt-0 ml-[10px] w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
+                            <button className="relative z-30 mt-[10px] xl:mt-0 ml-[10px] w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden" onClick={() => setModalWithdrawActive(true)}>
                                 Withdrawals
                             </button>
                             <Link to="/collections">
-                                <button className="relative mt-[10px] z-50 w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden">
+                                <button className="relative mt-[10px] z-30 w-[174px] lg:w-[164px] h-[58px] rounded-[41px] text-white bg-transparent border-2 border-[#beff55] text-[18px] font-gilroy tracking-wide text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden">
                                     My Collections
                                 </button>
                             </Link>
