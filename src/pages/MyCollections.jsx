@@ -72,6 +72,7 @@ const MyCollections = ({ web3, account }) => {
         <p className='text-white text-[36px] lg:text-[54px] font-gilroy font-semibold'>My Collections</p>
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>
            <a href="/collections/add" className="text-white ">Add </a>
+           <a href="/collections/create" className="text-white ">Create </a>
         </div>
         <div className="overflow-x-scroll mr-5 lg:mr-0 mt-[40px] lg:mt-[50px] space-y-1.5 max-h-max border-2 border-[#303d1b] rounded-[15px] px-[10px] py-[10px] horizontal_slider">
           {
