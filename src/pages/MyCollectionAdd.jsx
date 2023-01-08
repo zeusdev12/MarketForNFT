@@ -17,7 +17,7 @@ const MyCollectionAdd = ({ account }) => {
   const [address, setAddress] = useState("");
   const [logo, setLogo] = useState();
   const [file, setFile] = useState();
-  const [type, setType] = useState();
+  const [type, setType] = useState("regular");
 
   const onFileChange = (e) => {
 
@@ -162,7 +162,9 @@ const MyCollectionAdd = ({ account }) => {
                 onChange={(e) => { setType(e.target.value); }}
                 className="mt-1 flex bg-transparent text-[#828383]"
               >
+                <option value="regular" className="bg-transparent">Regular</option>
                 <option value="launchpad" className="bg-transparent">Launchpad</option>
+                <option value="upcomming" className="bg-transparent">Upcomming</option>
                 <option value="new" className="bg-transparent">New</option>
               </select>
             </div>
