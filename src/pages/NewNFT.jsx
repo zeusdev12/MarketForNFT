@@ -75,7 +75,7 @@ const NewNFT = () => {
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
       <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
-      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
       <div className="relative z-30 mt-[110px] lg:mt-[188px] pl-5 lg:pl-0 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
         <p className='text-white text-[36px] lg:text-[54px] font-gilroy font-semibold'>New Nft</p>
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>

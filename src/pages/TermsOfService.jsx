@@ -7,7 +7,7 @@ const TermsOfService = () => {
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
             <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
-            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
             <div className='mt-[120px] md:mt-[200px] flex flex-col lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1180px]'>
                 <div className='text-left px-5 lg:px-0 lg:pr-5 2xl:pr-0'>
                     <p className='text-[#828383] font-gilroy text-[14px] uppercase'>LAST UPDATED: NOVEMBER 28, 2022</p>

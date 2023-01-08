@@ -9,7 +9,7 @@ const Support = () => {
   return (
     <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
       <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
-      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
+      <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
       <div className='mt-[120px] md:mt-[200px] flex flex-col md:ml-[40px] 3xl:ml-[120px] lg:max-w-[1200px]'>
         <div className='relative z-30 text-center md:w-[560px] px-4 md:px-0 md:mx-auto'>
           <p className='text-white text-[36px] md:text-[62px] font-gilroy font-semibold leading-[40px] md:leading-[65px]'>Contact us and we <br /> will help you</p>

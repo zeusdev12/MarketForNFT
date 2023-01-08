@@ -73,7 +73,7 @@ const Hero = () => {
     return (
         <div className='min-h-screen overflow-hidden bg-[#0c0c0c] background'>
             <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[973px] lg:h-[673px]' />
-            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1573px] lg:h-[673px]' />
+            <Blur className='absolute top-0 mt-[70px] lg:mt-0 right-0 z-10 w-[350px] h-[240px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
             <Blur className='absolute top-0 mt-[2260px] lg:mt-[2300px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
             <Blur className='absolute top-0 mt-[2260px] lg:mt-[4430px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
             <Blur className='lg:hidden absolute top-0 mt-[4430px] lg:mt-[2300px] blur-xl right-0 z-10 w-[400px] h-[350px] md:w-[400px] 2xl:w-[1273px] lg:h-[673px]' />
