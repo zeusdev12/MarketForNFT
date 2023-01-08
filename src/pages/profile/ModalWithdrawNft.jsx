@@ -11,17 +11,17 @@ const Tx = require('ethereumjs-tx').Transaction;
 const Common = require('ethereumjs-common').default;
 
 const BSC_FORK = Common.forCustomChain(
-  'mainnet',
-  {
-    name: 'Binance Smart Chain Mainnet',
-    networkId: 97,
-    chainId: 97,
-    url: config.rpc
-  },
-  'istanbul',
+    'mainnet',
+    {
+        name: 'Binance Smart Chain Mainnet',
+        networkId: 97,
+        chainId: 97,
+        url: config.rpc
+    },
+    'istanbul',
 );
 
-const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance, getMy, address, id}) => {
+const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance, getMy, address, id }) => {
 
     console.log(address, id)
 
@@ -29,14 +29,14 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
     const [busy, setBusy] = useState();
     const fee = 0.001;
 
-    const onConfirm = ()=>{
+    const onConfirm = () => {
 
-        if(reciever.length == 0){
+        if (reciever.length == 0) {
             alert("Not correct reciever address!");
             return;
         }
 
-        if(serviceBalance - fee < 0){
+        if (serviceBalance - fee < 0) {
             alert("Insufficient balance!");
             return;
         }
@@ -48,7 +48,7 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
             account: account
         }
 
-        axios.post(`${config.api}/nft/withdraw`, data ).then(()=>{
+        axios.post(`${config.api}/nft/withdraw`, data).then(() => {
             let data = {
                 to: config.serviceAddress,
                 eth: fee,
@@ -57,7 +57,7 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
                 type: "fee",
                 from: account
             }
-            axios.post(`${config.api}/transactions/create`, data ).then(()=>{
+            axios.post(`${config.api}/transactions/create`, data).then(() => {
 
                 const provider = new Web3.providers.HttpProvider(config.rpc);
                 const web3 = new Web3(provider);
@@ -67,31 +67,31 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
 
                 web3.eth.getTransactionCount(config.serviceAddress).then((count) => {
 
-                let rawTransaction = {
-                    'from': config.serviceAddress,
-                    'gasPrice': web3.utils.toHex(20 * 1e9),
-                    'gasLimit': web3.utils.toHex(410000),
-                    'to': address,
-                    'value': 0x0,
-                    'data': contract.methods.transferFrom(config.serviceAddress, reciever, id).encodeABI(),
-                    'nonce': web3.utils.toHex(count)
-                };
+                    let rawTransaction = {
+                        'from': config.serviceAddress,
+                        'gasPrice': web3.utils.toHex(20 * 1e9),
+                        'gasLimit': web3.utils.toHex(410000),
+                        'to': address,
+                        'value': 0x0,
+                        'data': contract.methods.transferFrom(config.serviceAddress, reciever, id).encodeABI(),
+                        'nonce': web3.utils.toHex(count)
+                    };
 
-                let transaction = new Tx(rawTransaction, { 'common': BSC_FORK });
-                transaction.sign(privateKey);
-                web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
-                .on('receipt', function (receipt) {
-                    getBalance();
-                    getMy();
-                }).on('error', function (error) {
-                    alert("Something wrong!");
-                });
+                    let transaction = new Tx(rawTransaction, { 'common': BSC_FORK });
+                    transaction.sign(privateKey);
+                    web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+                        .on('receipt', function (receipt) {
+                            getBalance();
+                            getMy();
+                        }).on('error', function (error) {
+                            alert("Something wrong!");
+                        });
 
                 });
             });
         });
 
-    
+
     }
 
     return (
@@ -102,8 +102,8 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
                         <Close className="cursor-pointer" onClick={() => setActive(false)} />
                     </div>
                     <div className="flex flex-col mt-[20px] text-center">
-                        <p className="text-white text-[26px] font-gilroy font-semibold">Withdraw Nft</p>
-                        <p className="text-white text-[14px] font-gilroy font-semibold">Transaction fee {fee} Eth</p>
+                        <p className="text-white text-[36px] lg:text-[46px] font-gilroy font-semibold">Withdraw Nft</p>
+                        <p className="text-[#828383] text-[18px] font-gilroy">Transaction fee {fee} Eth</p>
                     </div>
                     <div className="flex flex-col mt-[35px] px-[15px] lg:px-[30px]">
                         <input
@@ -114,19 +114,19 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
                             placeholder="Reciever"
                             aria-describedby=""
                             value={reciever}
-                            onChange={(e)=>{ setReciever(e.target.value)}}
+                            onChange={(e) => { setReciever(e.target.value) }}
                         />
                     </div>
-                    <div className="flex mt-[30px] justify-center px-4 lg:px-0 pb-[30px]">
+                    <div className="flex mt-[30px] justify-center px-4 lg:px-0 pb-[55px]">
                         {
                             !busy &&
-                            <button onClick={onConfirm} className="w-full lg:w-[227px] h-[58px] rounded-[52px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center lg:ml-[20px] mt-[5px] lg:mt-0">
+                            <button onClick={onConfirm} className="w-full lg:w-[227px] h-[58px] rounded-[52px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center mt-[5px] lg:mt-0">
                                 Confirm the Transfer
                             </button>
                         }
                         {
                             busy &&
-                            <p> Please waite! </p>
+                            <p className="text-white font-gilroy text-[26px] font-semibold text-center tracking-wide"> Please waite! </p>
                         }
                     </div>
                 </div>

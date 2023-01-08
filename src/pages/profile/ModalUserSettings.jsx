@@ -40,9 +40,6 @@ const ModalConnectWallet = ({ active, setActive, account, getProfile }) => {
                     </div>
                     <div className="mt-[30px] lg:mt-[40px] px-[15px] lg:px-[30px] space-y-3.5">
                         <input
-                            type="name"
-                            name="name"
-                            id="name"
                             className="flex w-full h-[56px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0"
                             placeholder="Username"
                             aria-describedby="name-description"
@@ -58,9 +55,6 @@ const ModalConnectWallet = ({ active, setActive, account, getProfile }) => {
                             aria-describedby="name-description"
                         /> */}
                         <input
-                            type="email"
-                            name="email"
-                            id="email"
                             className="flex w-full h-[56px] rounded-[10px] border-2 border-[#3b3c3c] bg-transparent text-[#828383] placeholder-[#828383] text-[16px] px-5 focus:outline-none focus:ring-0"
                             placeholder="Email"
                             aria-describedby="email-description"

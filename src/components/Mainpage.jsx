@@ -278,7 +278,7 @@ const Mainpage = () => {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
-                          <Menu.Items className="absolute z-10 mt-2 w-[281px] h-[350px] ml-14 rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
+                          <Menu.Items className="absolute z-50 mt-2 w-[281px] h-[350px] ml-14 rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
                             <div className="pl-[40px] mt-[35px] -ml-[4px]">
                               <div className='flex flex-row'>
                                 <Icon11 className="mr-[14px] h-[50px] w-[50px] -mt-[1px] flex-shrink-0" aria-hidden="true" />
@@ -477,10 +477,10 @@ const Mainpage = () => {
                 </div>
               </form>
             </div> */}
-            <div className="hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
+            <div className="relative z-50 hidden md:flex md:flex-row md:mt-5 items-center space-x-3 mr-5">
               {
                 account &&
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="relative z-50 ml-3">
                   <div>
                     <Menu.Button className='flex flex-row text-center justify-center items-center w-[213px] h-[58px] rounded-[41px] text-white bg-transparent text-[18px] font-gilroy tracking-wide border-2 border-[#3b3c3c] hover:border-[#beff55]'>
                       {formatAddress(account)}
@@ -496,7 +496,7 @@ const Mainpage = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-[281px] h-[350px] origin-top-right rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-50 mt-2 w-[281px] h-[350px] origin-top-right rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-1 focus:outline-none">
                       <div className="pl-[40px] mt-[35px] -ml-[4px]">
                         <div className='flex flex-row'>
                           <Icon11 className="mr-[14px] h-[50px] w-[50px] -mt-[1px] flex-shrink-0" aria-hidden="true" />

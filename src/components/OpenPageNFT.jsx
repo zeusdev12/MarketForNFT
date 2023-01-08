@@ -133,7 +133,7 @@ const OpenPageNFT = ({ onBuy, account }) => {
                                 }
                                 {
                                      current && current.status == "delisted" &&
-                                    <p className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2'>Delisted</p>
+                                    <button className='lg:w-[190px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold mt-1 lg:mt-2'>Delisted</button>
                                 }
                             </div>
                         </div>
@@ -154,7 +154,7 @@ const OpenPageNFT = ({ onBuy, account }) => {
                     <div className='flex flex-row justify-between'>
                         <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold leading-[40px] lg:leading-[50px]'>Other NTFs in this <br /> collection</p>
                         <div className="hidden md:block mr-4 lg:mr-0">
-                            <a href={`/collection/${collection.address}`} className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy mt-5'>
+                            <a href={`/collection/${collection.address}`} className='flex flex-row items-center justify-center w-[205px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy mt-5'>
                                 See All Collection
                             </a>
                         </div>
@@ -168,7 +168,7 @@ const OpenPageNFT = ({ onBuy, account }) => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <a href={`/collection/${collection.address}`} className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] text-base font-gilroy'>
+                    <a href={`/collection/${collection.address}`} className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All Collection
                     </a>
                 </div>

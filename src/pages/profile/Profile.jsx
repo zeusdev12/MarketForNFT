@@ -97,8 +97,8 @@ const Profile = ({ web3, account, balance }) => {
         return <NftMy data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance} />
     });
 
-    const tabClass = "flex flex-row items-center justify-center w-[118px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy";
-    const activeTabClass = "flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy";
+    const tabClass = "flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy";
+    const activeTabClass = "flex flex-row items-center justify-center w-[153px] h-[56px] border-2 border-[#3b3c3c] text-white rounded-[41px] text-base font-gilroy";
 
     const transactionsHtml = transactions.length ? transactions.map((trx) => {
         return (
@@ -125,7 +125,7 @@ const Profile = ({ web3, account, balance }) => {
                                 Edit Profile
                             </button>
                         </div>
-                        <p className="flex flex-wrap text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">{profile.name}</p>
+                        <p className="flex mx-auto lg:mx-0 text-white font-gilroy text-[46px] max-w-[300px] lg:max-w-[500px] mt-3 lg:mt-6 text-center lg:text-left font-semibold leading-[48px]">{profile.name}</p>
                         <div className="flex text-center justify-center lg:justify-start items-center gap-1 mt-[3px]">
                             <p className="font-gilroy font-semibold text-[18px] ml-2 lg:ml-0 text-[#828383] mt-[10px] max-w-[250px] 2xl:max-w-[450px] truncate"
                                 value={inputValue}>
@@ -216,7 +216,7 @@ const Profile = ({ web3, account, balance }) => {
                 <div className='flex flex-col md:flex-row justify-between'>
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>My Items</p>
                     <form className="flex mt-3 mr-5 2xl:mr-0" action="#" method="GET">
-                        <div className="relative w-full xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
+                        <div className="relative w-full xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] hover:border-[#beff55] rounded-[41px] text-black">
                             <input
                                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                                 placeholder="Search"
@@ -244,7 +244,7 @@ const Profile = ({ web3, account, balance }) => {
                         <ArrowDown className="ml-3" />
                     </button>
                 </div> */}
-                <div className="relative flex flex-col lg:flex-row z-30 mt-[80px] justify-between lg:mt-[100px]">
+                <div className="relative flex flex-col lg:flex-row z-30 justify-between">
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Transaction</p>
                     <div className='flex flex-row mt-[15px] lg:mt-[10px] gap-3'>
                         <button className={tab === "deposit" ? activeTabClass : tabClass} onClick={() => { switchTab('deposit') }}>
