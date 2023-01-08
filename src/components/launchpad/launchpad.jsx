@@ -4,7 +4,7 @@ import axios from 'axios';
 import { config } from '../../config';
 
 
-export const Launchpad = ({ })=>{
+export const Popular = ({ })=>{
 
     const [collections, setCollections] = useState([]);
 
@@ -28,4 +28,4 @@ export const Launchpad = ({ })=>{
     )
 }
 
-export default Launchpad;
+export default Popular;

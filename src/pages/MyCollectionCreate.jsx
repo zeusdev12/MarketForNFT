@@ -14,7 +14,7 @@ const MyCollectionCreate = ({ web3, account }) => {
   const [description, setDescription] = useState("");
   const [symbol, setSymbol] = useState("");
   const [file, setFile] = useState();
-  const [type, setType] = useState();
+  const [type, setType] = useState("regular");
   const [busy, setBusy] = useState();
 
   const onFileChange = (e) => {
@@ -186,7 +186,9 @@ const MyCollectionCreate = ({ web3, account }) => {
                 onChange={(e) => { setType(e.target.value); }}
                 className="mt-1 flex bg-transparent text-[#828383]"
               >
+                 <option value="regular" className="bg-transparent">Regular</option>
                 <option value="launchpad" className="bg-transparent">Launchpad</option>
+                <option value="upcomming" className="bg-transparent">Upcomming</option>
                 <option value="new" className="bg-transparent">New</option>
               </select>
             </div>

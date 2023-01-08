@@ -54,9 +54,9 @@ const PopularNFT = () => {
 
   }, [from, searchText])
 
-  let imagesHtml = images.map((nft) => {
+  let imagesHtml = images.map((nft, i) => {
     return (
-      <div className='bg-[#1a1a19] w-[320px] h-[402px] lg:w-[260px] lg:h-[339px] rounded-[15px] cursor-pointer'>
+      <div key={i} className='bg-[#1a1a19] w-[320px] h-[402px] lg:w-[260px] lg:h-[339px] rounded-[15px] cursor-pointer'>
         <a href={`/item/${nft._id}`}>
           <div className="overflow-hidden relative px-[10px] pt-[10px]">
             <img
