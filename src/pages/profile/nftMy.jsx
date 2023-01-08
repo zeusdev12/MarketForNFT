@@ -58,12 +58,12 @@ export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }
                         leaveTo="transform opacity-0 scale-95"
                     >
                         <Menu.Items className="absolute flex flex-col z-50 ml-[21px] mt-2 w-[220px] h-[102px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
-                            <button className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                            <button onClick={()=> setModalListActive(true)} className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                                 <p className="-ml-[140px] text-white text-base font-gilroy">
                                     Edit
                                 </p>
                             </button>
-                            <button className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
+                            <button onClick={()=> setModalWithdrawActive(true)} className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                                 <p className="-ml-[94px] text-white text-base font-gilroy">
                                     Withdraw
                                 </p>
