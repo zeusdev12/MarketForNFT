@@ -57,20 +57,15 @@ export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                     >
-                        <Menu.Items className="absolute flex flex-col z-50 ml-[21px] mt-2 w-[220px] h-[148px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
+                        <Menu.Items className="absolute flex flex-col z-50 ml-[21px] mt-2 w-[220px] h-[102px] rounded-[15px] border-2 border-[#3b3c3c] bg-[#131313] py-[3px] px-[3px] focus:outline-none">
                             <button className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
-                                <p className="-ml-[110px] text-white text-base font-gilroy">
-                                    Listing
+                                <p className="-ml-[140px] text-white text-base font-gilroy">
+                                    Edit
                                 </p>
                             </button>
                             <button className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
                                 <p className="-ml-[94px] text-white text-base font-gilroy">
-                                    Delisting
-                                </p>
-                            </button>
-                            <button className="w-[210px] h-[46px] text-white rounded-[10px] bg-transparent hover:bg-[#3b3c3c]">
-                                <p className="-ml-[109px] text-white text-base font-gilroy">
-                                    Delete
+                                    Withdraw
                                 </p>
                             </button>
                         </Menu.Items>
