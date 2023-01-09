@@ -1,9 +1,10 @@
-import { React, Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { React, useState } from "react";
 import Footer from "../components/Footer"
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import axios from 'axios';
 import { config } from '../config';
+import { toast } from 'react-toastify';
+import Loading from "./profile/Loading";
 
 
 const MyCollectionCreate = ({ web3, account }) => {
@@ -14,7 +15,7 @@ const MyCollectionCreate = ({ web3, account }) => {
   const [description, setDescription] = useState("");
   const [symbol, setSymbol] = useState("");
   const [file, setFile] = useState();
-  const [type, setType] = useState();
+  const [type, setType] = useState("regular");
   const [busy, setBusy] = useState();
 
   const onFileChange = (e) => {
@@ -34,34 +35,28 @@ const MyCollectionCreate = ({ web3, account }) => {
 
   const onSave = () => {
 
-
     if (name.length == 0) {
-      alert("Not correct name!");
-      return;
-    }
-
-    if (symbol.length == 0) {
-      alert("Not correct symbol!");
+      toast.error("Not correct name!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (author.length == 0) {
-      alert("Not correct author!");
+      toast.error("Not correct author!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (description.length == 0) {
-      alert("Not correct description!");
+      toast.error("Not correct description!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (totalSupply == 0) {
-      alert("Not correct totalSupply!");
+      toast.error("Not correct totalSupply!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (!file) {
-      alert("Not correct logo!");
+      toast.error("Not correct logo!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
@@ -186,7 +181,9 @@ const MyCollectionCreate = ({ web3, account }) => {
                 onChange={(e) => { setType(e.target.value); }}
                 className="mt-1 flex bg-transparent text-[#828383]"
               >
+                 <option value="regular" className="bg-transparent">Regular</option>
                 <option value="launchpad" className="bg-transparent">Launchpad</option>
+                <option value="upcomming" className="bg-transparent">Upcomming</option>
                 <option value="new" className="bg-transparent">New</option>
               </select>
             </div>
@@ -195,6 +192,10 @@ const MyCollectionCreate = ({ web3, account }) => {
               <div className="mt-[30px] lg:mt-[40px]">
                 <button onClick={onSave} className="relative w-full lg:w-[125px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[18px] font-gilroy tracking-wide font-semibold text-center before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden">Save</button>
               </div>
+            }
+            {
+              busy &&
+              <Loading/>
             }
           </div>
         </div>

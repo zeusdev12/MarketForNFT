@@ -3,6 +3,7 @@ import { Transition } from '@headlessui/react';
 import { ReactComponent as Close } from "../../assets/close.svg";
 import axios from 'axios';
 import { config } from "../../config";
+import { toast } from 'react-toastify';
 
 const ModalWithdrawOpen = ({ active, setActive, account, web3, getBalance, serviceBalance }) => {
 
@@ -14,17 +15,17 @@ const ModalWithdrawOpen = ({ active, setActive, account, web3, getBalance, servi
 
     const onConfirm = ()=>{
 
-        if(reciever.length == 0){
-            alert("Not correct reciever address!");
+        if(!web3.utils.isAddress(reciever)){
+            toast.error("Not valid Address", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
         if(parseFloat(amount) != amount || amount == 0){
-            alert("Not correct Ammount!");
+            toast.error("Not correct Ammount!", { position: toast.POSITION.TOP_CENTER })
             return;
         }
         if((serviceBalance - amount) - fee < 0){
-            alert("Insufficient balance!");
+            toast.error("Insufficient balance!", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 

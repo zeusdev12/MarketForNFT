@@ -3,7 +3,9 @@ import Cards from "../assets/cards.png"
 import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
-import Launchpad from '../components/launchpad/launchpad'
+import Launchpad from '../components/launchpad/launchpad';
+import NftBlock from '../components/nftBlock/nftBlock';
+import Popular from '../components/popular/popular';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 
 import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
@@ -96,7 +98,7 @@ const Hero = () => {
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
                         <button className='relative w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
-                           <a href='/collection'>
+                           <a href='/collection/0x494b98ddc2364dB88d48f170777C475DF6793097'>
                                Explore Collection
                            </a>
                         </button>
@@ -189,6 +191,9 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
+                {
+                    Popular
+                }
                 <div className="flex justify-center">
                     <Link to="/launchpad" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
@@ -199,8 +204,9 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>New to NFTs?</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <NftBlock type="regular"/>
+                         
+                            {/* <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section2Card1}
@@ -211,7 +217,7 @@ const Hero = () => {
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">KanpaiPanda</p>
                             </div>
-                            {/* card 2 */}
+                            
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -224,7 +230,7 @@ const Hero = () => {
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
                             </div>
-                            {/* card 3 */}
+                          
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -236,7 +242,7 @@ const Hero = () => {
                                 <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RentHedz</p>
                             </div>
-                            {/* card 4 */}
+                        
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -248,177 +254,14 @@ const Hero = () => {
                                 </div>
                                 <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">Corn</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
                 {/* Popular Collections section */}
-                <div className="relative z-30 mt-[80px] lg:mt-[100px] pl-5 lg:px-0 lg:mr-5">
-                    <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Popular Collections</p>
-                    <div className='flex flex-row justify-between mt-[20px] lg:mt-[30px]'>
-                        <div className='block whitespace-nowrap space-x-2.5 lg:flex lg:flex-row w-full overflow-x-scroll horizontal_slider'>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[138px] h-[56px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-white rounded-[41px] text-base font-gilroy'>
-                                <p>Last 1 hour</p>
-                            </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center w-[157px] h-[56px] text-white rounded-[41px] bg-[#181818] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent hover:bg-[#232323] text-base font-gilroy'>
-                                <p>Last 24 hours</p>
-                            </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[142px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
-                                <p>Last 7 days</p>
-                            </button>
-                            <button className='inline-block lg:flex lg:flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323] focus:border-2 focus:border-[#3b3c3c] focus:bg-transparent text-base font-gilroy'>
-                                <p>Last 30 days</p>
-                            </button>
-                        </div>
-                        <div className="hidden md:block mr-4 lg:mr-0">
-                            <Link to="/collection" className='flex flex-row items-center justify-center w-[116px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
-                                See All
-                            </Link>
-                        </div>
-                    </div>
-                    <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
-                        <div className='block whitespace-nowrap space-x-5 lg:space-x-12'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
-                                    <div className='flex gap-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                    <div className='flex gap-2 mt-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex items-center ml-5 mt-5">
-                                    <img
-                                        src={Collection1icon}
-                                        alt=""
-                                        className='w-[50px] h-[50px] rounded-full'
-                                    />
-                                    <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
-                                    <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
-                                    <div className='flex gap-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                    <div className='flex gap-2 mt-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex items-center ml-5 mt-5">
-                                    <img
-                                        src={Collection1icon}
-                                        alt=""
-                                        className='w-[50px] h-[50px] rounded-full'
-                                    />
-                                    <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
-                                    <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[20px] pt-[20px]">
-                                    <div className='flex gap-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[155px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                    <div className='flex gap-2 mt-2'>
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                        <img
-                                            src={Section1Card1}
-                                            alt="/"
-                                            className="h-[100px] w-[100px] rounded-[15px] object-cover object-center group-hover:opacity-75"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex items-center ml-5 mt-5">
-                                    <img
-                                        src={Collection1icon}
-                                        alt=""
-                                        className='w-[50px] h-[50px] rounded-full'
-                                    />
-                                    <Validate className='-ml-[16px] mt-[36px] w-[15px] h-[15px]' />
-                                    <div className='ml-[14px]'>
-                                        <h3 className='text-lg font-gilroy max-w-[250px] truncate text-white hover:text-[#beff55]'>BountyHunter</h3>
-                                        <p className="text-sm -mt-[2px] max-w-[250px] truncate font-gilroy text-[#888989]">25 Items</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {
+                    <Popular/>
+                }
                 <div className="relative z-50 flex justify-center">
                     <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
@@ -429,56 +272,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Upcoming Launches</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
+                             <NftBlock type="upcomming"/>
                         </div>
                     </div>
                 </div>

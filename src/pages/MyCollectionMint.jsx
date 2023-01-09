@@ -63,7 +63,7 @@ const MyCollectionMint = ({ web3, account }) => {
           data: nft,
           owner: account,
           address: params.address,
-          id: total + 1,
+          id: parseInt(total) + 1,
           status: 'delisted',
           price: 0.0001,
           name: name
