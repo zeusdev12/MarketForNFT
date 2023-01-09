@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Launchpad from '../components/launchpad/launchpad';
 import New from '../components/new/new';
 import Popular from '../components/popular/popular';
+import Upcoming from '../components/upcoming/upcoming';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 
 import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
@@ -262,7 +263,7 @@ const Hero = () => {
                 {
                     <Popular/>
                 }
-                <div className="relative z-50 flex justify-center">
+                <div className="relative z-30 flex justify-center">
                     <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
                         See All
                     </Link>
@@ -272,8 +273,8 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Upcoming Launches</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+                            <Upcoming></Upcoming>
+                            {/* <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
                                         src={Section3Card1}
@@ -284,7 +285,6 @@ const Hero = () => {
                                 <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
-                            {/* card 2 */}
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -296,7 +296,6 @@ const Hero = () => {
                                 <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
-                            {/* card 3 */}
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -309,7 +308,6 @@ const Hero = () => {
                                 <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
                             </div>
-                            {/* card 4 */}
                             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -321,7 +319,7 @@ const Hero = () => {
                                 </div>
                                 <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
                                 <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -155,9 +155,9 @@ const OpenPageCollection = () => {
                 <div className='bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">TOTAL <br /> VOL</p>
                   <div className="w-[120px] text-right mt-[23px]">
-                    {/* <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
-                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+1.5K</p>
-                    </div> */}
+                    <div className="bg-[#1a1a19] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
+                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1"></p>
+                    </div>
                     <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{volume}</p>
                   </div>
                 </div>
@@ -197,24 +197,24 @@ const OpenPageCollection = () => {
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">FLOOR <br /> (USDT)</p>
                   <div className="w-[120px] text-right mt-[23px]">
                     <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
-                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+2.53%</p>
+                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">{difference}%</p>
                     </div>
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">6.543</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{price.toFixed(2)}</p>
                   </div>
                 </div>
                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">LISTED</p>
                   <div className="w-[120px] text-right">
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-[82px] text-white leading-[16px]">394</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-[82px] text-white leading-[16px]">{images.length}</p>
                   </div>
                 </div>
                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">TOTAL <br /> VOL</p>
                   <div className="w-[120px] text-right mt-[23px]">
-                    <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
-                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+24.5K</p>
+                    <div className="bg-[#1a1a19] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
+                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1"></p>
                     </div>
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">267.2K</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{volume}</p>
                   </div>
                 </div>
                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
@@ -226,16 +226,16 @@ const OpenPageCollection = () => {
                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">TOTAL <br /> SUPPLY</p>
                   <div className="w-[120px] text-right">
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">19.4K</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] mt-16 text-white leading-[16px]">{collection.totalSupply}</p>
                   </div>
                 </div>
                 <div className='inline-block bg-[#1a1a19] w-[160px] h-[163px] rounded-[15px] cursor-pointer px-[20px] pt-[20px]'>
                   <p className="uppercase font-gilroyMedium text-[16px] text-[#828383] leading-[16px]">OWNERS</p>
                   <div className="w-[120px] text-right mt-[38px]">
                     <div className="bg-[#beff55] w-[68px] ml-[52px] h-[25px] text-center rounded-[29px] mb-[18px]">
-                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+2.5K</p>
+                      <p className="text-black font-gilroyMedium font-semibold text-sm mt-1">+1</p>
                     </div>
-                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">9.7K</p>
+                    <p className="justify-end uppercase font-gilroyMedium text-[36px] text-white leading-[16px]">{owners}</p>
                   </div>
                 </div>
               </div>
@@ -251,7 +251,7 @@ const OpenPageCollection = () => {
       <div className="relative z-30 mt-[50px] lg:mt-[100px] pl-5 lg:pl-0 lg:px-0 lg:mr-5 lg:ml-[40px] 3xl:ml-[120px] lg:max-w-[1170px]">
         <div className='flex flex-col lg:flex-row mt-3.5 lg:mt-2 justify-between'>
           <form className="flex mt-3 pr-5 xl:pr-1" action="#" method="GET">
-            <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] rounded-[41px] text-black">
+            <div className="relative w-full 3xl:w-[460px] h-[56px] border-2 border-[#3b3c3c] hover:border-[#beff55] rounded-[41px] text-black">
               <input
                 className="block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                 placeholder="Search"

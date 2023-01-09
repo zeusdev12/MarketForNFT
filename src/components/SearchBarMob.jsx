@@ -56,7 +56,7 @@ export const SearchBarMob = () => {
     return (
         <div className="flex flex-row lg:hidden">
             <form className="flex" action="#" method="GET">
-                <div className="relative w-[300px] h-[50px] border-2 border-[#3b3c3c] hover:border-[#beff55] active:bg-white rounded-[41px] text-black">
+                <div className="relative w-[300px] h-[50px] border-2 border-[#3b3c3c] hover:border-[#beff55] rounded-[41px] text-black">
                     <input
                         className="w-[263px] block h-full border-transparent pl-[30px] text-[#828383] placeholder-[#828383] bg-transparent focus:border-transparent font-gilroyMedium focus:outline-none focus:ring-0 text-[16px]"
                         placeholder="Search"

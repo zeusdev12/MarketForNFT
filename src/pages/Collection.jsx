@@ -89,7 +89,7 @@ const Collection = () => {
               alt="/"
               className="w-[40px] h-[40px] rounded-full mr-[15px]"
             />
-            <Validate className="absolute ml-[44px] mt-[21px] w-[15px] h-[15px]" />
+            <Validate className="absolute ml-[48px] mt-[27px] w-[15px] h-[15px]" />
             <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left">{col.name}</p>
           </div>
           <p className="text-white text-[16px] font-gilroy whitespace-nowrap text-left pl-[220px]">{col.volume}</p>

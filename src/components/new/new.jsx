@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { config } from '../../config';
 
-
 export const New = ({ })=>{
 
     const [nfts, setNft] = useState([]);

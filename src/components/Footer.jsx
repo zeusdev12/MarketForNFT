@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.png"
-import LogoMini from "../assets/logomini.png";
+import { ReactComponent as Logo } from "../assets/logo.svg"
+import { ReactComponent as LogoMini } from "../assets/logomini.svg";
 import { ReactComponent as Social1 } from "../assets/social1.svg";
 import { ReactComponent as Social2 } from "../assets/social2.svg";
 import { ReactComponent as Social3 } from "../assets/social3.svg";
@@ -35,16 +35,10 @@ const Footer = () => {
                     <div className="xl:grid xl:grid-cols-4">
                         <div className="space-y-8 xl:col-span-1">
                             <Link to="/" className='hidden sm:block'>
-                                <img
-                                    src={Logo}
-                                    alt="/"
-                                />
+                                <Logo />
                             </Link>
                             <Link to="/" className='block sm:hidden'>
-                                <img
-                                    src={LogoMini}
-                                    alt="/"
-                                />
+                                <LogoMini />
                             </Link>
                         </div>
                         {/* Desktop menu */}

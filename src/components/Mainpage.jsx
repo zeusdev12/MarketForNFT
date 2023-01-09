@@ -20,15 +20,15 @@ import axios from 'axios';
 
 
 import { ReactComponent as Icon11 } from "../assets/MenuWallet/icon1.svg"
-import Icon12 from "../assets/MenuWallet/icon2.png"
+import { ReactComponent as Icon12 } from "../assets/MenuWallet/icon2.svg"
 import { ReactComponent as Icon13 } from "../assets/MenuWallet/icon3.svg"
 import { ReactComponent as Icon14 } from "../assets/MenuWallet/icon4.svg"
 
 import { ReactComponent as Nav } from "../assets/nav.svg"
-import LogoMini from "../assets/logomini.png"
+import { ReactComponent as LogoMini } from "../assets/logomini.svg"
 import { ReactComponent as SearchMob } from "../assets/searchmob.svg"
 import { ReactComponent as Close } from "../assets/close.svg"
-import Logo from "../assets/logo.png"
+import { ReactComponent as Logo } from "../assets/logo.svg"
 import { ReactComponent as Icon1 } from "../assets/icons/icon1.svg"
 import { ReactComponent as Icon2 } from "../assets/icons/icon2.svg"
 import { ReactComponent as Icon3 } from "../assets/icons/icon3.svg"
@@ -295,10 +295,7 @@ const Mainpage = () => {
                             <div className="space-y-1 pl-[40px] mt-5">
                               <Link to="/profile" className='text-black text-center text-[18px]' onClick={() => setSidebarOpen(false)}>
                                 <div className='flex flex-row'>
-                                  <img
-                                  src={Icon12} 
-                                  alt="/"
-                                  className="mr-[14px] -mt-[1px] h-[28px] w-[28px] flex-shrink-0"/>
+                                  <Icon12 className="mr-[15px] -ml-[1px] -mt-[1px] h-[28px] w-[28px] flex-shrink-0"/>
                                   <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
                                 </div>
                               </Link>
@@ -347,7 +344,7 @@ const Mainpage = () => {
                           key={item.name}
                           to={item.path}
                           onClick={() => setSidebarOpen(false)}
-                          className='group flex items-center text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                          className='activity flex items-center text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                         >
                           <item.icon className="mr-[6px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
                           {item.name}
@@ -362,7 +359,7 @@ const Mainpage = () => {
                           key={item.name}
                           to={item.path}
                           onClick={() => setSidebarOpen(false)}
-                          className='flex items-center text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                          className='activity flex items-center text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                         >
                           <item.icon className="mr-[6px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
                           {item.name}
@@ -384,10 +381,7 @@ const Mainpage = () => {
           <div className="flex flex-shrink-0 items-center ml-[45px]">
             <div className='hidden lg:flex justify-start items-center flex-1'>
               <Link to="/">
-                <img
-                  src={Logo}
-                  alt="/"
-                />
+                <Logo />
               </Link>
             </div>
           </div>
@@ -398,7 +392,7 @@ const Mainpage = () => {
                 <NavLink
                   key={item.name}
                   to={item.path}
-                  className='flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                  className='activity flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
                     <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
@@ -414,7 +408,7 @@ const Mainpage = () => {
                 <NavLink
                   key={item.name}
                   to={item.path}
-                  className='flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium  justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
+                  className='activity flex flex-row hover:bg-[#beff55] hover:text-black hover:rounded-[41px] hover:font-gilroyMedium  justify-between items-center pl-[18px] text-lg w-[219px] h-[60px] font-gilroyMedium text-white tracking-wide'
                 >
                   <div className='flex flex-row'>
                     <item.icon className="mr-[8px] -mt-[1px] h-[30px] w-[30px] flex-shrink-0" aria-hidden="true" />
@@ -442,11 +436,7 @@ const Mainpage = () => {
           </div>
           <div className='flex lg:hidden items-center'>
             <Link to="/">
-              <img
-                src={LogoMini}
-                alt="/"
-                className='w-[50px] h-[50px]'
-              />
+              <LogoMini className='w-[50px] h-[50px]'/>
             </Link>
           </div>
           <button className='flex lg:hidden items-center px-4' onClick={handleClick}>
@@ -513,10 +503,7 @@ const Mainpage = () => {
                       <div className="space-y-1 pl-[40px] mt-5">
                         <Link to="/profile">
                           <div className='flex flex-row'>
-                            <img
-                              src={Icon12}
-                              alt="/"
-                              className="mr-[14px] -mt-[px] h-[28px] w-[28px] flex-shrink-0" />
+                            <Icon12 className="mr-[16px] -ml-[2px] -mt-[px] h-[28px] w-[28px] flex-shrink-0" />
                             <p className='text-[18px] text-white font-gilroyMedium'>My Items</p>
                           </div>
                         </Link>
