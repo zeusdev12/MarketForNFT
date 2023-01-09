@@ -35,7 +35,7 @@ export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }
                             src={Vector}
                             alt="/"
                             className="mr-1 w-[15px] h-[15px] mt-[9px]" />
-                        <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                        <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">{data.price}</p>
                     </div>
                 </a>
                 <Menu as="div" className="relative">
