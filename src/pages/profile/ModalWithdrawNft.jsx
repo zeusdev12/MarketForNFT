@@ -5,6 +5,7 @@ import axios from 'axios';
 import { config } from "../../config";
 import Web3 from "web3";
 import { ABI } from "../../contracts/nft";
+import { toast } from 'react-toastify';
 
 
 const Tx = require('ethereumjs-tx').Transaction;
@@ -21,7 +22,7 @@ const BSC_FORK = Common.forCustomChain(
     'istanbul',
 );
 
-const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance, getMy, address, id }) => {
+const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance, getMy, address, id , web3}) => {
 
     console.log(address, id)
 
@@ -31,13 +32,13 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
 
     const onConfirm = () => {
 
-        if (reciever.length == 0) {
-            alert("Not correct reciever address!");
+        if(!web3.utils.isAddress(reciever)){
+            toast.error("Not valid Address!", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
         if (serviceBalance - fee < 0) {
-            alert("Insufficient balance!");
+            toast.error("Insufficient balance!", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
@@ -83,6 +84,7 @@ const ModalWithdrawNft = ({ setActive, account, serviceBalance, _id, getBalance,
                         .on('receipt', function (receipt) {
                             getBalance();
                             getMy();
+                            setActive(false);
                         }).on('error', function (error) {
                             alert("Something wrong!");
                         });

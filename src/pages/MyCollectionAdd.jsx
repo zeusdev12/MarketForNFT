@@ -1,21 +1,17 @@
-import { React, Fragment, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { React, useState } from "react";
 import Footer from "../components/Footer"
 import axios from 'axios';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { config } from '../config';
-import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const MyCollectionAdd = ({ account }) => {
+const MyCollectionAdd = ({ account, web3 }) => {
 
-  const params = useParams();
-  const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
   const [totalSupply, setTotalSupply] = useState(0);
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
-  const [logo, setLogo] = useState();
   const [file, setFile] = useState();
   const [type, setType] = useState("regular");
 
@@ -36,33 +32,33 @@ const MyCollectionAdd = ({ account }) => {
 
   const onSave = () => {
 
-    if (address.length == 0) {
-      alert("Not correct name!");
+    if (!web3.utils.isAddress(address)) {
+      toast.error("Not valid Address", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (name.length == 0) {
-      alert("Not correct name!");
+      toast.error("Not correct name!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (author.length == 0) {
-      alert("Not correct author!");
+      toast.error("Not correct author!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (description.length == 0) {
-      alert("Not correct description!");
+      toast.error("Not correct description!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (totalSupply == 0) {
-      alert("Not correct totalSupply!");
+      toast.error("Not correct totalSupply!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
-    if (!logo && !file) {
-      alert("Not correct logo!");
+    if (!file) {
+      toast.error("Not correct logo!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 

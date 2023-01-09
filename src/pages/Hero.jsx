@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Hero.css"
 import Footer from '../components/Footer'
 import Launchpad from '../components/launchpad/launchpad';
-import New from '../components/new/new';
+import NftBlock from '../components/nftBlock/nftBlock';
 import Popular from '../components/popular/popular';
 import Upcoming from '../components/upcoming/upcoming';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
@@ -205,7 +205,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>New to NFTs?</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            <New></New>
+                            <NftBlock type="regular"/>
                          
                             {/* <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
@@ -273,53 +273,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Upcoming Launches</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            <Upcoming></Upcoming>
-                            {/* <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">ApeYachtClub</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BoredApeYachtClub</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section3Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div> */}
+                             <NftBlock type="upcomming"/>
                         </div>
                     </div>
                 </div>

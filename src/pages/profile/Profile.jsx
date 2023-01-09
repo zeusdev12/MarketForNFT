@@ -94,7 +94,7 @@ const Profile = ({ web3, account, balance }) => {
     }, [web3, account]);
 
     const nfts = images.map((nft, i) => {
-        return <NftMy data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance} />
+        return <NftMy web3={web3} data={nft} key={i} text={searchText} account={account} serviceBalance={serviceBalance} getMy={getMy} getBalance={getBalance} />
     });
 
     const tabClass = "flex flex-row items-center justify-center text-center w-[153px] h-[56px] text-white rounded-[41px] bg-[#181818] hover:bg-[#232323]  text-base font-gilroy";

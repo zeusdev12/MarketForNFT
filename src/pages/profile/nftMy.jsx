@@ -5,7 +5,7 @@ import ArrowDown from "../../assets/arrow.png"
 import ModalWithdrawNft from "./ModalWithdrawNft";
 import Vector from "../../assets/icons/Deposit/vector.png"
 
-export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }) => {
+export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance, web3 }) => {
 
     const [modalListActive, setModalListActive] = useState();
     const [modalWithdrawActive, setModalWithdrawActive] = useState();
@@ -35,7 +35,7 @@ export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }
                             src={Vector}
                             alt="/"
                             className="mr-1 w-[15px] h-[15px] mt-[9px]" />
-                        <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">8.065</p>
+                        <p className="text-[20px] max-w-[200px] truncate font-gilroy text-white pr-5">{data.price}</p>
                     </div>
                 </a>
                 <Menu as="div" className="relative">
@@ -78,7 +78,7 @@ export const NftMy = ({ data, text, account, serviceBalance, getMy, getBalance }
             }
             {
                 modalWithdrawActive &&
-                <ModalWithdrawNft id={data.id} address={data.address} getBalance={getBalance} getMy={getMy} serviceBalance={serviceBalance} setActive={setModalWithdrawActive} account={account} _price={data.price} _id={data._id} _status={data.status} />
+                <ModalWithdrawNft web3={web3} id={data.id} address={data.address} getBalance={getBalance} getMy={getMy} serviceBalance={serviceBalance} setActive={setModalWithdrawActive} account={account} _price={data.price} _id={data._id} _status={data.status} />
             }
         </div>
     )
