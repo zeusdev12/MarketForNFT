@@ -4,7 +4,7 @@ import axios from 'axios';
 import { config } from '../../config';
 // import Collection1icon from "../../assets/cards/collection1icon.png"
 import { ReactComponent as Validate } from '../../assets/validate.svg'
-import { ReactComponent as ProfileImage } from "../../assets/icons/profile.svg"
+import { ReactComponent as Ellipse } from "../../assets/ellipse.svg"
 
 
 export const Popular = ({ }) => {
@@ -43,7 +43,7 @@ export const Popular = ({ }) => {
         return (
             <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[360px] h-[332px] rounded-[15px] cursor-pointer'>
                 <a href={`/collection/${collection.address}`}>
-                    <div className="overflow-hidden relative px-[20px] pt-[20px]">
+                    <div className="overflow-hidden relative px-[20px] pt-[20px] h-[230px]">
                         <div className='flex gap-2'>
                             {
                                 collection.nfts.length > 0 &&
@@ -90,7 +90,7 @@ export const Popular = ({ }) => {
                         </div>
                     </div>
                     <div className="flex items-center ml-5 mt-5">
-                        <ProfileImage className='w-[50px] h-[50px] rounded-full'></ProfileImage>
+                        <Ellipse className='w-[50px] h-[50px] rounded-full' />
                         {/* <img
                         src={Collection1icon}
                         alt=""
