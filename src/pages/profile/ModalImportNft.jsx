@@ -4,7 +4,8 @@ import { ReactComponent as Close } from "../../assets/close.svg"
 import { config } from "../../config";
 import { ABI } from "../../contracts/nft";
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
+import Loading from "./Loading";
 
 const ModalImportNft = ({ active, setActive, account, web3, getMy}) => {
 
@@ -16,29 +17,30 @@ const ModalImportNft = ({ active, setActive, account, web3, getMy}) => {
 
     const onImport = ()=>{
 
-        if(address.length === 0){
-            alert("Not correct address!");
+        if(!web3.utils.isAddress(address)){
+            toast.error("Not valid Address", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
         if(parseInt(id) != id || id == 0){
-            alert("Not correct Id!");
+            toast.error("Not valid Id", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
         if(parseFloat(price) != price || price == 0){
-            alert("Not correct Price!");
+            toast.error("Not valid Price", { position: toast.POSITION.TOP_CENTER })
             return;
         }
 
         setBusy(true)
 
         const contract = new web3.eth.Contract(ABI, address, { from: account });
+
         contract.methods.ownerOf(id.toString()).call().then((owner)=>{
              if(owner === account){
 
                 contract.methods.name().call().then((name)=>{
-                    console.log(name)
+    
                     contract.methods.tokenURI(id.toString()).call().then((ipfs)=>{
 
                         fetch(`https://ipfs.io/ipfs/${ipfs.replace("ipfs://","")}`)
@@ -71,7 +73,7 @@ const ModalImportNft = ({ active, setActive, account, web3, getMy}) => {
                 });
 
              }else{
-                alert("Something wrong!");
+                toast.error("You are not token owner!", { position: toast.POSITION.TOP_CENTER })
                 setBusy(false);
              }
         });
@@ -81,7 +83,7 @@ const ModalImportNft = ({ active, setActive, account, web3, getMy}) => {
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <div className={active ? "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-100" : "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-0"} onClick={() => setActive(false)}>
+            <div className={active ? "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-100" : "fixed w-screen h-screen bg-black bg-opacity-80 top-0 left-0 flex items-center justify-center z-50 scale-0"}>
                 <div className="rounded-[15px] bg-[#131313] w-[320px] lg:w-[560px] h-[490px] lg:h-[520px] overflow-hidden" onClick={e => e.stopPropagation()}>
                     <div className="flex flex-row w-full justify-end p-[9px] lg:p-5">
                         <Close className="cursor-pointer" onClick={() => setActive(false)} />
@@ -120,11 +122,12 @@ const ModalImportNft = ({ active, setActive, account, web3, getMy}) => {
                             </button>
                         }{
                             busy &&
-                            <p className="text-white font-gilroy text-[26px] font-semibold text-center tracking-wide"> Please waite! </p>
+                            <Loading/>
                         }
                     
                     </div>
                 </div>
+            
             </div>
         </Transition.Root>
     )

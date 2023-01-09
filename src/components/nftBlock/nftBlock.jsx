@@ -15,7 +15,7 @@ export const NftBlock = ({ type })=>{
         });
     },[])
     
-    let newNft = nfts.map((nft, i)=>{
+    let newNft = nfts ? nfts.map((nft, i)=>{
         return(
             <div key={i} className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                 <Link to={`/item/${nft._id}`}>
@@ -31,7 +31,7 @@ export const NftBlock = ({ type })=>{
                 </Link>
              </div>
         )
-    });
+    }):[]
 
     return (
         <>

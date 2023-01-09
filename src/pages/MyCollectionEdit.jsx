@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 import { config } from '../config';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const MyCollectionEdit = ({ web3, account }) => {
@@ -61,27 +62,27 @@ const MyCollectionEdit = ({ web3, account }) => {
   const onSave = () => {
 
     if (name.length == 0) {
-      alert("Not correct name!");
+      toast.error("Not correct name!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (author.length == 0) {
-      alert("Not correct author!");
+      toast.error("Not correct author!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (description.length == 0) {
-      alert("Not correct description!");
+      toast.error("Not correct description!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
     if (totalSupply == 0) {
-      alert("Not correct totalSupply!");
+      toast.error("Not correct totalSupply!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
-    if (!logo && !file) {
-      alert("Not correct logo!");
+    if (!file && !logo) {
+      toast.error("Not correct logo!", { position: toast.POSITION.TOP_CENTER })
       return;
     }
 
