@@ -162,6 +162,12 @@ const MyCollectionAdd = ({ account, web3 }) => {
                 <option value="launchpad" className="bg-transparent">Launchpad</option>
                 <option value="upcomming" className="bg-transparent">Upcomming</option>
                 <option value="new" className="bg-transparent">New</option>
+                <option value="marketcap" className="bg-transparent">Marketcap</option>
+                <option value="ogsol" className="bg-transparent">OGSOL</option>
+                <option value="followed" className="bg-transparent">Followed</option>
+                <option value="voted" className="bg-transparent">Voted</option>
+                <option value="highest" className="bg-transparent">Highest</option>
+                <option value="newnft" className="bg-transparent">NewNFT</option>
               </select>
             </div>
             <div className="mt-[30px] lg:mt-[40px]">

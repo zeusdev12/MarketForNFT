@@ -5,68 +5,68 @@ import "./Hero.css"
 import Footer from '../components/Footer'
 import Launchpad from '../components/launchpad/launchpad';
 import NftBlock from '../components/nftBlock/nftBlock';
+import NftBlock2 from '../components/nftBlock/nftBlock2';
 import Popular from '../components/popular/popular';
-import Upcoming from '../components/upcoming/upcoming';
 import { ReactComponent as Blur } from "../assets/blurs/blur.svg"
 
-import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
-import { ReactComponent as StatusTime } from "../assets/statustime.svg"
+// import { ReactComponent as StatusLive } from "../assets/statuslive.svg"
+// import { ReactComponent as StatusTime } from "../assets/statustime.svg"
 import { ReactComponent as StatusTop } from "../assets/statustop.svg"
-import { ReactComponent as Validate } from '../assets/validate.svg'
+// import { ReactComponent as Validate } from '../assets/validate.svg'
 import { ReactComponent as Views } from '../assets/views.svg'
 import Darknes from '../assets/darknes.png'
 
-import Section1Card1 from "../assets/cards/section1card1.png"
-import Section1Card2 from "../assets/cards/section1card2.png"
-import Section1Card3 from "../assets/cards/section1card3.png"
-import Section1Card4 from "../assets/cards/section1card4.png"
+// import Section1Card1 from "../assets/cards/section1card1.png"
+// import Section1Card2 from "../assets/cards/section1card2.png"
+// import Section1Card3 from "../assets/cards/section1card3.png"
+// import Section1Card4 from "../assets/cards/section1card4.png"
 
-import Section2Card1 from "../assets/cards/section2card1.png"
-import Section2Card2 from "../assets/cards/section2card2.png"
-import Section2Card3 from "../assets/cards/section2card3.png"
-import Section2Card4 from "../assets/cards/section2card4.png"
+// import Section2Card1 from "../assets/cards/section2card1.png"
+// import Section2Card2 from "../assets/cards/section2card2.png"
+// import Section2Card3 from "../assets/cards/section2card3.png"
+// import Section2Card4 from "../assets/cards/section2card4.png"
 
-import Section3Card1 from "../assets/cards/section3card1.png"
-import Section3Card2 from "../assets/cards/section3card2.png"
-import Section3Card3 from "../assets/cards/section3card3.png"
-import Section3Card4 from "../assets/cards/section3card4.png"
+// import Section3Card1 from "../assets/cards/section3card1.png"
+// import Section3Card2 from "../assets/cards/section3card2.png"
+// import Section3Card3 from "../assets/cards/section3card3.png"
+// import Section3Card4 from "../assets/cards/section3card4.png"
 
-import Section4Card1 from "../assets/cards/section4card1.png"
-import Section4Card2 from "../assets/cards/section4card2.png"
-import Section4Card3 from "../assets/cards/section4card3.png"
-import Section4Card4 from "../assets/cards/section4card4.png"
+// import Section4Card1 from "../assets/cards/section4card1.png"
+// import Section4Card2 from "../assets/cards/section4card2.png"
+// import Section4Card3 from "../assets/cards/section4card3.png"
+// import Section4Card4 from "../assets/cards/section4card4.png"
 
-import Section5Card1 from "../assets/cards/section5card1.png"
-import Section5Card2 from "../assets/cards/section5card2.png"
-import Section5Card3 from "../assets/cards/section5card3.png"
-import Section5Card4 from "../assets/cards/section5card4.png"
+// import Section5Card1 from "../assets/cards/section5card1.png"
+// import Section5Card2 from "../assets/cards/section5card2.png"
+// import Section5Card3 from "../assets/cards/section5card3.png"
+// import Section5Card4 from "../assets/cards/section5card4.png"
 
 import Section6Card1 from "../assets/cards/section6card1.png"
 import Section6Card2 from "../assets/cards/section6card2.png"
 import Section6Card3 from "../assets/cards/section6card3.png"
 import Section6Card4 from "../assets/cards/section6card4.png"
 
-import Section7Card1 from "../assets/cards/section7card1.png"
-import Section7Card2 from "../assets/cards/section7card2.png"
-import Section7Card3 from "../assets/cards/section7card3.png"
-import Section7Card4 from "../assets/cards/section7card4.png"
+// import Section7Card1 from "../assets/cards/section7card1.png"
+// import Section7Card2 from "../assets/cards/section7card2.png"
+// import Section7Card3 from "../assets/cards/section7card3.png"
+// import Section7Card4 from "../assets/cards/section7card4.png"
 
-import Section8Card1 from "../assets/cards/section8card1.png"
-import Section8Card2 from "../assets/cards/section8card2.png"
-import Section8Card3 from "../assets/cards/section8card3.png"
-import Section8Card4 from "../assets/cards/section8card4.png"
+// import Section8Card1 from "../assets/cards/section8card1.png"
+// import Section8Card2 from "../assets/cards/section8card2.png"
+// import Section8Card3 from "../assets/cards/section8card3.png"
+// import Section8Card4 from "../assets/cards/section8card4.png"
 
-import Section9Card1 from "../assets/cards/section9card1.png"
-import Section9Card2 from "../assets/cards/section9card2.png"
-import Section9Card3 from "../assets/cards/section9card3.png"
-import Section9Card4 from "../assets/cards/section9card4.png"
+// import Section9Card1 from "../assets/cards/section9card1.png"
+// import Section9Card2 from "../assets/cards/section9card2.png"
+// import Section9Card3 from "../assets/cards/section9card3.png"
+// import Section9Card4 from "../assets/cards/section9card4.png"
 
-import Collection1 from "../assets/cards/collection1.png"
-import Collection2 from "../assets/cards/collection2.png"
-import Collection3 from "../assets/cards/collection3.png"
-import Collection1icon from "../assets/cards/collection1icon.png"
-import Collection2icon from "../assets/cards/collection2icon.png"
-import Collection3icon from "../assets/cards/collection3icon.png"
+// import Collection1 from "../assets/cards/collection1.png"
+// import Collection2 from "../assets/cards/collection2.png"
+// import Collection3 from "../assets/cards/collection3.png"
+// import Collection1icon from "../assets/cards/collection1icon.png"
+// import Collection2icon from "../assets/cards/collection2icon.png"
+// import Collection3icon from "../assets/cards/collection3icon.png"
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -99,9 +99,9 @@ const Hero = () => {
                     <p className='relative z-40 font-gilroy -mt-[234px] lg:-mt-[263px] font-semibold text-[54px] leading-[56px] lg:text-[76px] text-center lg:leading-[76px] text-white'>Collection <br /> MutantGobz</p>
                     <div className='mt-[30px] text-center'>
                         <button className='relative w-[319px] z-40 lg:w-[210px] h-[58px] rounded-[41px] text-black bg-[#beff55] text-[17px] font-gilroy tracking-wide font-semibold before:absolute before:top-0 before:-left-[100px] before:w-[40px] before:h-full before:bg-white before:blur-[30px] before:skew-x-[30deg] hover:before:left-[300px] sm:hover:before:left-52 hover:before:duration-1000 overflow-hidden'>
-                           <a href='/collection/0x494b98ddc2364dB88d48f170777C475DF6793097'>
-                               Explore Collection
-                           </a>
+                            <a href='/collection/0x494b98ddc2364dB88d48f170777C475DF6793097'>
+                                Explore Collection
+                            </a>
                         </button>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ const Hero = () => {
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
                             {/* card 1 */}
-                            <Launchpad/>
+                            <Launchpad />
                             {/* <div className='inline-block bg-[#1a1a19] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <Link to="/OpenPageNFT">
                                     <div className="overflow-hidden relative px-[10px] pt-[10px]">
@@ -205,8 +205,8 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>New to NFTs?</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            <NftBlock type="regular"/>
-                         
+                            <NftBlock type="regular" />
+
                             {/* <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                                 <div className="overflow-hidden relative px-[10px] pt-[10px]">
                                     <img
@@ -261,7 +261,7 @@ const Hero = () => {
                 </div>
                 {/* Popular Collections section */}
                 {
-                    <Popular/>
+                    <Popular />
                 }
                 <div className="relative z-30 flex justify-center">
                     <Link to="/collection" className='flex md:hidden mt-[30px] items-center justify-center w-[319px] h-[58px] text-white rounded-[41px] border-2 border-[#beff55] hover:bg-[#beff55] hover:text-black hover:font-gilroy hover:font-semibold text-base font-gilroy'>
@@ -273,7 +273,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Upcoming Launches</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                             <NftBlock type="upcomming"/>
+                            <NftBlock type="upcomming" />
                         </div>
                     </div>
                 </div>
@@ -289,56 +289,7 @@ const Hero = () => {
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section4Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #225</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section4Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #383</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section4Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #419</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section4Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">8PES #737</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5 uppercase">8pes</p>
-                            </div>
+                            <NftBlock type="marketcap" />
                         </div>
                     </div>
                 </div>
@@ -352,56 +303,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>OG SOL Projects</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section5Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">LazyApeYachtClub</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section5Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">CHAINBREAKER #1987</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">CHAINBREAKER</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section5Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">Ukiyan #1115</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">Ukiyan</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section5Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">MutantGobz #541</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">MutantGobz</p>
-                            </div>
+                            <NftBlock type="ogsol" />
                         </div>
                     </div>
                 </div>
@@ -410,79 +312,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Most Followed NFT</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section6Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">LazyApeYachtClub...</h3>
-                                <div className='flex'>
-                                    <p className="text-sm max-w-[190px] truncate font-gilroy text-[#888989] px-5">RebelBot</p>
-                                    <div className='flex'>
-                                        <Views className='mt-[3px]' />
-                                        <p className='text-sm font-gilroy text-white ml-1'>2897</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section6Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #05247</h3>
-                                <div className='flex'>
-                                    <p className="text-sm max-w-[190px] truncate font-gilroy text-[#888989] px-5">RebelBot</p>
-                                    <div className='flex'>
-                                        <Views className='mt-[3px]' />
-                                        <p className='text-sm font-gilroy text-white ml-1'>5325</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section6Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #02557</h3>
-                                <div className='flex'>
-                                    <p className="text-sm font-gilroy max-w-[190px] truncate  text-[#888989] px-5">RebelBot</p>
-                                    <div className='flex'>
-                                        <Views className='mt-[3px]' />
-                                        <p className='text-sm font-gilroy text-white ml-1'>5435</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section6Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RebelBot #08061</h3>
-                                <div className='flex'>
-                                    <p className="text-sm font-gilroy max-w-[190px] truncate text-[#888989] px-5">RebelBot</p>
-                                    <div className='flex'>
-                                        <Views className='mt-[3px]' />
-                                        <p className='text-sm font-gilroy text-white ml-1'>1545</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <NftBlock2 type="followed" />
                         </div>
                     </div>
                 </div>
@@ -491,56 +321,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>MagicDAO Voted</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section7Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">BountyHunter #1340</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">BountyHunter</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section7Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3814</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section7Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #3977</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section7Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">RENGA #9138</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">RENGA</p>
-                            </div>
+                            <NftBlock type="voted" />
                         </div>
                     </div>
                 </div>
@@ -549,54 +330,7 @@ const Hero = () => {
                     <p className='text-white text-[36px] lg:text-[46px] font-gilroy font-semibold'>Highest Sales</p>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section8Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] text-[20px] max-w-[250px] truncate font-gilroy text-white hover:text-[#beff55] px-5">League Master #03</h3>
-                                <p className="text-sm font-gilroy max-w-[250px] truncate text-[#888989] px-5">The Sports Club - League Master</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section8Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #724</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section8Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #7673</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section8Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">DeGod #2124</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">DeGods</p>
-                            </div>
+                            <NftBlock type="highest" />
                         </div>
                     </div>
                 </div>
@@ -612,56 +346,7 @@ const Hero = () => {
                     </div>
                     <div className='mt-[30px] lg:mt-10 block w-full overflow-x-scroll horizontal_slider'>
                         <div className='block whitespace-nowrap space-x-5 lg:space-x-[2.85rem]'>
-                            {/* card 1 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section9Card1}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #43</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
-                            </div>
-                            {/* card 2 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section9Card2}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                    <StatusTop className='absolute -mt-[246px] ml-[196px]' />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">KanpaiPanda #32</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">KanpaiPanda</p>
-                            </div>
-                            {/* card 3 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section9Card3}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">RentHedz #213</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">RentHedz</p>
-                            </div>
-                            {/* card 4 */}
-                            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
-                                <div className="overflow-hidden relative px-[10px] pt-[10px]">
-                                    <img
-                                        src={Section9Card4}
-                                        alt="/"
-                                        className="h-[250px] w-[240px] object-cover rounded-[10px] object-center group-hover:opacity-75"
-                                    />
-                                </div>
-                                <h3 className="mt-[12px] max-w-[250px] truncate text-[20px] font-gilroy text-white hover:text-[#beff55] px-5">Corn #6766</h3>
-                                <p className="text-sm max-w-[250px] truncate font-gilroy text-[#888989] px-5">Corn</p>
-                            </div>
+                            <NftBlock type="newnft" />
                         </div>
                     </div>
                 </div>
