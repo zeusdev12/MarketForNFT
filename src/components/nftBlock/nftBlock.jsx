@@ -4,12 +4,12 @@ import axios from 'axios';
 import { config } from '../../config';
 
 
-export const New = ({ })=>{
+export const NftBlock = ({ type })=>{
 
     const [nfts, setNft] = useState([]);
 
     useEffect(()=>{
-        axios.get(`${config.api}/collections/new`)
+        axios.get(`${config.api}/collections/type?type=${type}&limit=4`)
         .then((response) => {
             setNft(response.data);
         });
@@ -17,7 +17,7 @@ export const New = ({ })=>{
     
     let newNft = nfts.map((nft, i)=>{
         return(
-            <div className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
+            <div key={i} className='inline-block border border-[#232323] bg-[#1a1a19] hover:bg-[#242424] w-[260px] h-[339px] rounded-[15px] cursor-pointer'>
                 <Link to={`/item/${nft._id}`}>
                  <div className="overflow-hidden relative px-[10px] pt-[10px]">
                      <img
@@ -42,4 +42,4 @@ export const New = ({ })=>{
     )
 }
 
-export default New;
+export default NftBlock;
